@@ -24,20 +24,22 @@ export const statsLists: Record<string, StatsList> = {
         id: 'main',
         stats: [
             {
-                value: 10,
-                label: 'Theme Configurations',
+                value: 250,
+                label: 'Instalaciones Completadas',
+                prefix: '+'
             },
             {
-                value: 11,
-                label: 'Pre-Built Components',
+                value: 15,
+                label: 'Años de Experiencia',
             },
             {
-                value: 48,
-                label: 'Team Members',
+                value: 98,
+                label: 'Clientes Satisfechos',
+                suffix: '%'
             },
             {
-                value: 500000,
-                label: 'Lines of Code',
+                value: 5000,
+                label: 'Paneles Instalados',
                 prefix: '+'
             }
         ]
@@ -46,23 +48,23 @@ export const statsLists: Record<string, StatsList> = {
         id: 'withContent',
         stats: [
             {
-                value: 10,
-                label: 'Color Schemes',
+                value: 70,
+                label: 'Ahorro Energético',
+                suffix: '%'
             },
             {
-                value: 14.53,
-                label: 'Core Bundle Size',
-                suffix: 'KB'
-            },
-            {
-                value: 11,
-                label: 'Pre-Built Components',
+                value: 24,
+                label: 'Horas de Respuesta',
+                suffix: 'h'
             },
             {
                 value: 10,
-                label: 'Build Time',
-                prefix: '<100',
-                suffix: 's'
+                label: 'Técnicos Certificados',
+            },
+            {
+                value: 2,
+                label: 'Días de Instalación',
+                prefix: '<'
             }
         ]
     }

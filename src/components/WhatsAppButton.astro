@@ -1,0 +1,50 @@
+---
+import { siteConfig } from '@data/config';
+
+const { Socials } = siteConfig;
+---
+
+<div class="whatsapp-button">
+  <a 
+    href="{Socials.WhatsApp}" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="whatsapp-link"
+    aria-label="Contactar por WhatsApp"
+  >
+    <span class="whatsapp-text">WhatsApp</span>
+  </a>
+</div>
+
+<style>
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+</style>

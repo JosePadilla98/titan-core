@@ -1,21 +1,18 @@
 export const siteConfig = {
-  companyName: 'Titan Core',
-  siteUrl: 'https://titan-core.com',
+  companyName: 'Instalaciones Eléctricas y Solares',
+  siteUrl: 'https://tu-empresa-electricidad.com',
   Socials: {
-      xSocial: 'https://x.com/astrodotbuild',
-      Github: 'https://github.com/withastro',
-      Instagram: 'https://www.instagram.com/astrodotbuild',
-      LinkedIn: 'https://www.linkedin.com/company/astrodotbuild',
-      Email: 'support@titan-core.com',
-      Phone: '+123 456 7890',
-      Location: '123 Main St, Anytown, USA',
+      WhatsApp: 'https://wa.me/34612345678',
+      Email: 'info@tu-empresa-electricidad.com',
+      Phone: '+34 612 345 678',
+      Location: 'Madrid, España',
   }
 };
 
 export const SEO = {
   Separator: '|',
-  SiteName: 'Titan Core',
-  defaultDescription: 'A modern, high-performance Astro JS theme',
+  SiteName: 'Instalaciones Eléctricas y Solares',
+  defaultDescription: 'Expertos en instalaciones eléctricas y placas solares. Servicios profesionales para hogares y empresas.',
 };
   
 export const blogSetting = {

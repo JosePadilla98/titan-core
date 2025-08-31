@@ -1,4 +1,4 @@
-import { Zap, Shield, Heart, Coffee, Smile, Type, TabletSmartphone, CodeXml } from 'lucide-astro';
+import { Battery, Clock, Home, Settings, Shield, Sun, Users, Zap } from 'lucide-astro';
 
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;
@@ -14,60 +14,60 @@ export interface FeatureList {
     features: Feature[];
 }
 
-// Example feature lists
+// Feature lists for electrical and solar services
 export const featureLists: Record<string, FeatureList> = {
     main: {
         id: 'main',
         features: [
             {
                 icon: Zap,
-                title: 'Lightning Fast Performance',
-                description: 'Optimized for speed and performance'
+                title: 'Instalaciones Eléctricas',
+                description: 'Instalaciones eléctricas completas para hogares y empresas con los más altos estándares de seguridad'
+            },
+            {
+                icon: Sun,
+                title: 'Placas Solares',
+                description: 'Instalación de sistemas fotovoltaicos para ahorrar en tu factura eléctrica y ser más sostenible'
             },
             {
                 icon: Shield,
-                title: 'SEO Optimized Structure',
-                description: 'Built with SEO best practices in mind'
+                title: 'Certificados de Instalación',
+                description: 'Documentación oficial y certificados para garantizar el cumplimiento normativo'
             },
             {
-                icon: TabletSmartphone,
-                title: 'Responsive by Default',
-                description: 'Mobile-friendly out of the box'
+                icon: Home,
+                title: 'Autoconsumo',
+                description: 'Sistemas de autoconsumo para maximizar el ahorro energético en tu vivienda'
             },
             {
-                icon: Smile,
-                title: 'Easy Customization',
-                description: 'Customize the theme to your liking'
+                icon: Battery,
+                title: 'Baterías y Almacenamiento',
+                description: 'Sistemas de almacenamiento energético para optimizar tu consumo solar'
             },
             {
-                icon: Type,
-                title: 'TypeScript Support',
-                description: 'Built with TypeScript in mind'
-            },
-            {
-                icon: CodeXml,
-                title: 'Minimal Dependencies',
-                description: 'Keep your project lightweight'
+                icon: Settings,
+                title: 'Mantenimiento',
+                description: 'Servicio de mantenimiento y reparación para garantizar el óptimo funcionamiento'
             }
         ]
     },
-    secondary: {
-        id: 'secondary',
+    benefits: {
+        id: 'benefits',
         features: [
             {
-                icon: Heart,
-                title: 'Made with Love',
-                description: 'Crafted with attention to detail'
+                icon: Clock,
+                title: 'Rápida Instalación',
+                description: 'Instalaciones completas en tiempo récord sin comprometer la calidad'
             },
             {
-                icon: Coffee,
-                title: 'Always Fresh',
-                description: 'Regular updates and improvements'
+                icon: Users,
+                title: 'Expertos Certificados',
+                description: 'Equipo de electricistas profesionales con amplia experiencia'
             },
             {
-                icon: Smile,
-                title: 'User Friendly',
-                description: 'Intuitive and easy to use'
+                icon: Shield,
+                title: 'Garantía Total',
+                description: 'Garantía en todos nuestros trabajos y materiales utilizados'
             }
         ]
     }

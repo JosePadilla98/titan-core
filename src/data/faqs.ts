@@ -13,24 +13,28 @@ export const faqLists: Record<string, FaqList> = {
         id: 'main',
         faqs: [
             {
-                question: "Is Titan Core completely free to use?",
-                answer: "Yes, Titan Core is 100% free and open-source. You can use it for personal and commercial projects without any licensing fees."
+                question: "¿Cuánto tiempo tarda una instalación de placas solares?",
+                answer: "Una instalación residencial típica de placas solares puede completarse en 2-3 días hábiles, dependiendo del tamaño del sistema y las condiciones del tejado."
             },
             {
-                question: "How do I customize the color schemes?",
-                answer: "Titan Core comes with 10 pre-built color schemes that can be easily switched through the theme configuration file. For custom colors, you can modify the CSS variables in the `src/styles/global.css` file to match your brand identity."
+                question: "¿Necesito algún permiso para instalar placas solares?",
+                answer: "Nosotros nos encargamos de toda la tramitación necesaria, incluyendo permisos municipales y la comunicación con la compañía eléctrica. Solo necesitamos tu autorización."
             },
             {
-                question: "Do I need to know Astro JS to use this theme?",
-                answer: "Basic familiarity with Astro JS is helpful, but not required. The component-based architecture makes it easy to understand and modify even if you're new to Astro."
+                question: "¿Qué mantenimiento requieren las placas solares?",
+                answer: "Las placas solares requieren muy poco mantenimiento. Recomendamos una limpieza anual y revisiones periódicas del inversor para garantizar el máximo rendimiento."
             },
             {
-                question: "Can I use Titan Core as a starting point for client projects?",
-                answer: "Absolutely! Titan Core is designed to be a foundation theme that you can build upon for client projects. Its clean architecture and minimal approach make it perfect as a starting point for customized websites."
+                question: "¿Ofrecen garantía en las instalaciones?",
+                answer: "Sí, ofrecemos garantía de 2 años en la mano de obra y hasta 25 años en los paneles solares, dependiendo del fabricante."
             },
             {
-                question: "How often is Titan Core updated?",
-                answer: "We aim to update Titan Core regularly to keep it compatible with the latest Astro JS releases and web standards. Major updates are released quarterly, with smaller fixes and improvements added more frequently. You can star our GitHub repository to stay informed about updates."
+                question: "¿Puedo financiar la instalación?",
+                answer: "Sí, trabajamos con varias entidades financieras que ofrecen planes de financiación adaptados a instalaciones de energías renovables."
+            },
+            {
+                question: "¿Qué ahorro puedo esperar con placas solares?",
+                answer: "Depende de tu consumo, pero la mayoría de nuestros clientes ahorran entre 50-70% en su factura eléctrica desde el primer mes."
             }
         ]
     }
