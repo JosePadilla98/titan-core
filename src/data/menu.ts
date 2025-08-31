@@ -10,16 +10,6 @@ export const headerMenu: MenuItem[] = [
         name: 'Inicio',
         link: '/',
         showArrow: false
-    },
-    {
-        name: 'Servicios',
-        link: '/#servicios',
-        showArrow: false
-    },
-    {
-        name: 'Contacto',
-        link: '/contact',
-        showArrow: false
     }
 ];
 
@@ -27,16 +17,6 @@ export const footerMenu: MenuItem[] = [
     {
         name: 'Inicio',
         link: '/',
-        showArrow: false
-    },
-    {
-        name: 'Servicios',
-        link: '/#servicios',
-        showArrow: false
-    },
-    {
-        name: 'Contacto',
-        link: '/contact',
         showArrow: false
     }
 ];
