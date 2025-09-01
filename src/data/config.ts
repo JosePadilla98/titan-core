@@ -2,7 +2,7 @@ export const siteConfig = {
   companyName: 'Instalaciones Eléctricas y Solares',
   siteUrl: 'https://tu-empresa-electricidad.com',
   Socials: {
-      WhatsApp: 'https://wa.me/34612345678',
+      WhatsApp: 'https://wa.me/34644396495',
       Email: 'info@tu-empresa-electricidad.com',
       Phone: '+34 644 39 64 95',
       Location: 'Dos Hermanas, Sevilla',
