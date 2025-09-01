@@ -3,6 +3,7 @@ import Faqs from '@components/sections/Faqs.astro';
 import Features from '@components/sections/Features.astro';
 import Hero from '@components/sections/Hero.astro';
 import Stats from '@components/sections/Stats.astro';
+import { siteConfig } from '@data/config';
 import { faqLists } from '@data/faqs';
 import { featureLists } from '@data/features';
 import { statsLists } from '@data/stats';
@@ -23,7 +24,7 @@ const heroContent = {
         // },
         {
             text: 'Llamar Ahora',
-            link: 'tel:+34644396495',
+            link:  siteConfig.Socials.Phone,
             target: '_self'
         }
     ],

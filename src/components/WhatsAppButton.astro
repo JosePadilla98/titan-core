@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '@data/config';
+import { MessageCircle } from 'lucide-astro';
 
 const { Socials } = siteConfig;
 ---
@@ -12,6 +13,7 @@ const { Socials } = siteConfig;
     class="whatsapp-link"
     aria-label="Contactar por WhatsApp"
   >
+    <MessageCircle size={20} />
     <span class="whatsapp-text">WhatsApp</span>
   </a>
 </div>
@@ -28,6 +30,7 @@ const { Socials } = siteConfig;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   background-color: #25D366;
   color: white;
   text-decoration: none;
@@ -35,6 +38,11 @@ const { Socials } = siteConfig;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
   transition: all 0.3s ease;
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .whatsapp-link:hover {

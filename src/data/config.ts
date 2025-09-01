@@ -4,7 +4,7 @@ export const siteConfig = {
   Socials: {
       WhatsApp: 'https://wa.me/34612345678',
       Email: 'info@tu-empresa-electricidad.com',
-      Phone: '+34 612 345 678',
+      Phone: '+34 644 39 64 95',
       Location: 'Dos Hermanas, Sevilla',
   }
 };
