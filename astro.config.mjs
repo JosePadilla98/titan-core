@@ -1,13 +1,15 @@
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
 
 // Get the site URL from environment variable or use a default for local development
 const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 export default defineConfig({
   site,
+  output: 'server', // Necesario para APIs y endpoints
+  adapter: vercel(),
   vite: {
     plugins: [tailwindcss()],
     css: {
