@@ -1,9 +1,9 @@
 ---
-import Contact from "@components/forms/Contact.astro"
-import { getBackgroundColor, getTextColor, getPaddingClass } from '@utils/styleUtils';
-import type { ThemeColor, PaddingSize } from '@utils/styleUtils';
+import Contact from "@components/forms/Contact.astro";
 import { siteConfig } from '@data/config';
-import { Mail, Phone, MapPin } from 'lucide-astro';
+import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
+import { getBackgroundColor, getPaddingClass, getTextColor } from '@utils/styleUtils';
+import { Mail, MapPin, Phone } from 'lucide-astro';
 export interface Props {
     content?: {
         title?: string;
@@ -37,12 +37,9 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
     <div class="site-container px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-                <h2 class:list={[textColor]}>Contact Information</h2>
+                <h2 class:list={[textColor]}>Información de contacto</h2>
                 <p class:list={[textColor]}>
-                    We're here to help you with your questions and concerns.
-                </p>
-                <p class:list={[textColor]}>
-                    You can contact us via email or phone.
+                    Estamos aquí para ayudarle con sus preguntas e inquietudes.
                 </p>
                 <div class:list={["flex flex-col gap-2 mt-4", textColor]}>
                     <div class:list={["flex items-center gap-2"]}><Mail aria-hidden="true" /> <a href={`mailto:${siteConfig.Socials.Email}`}>{siteConfig.Socials.Email}</a></div>
