@@ -5,7 +5,7 @@ import Hero from '@components/sections/Hero.astro';
 import Stats from '@components/sections/Stats.astro';
 import { siteConfig } from '@data/config';
 import { faqLists } from '@data/faqs';
-import { featureLists } from '@data/features';
+import { electricalFeatures, photovoltaicFeatures } from '@data/features';
 import { statsLists } from '@data/stats';
 import Layout from '@layouts/Layout.astro';
 import heroImage from '../assets/images/home/default-hero-2.jpg';
@@ -32,13 +32,25 @@ const heroContent = {
     overlayOpacity: 0.2
 }
 
-const featuresSection = {
-    eyebrow: "NUESTROS SERVICIOS",
-    title: "Soluciones Energéticas Completas",
-    description: "Ofrecemos un servicio integral para todas tus necesidades eléctricas y de energía solar, con la máxima calidad y garantía.",
-    features: featureLists.main.features,
+const electricalSection = {
+    eyebrow: "INSTALACIONES ELÉCTRICAS",
+    title: "Servicios Eléctricos Profesionales",
+    description: "Soluciones completas para todas tus necesidades eléctricas, desde instalaciones nuevas hasta mantenimiento y reparaciones.",
+    features: electricalFeatures,
     // button: {
-    //     text: "Ver Todos los Servicios",
+    //     text: "Ver Servicios Eléctricos",
+    //     link: "/contact",
+    //     variant: "primary" as const
+    // }
+}
+
+const photovoltaicSection = {
+    eyebrow: "ENERGÍA SOLAR",
+    title: "Instalaciones Fotovoltaicas",
+    description: "Sistemas de energía solar para maximizar tu ahorro energético y contribuir a un futuro más sostenible.",
+    features: photovoltaicFeatures,
+    // button: {
+    //     text: "Ver Energía Solar",
     //     link: "/contact",
     //     variant: "primary" as const
     // }
@@ -83,7 +95,8 @@ const faqsSection = {
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
-    <Features content={featuresSection} padding="base" background="light" />
+    <Features content={electricalSection} padding="base" background="light" />
+    <Features content={photovoltaicSection} padding="base" background="base" />
     <Stats content={sideBySideStats} background='dark' padding="base"/>
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>
