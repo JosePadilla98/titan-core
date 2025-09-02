@@ -3,6 +3,9 @@ import InnerHero from "@components/sections/InnerHero.astro";
 import Layout from "@layouts/Layout.astro";
 import { Battery, FileText, Home, Plus, Wrench, Zap } from 'lucide-astro';
 
+// Configuración de iconos - establecer en false para ocultar todos los iconos
+const SHOW_ICONS = true;
+
 const heroContent = {
     title: "Instalaciones Fotovoltaicas",
     description: "Soluciones de energía solar para hogares y empresas"
@@ -78,8 +81,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <Zap class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <Zap class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo conectadas a red</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -122,8 +125,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 2: Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <Home class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <Home class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo aisladas de la red</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -172,8 +175,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 3: Mantenimiento -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <Wrench class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <Wrench class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Mantenimiento</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -217,8 +220,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 4: Baterías y Sistemas de Respaldo -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <Battery class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <Battery class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Baterías y sistemas de respaldo</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -267,8 +270,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 5: Ampliaciones -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <Plus class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <Plus class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Ampliaciones</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -316,8 +319,8 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 6: Legalización -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class="flex items-start gap-4">
-                                <FileText class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                                {SHOW_ICONS && <FileText class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Legalización</h3>
                                     <p class="text-base text-body-base mt-2">
@@ -332,7 +335,7 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed">
-                                    ¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla. Como instaladores autorizados, nos encargamos de inspeccionar, documentar y legalizar tu sistema, asegurando que cumpla con la normativa vigente y funcione de forma segura y legal.
+                                    Como instaladores autorizados, nos encargamos de inspeccionar, documentar y legalizar tu sistema, asegurando que cumpla con la normativa vigente y funcione de forma segura y legal.
                                 </p>
                             </div>
                         </div>
