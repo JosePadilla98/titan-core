@@ -1,4 +1,4 @@
-import { Battery, BatteryCharging, Car, CheckCircle, Clock, Cloud, FileText, HardHat, Lightbulb, Plug, Settings, Shield, Sun, Users, Wrench, Zap } from 'lucide-astro';
+import { Battery, BatteryCharging, Car, CheckCircle, Cloud, FileText, HardHat, Lightbulb, Plug, Settings, Sun, Wrench, Zap } from 'lucide-astro';
 
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;
@@ -97,26 +97,3 @@ export const photovoltaicFeatures: Feature[] = [
     }
 ];
 
-// Feature lists for benefits (kept for compatibility)
-export const featureLists: Record<string, FeatureList> = {
-    benefits: {
-        id: 'benefits',
-        features: [
-            {
-                icon: Clock,
-                title: 'Rápida Instalación',
-                description: 'Instalaciones completas en tiempo récord sin comprometer la calidad'
-            },
-            {
-                icon: Users,
-                title: 'Expertos Certificados',
-                description: 'Equipo de electricistas profesionales con amplia experiencia'
-            },
-            {
-                icon: Shield,
-                title: 'Garantía Total',
-                description: 'Garantía en todos nuestros trabajos y materiales utilizados'
-            }
-        ]
-    }
-};
