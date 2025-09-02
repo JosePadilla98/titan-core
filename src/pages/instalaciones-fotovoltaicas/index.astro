@@ -1,6 +1,7 @@
 ---
-import InnerHero from "@components/sections/InnerHero.astro"
-import Layout from "@layouts/Layout.astro"
+import InnerHero from "@components/sections/InnerHero.astro";
+import Layout from "@layouts/Layout.astro";
+import { Battery, FileText, Home, Plus, Wrench, Zap } from 'lucide-astro';
 
 const heroContent = {
     title: "Instalaciones Fotovoltaicas",
@@ -77,11 +78,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <Zap class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo conectadas a red</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -118,11 +122,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 2: Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <Home class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo aisladas de la red</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -165,11 +172,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 3: Mantenimiento -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Mantenimiento</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <Wrench class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Mantenimiento</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -207,11 +217,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 4: Baterías y Sistemas de Respaldo -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Baterías y Sistemas de Respaldo</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <Battery class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Baterías y sistemas de respaldo</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -254,11 +267,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 5: Ampliaciones -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Ampliaciones</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <Plus class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Ampliaciones</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -300,11 +316,14 @@ const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. 
                     <!-- Desplegable 6: Legalización -->
                     <details class="bg-white rounded-lg border border-primary/20">
                         <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div>
-                                <h3 class="text-xl font-bold text-headline">Legalización</h3>
-                                <p class="text-base text-body-base mt-2">
-                                    ¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla.
-                                </p>
+                            <div class="flex items-start gap-4">
+                                <FileText class="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <div>
+                                    <h3 class="text-xl font-bold text-headline">Legalización</h3>
+                                    <p class="text-base text-body-base mt-2">
+                                        ¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla.
+                                    </p>
+                                </div>
                             </div>
                             <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
