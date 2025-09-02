@@ -58,10 +58,6 @@ export const statsLists: Record<string, StatsList> = {
                 suffix: 'h'
             },
             {
-                value: 10,
-                label: 'Técnicos Certificados',
-            },
-            {
                 value: 2,
                 label: 'Días de Instalación',
                 prefix: '<'
