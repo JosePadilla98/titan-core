@@ -1,8 +1,8 @@
 ---
 import Faqs from '@components/sections/Faqs.astro';
-import Features from '@components/sections/Features.astro';
 import Hero from '@components/sections/Hero.astro';
 import Stats from '@components/sections/Stats.astro';
+import Tabs from '@components/ui/Tabs.astro';
 import { siteConfig } from '@data/config';
 import { faqLists } from '@data/faqs';
 import { electricalFeatures, photovoltaicFeatures } from '@data/features';
@@ -32,25 +32,24 @@ const heroContent = {
     overlayOpacity: 0.2
 }
 
-const electricalSection = {
-    eyebrow: "INSTALACIONES ELÉCTRICAS",
-    title: "Servicios Eléctricos Profesionales",
-    description: "Soluciones completas para todas tus necesidades eléctricas, desde instalaciones nuevas hasta mantenimiento y reparaciones.",
-    features: electricalFeatures,
+const servicesTabs = {
+    eyebrow: "NUESTROS SERVICIOS",
+    title: "Soluciones Energéticas Completas",
+    description: "Ofrecemos un servicio integral para todas tus necesidades eléctricas y de energía solar, con la máxima calidad y garantía.",
+    tabs: [
+        {
+            id: "electrical",
+            label: "Instalaciones Eléctricas",
+            features: electricalFeatures
+        },
+        {
+            id: "photovoltaic",
+            label: "Energía Solar",
+            features: photovoltaicFeatures
+        }
+    ],
     // button: {
-    //     text: "Ver Servicios Eléctricos",
-    //     link: "/contact",
-    //     variant: "primary" as const
-    // }
-}
-
-const photovoltaicSection = {
-    eyebrow: "ENERGÍA SOLAR",
-    title: "Instalaciones Fotovoltaicas",
-    description: "Sistemas de energía solar para maximizar tu ahorro energético y contribuir a un futuro más sostenible.",
-    features: photovoltaicFeatures,
-    // button: {
-    //     text: "Ver Energía Solar",
+    //     text: "Contactar para Presupuesto",
     //     link: "/contact",
     //     variant: "primary" as const
     // }
@@ -75,7 +74,7 @@ const sideBySideStats = {
     variant: 'side-by-side' as const,
     stats: statsLists.withContent.stats,
     content: {
-        title: "Por Qué Elegirnos",
+        title: "¿Por qué Elegirnos?",
         description: "Profesionales certificados, materiales de primera calidad y atención personalizada. Tu satisfacción es nuestra prioridad.",
         // button: {
         //     text: "Conoce Más",
@@ -95,8 +94,7 @@ const faqsSection = {
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
-    <Features content={electricalSection} padding="base" background="light" />
-    <Features content={photovoltaicSection} padding="base" background="base" />
+    <Tabs content={servicesTabs} padding="base" background="light" />
     <Stats content={sideBySideStats} background='dark' padding="base"/>
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>
