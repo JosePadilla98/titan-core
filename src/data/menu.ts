@@ -12,6 +12,23 @@ export const headerMenu: MenuItem[] = [
         showArrow: false
     },
     {
+        name: 'Servicios',
+        link: '/',
+        showArrow: true,
+        children: [
+            {
+                name: 'Instalaciones eléctricas',
+                link: '/about',
+                showArrow: false
+            },
+            {
+                name: 'Energía solar',
+                link: '/about',
+                showArrow: false
+            }
+        ]
+    },
+    {
         name: 'Sobre nosotros',
         link: '/about',
         showArrow: false

@@ -163,7 +163,7 @@ const paddingClass = getPaddingClass({
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabPanels = document.querySelectorAll('.tab-panel');
         
-        function switchTab(tabId) {
+        function switchTab(tabId: string) {
             // Update buttons
             tabButtons.forEach(button => {
                 if (button.getAttribute('data-tab') === tabId) {
@@ -189,9 +189,11 @@ const paddingClass = getPaddingClass({
         
         // Add click events
         tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function(this: HTMLElement) {
                 const tabId = this.getAttribute('data-tab');
-                switchTab(tabId);
+                if (tabId) {
+                    switchTab(tabId);
+                }
             });
         });
     });

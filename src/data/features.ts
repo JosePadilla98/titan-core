@@ -67,12 +67,12 @@ export const electricalFeatures: Feature[] = [
 export const photovoltaicFeatures: Feature[] = [
     {
         icon: Sun,
-        title: 'Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red',
+        title: 'Instalaciones fotovoltaicas de autoconsumo conectadas a red',
         description: 'Genera tu propia energía y reduce tu factura eléctrica. Soluciones a medida para viviendas y empresas conectadas a la red eléctrica.'
     },
     {
         icon: BatteryCharging,
-        title: 'Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red',
+        title: 'Instalaciones fotovoltaicas de autoconsumo aisladas de la red',
         description: 'Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red.'
     },
     {
@@ -82,7 +82,7 @@ export const photovoltaicFeatures: Feature[] = [
     },
     {
         icon: Battery,
-        title: 'Baterías y Sistemas de Respaldo',
+        title: 'Baterías y sistemas de respaldo',
         description: '¿Ya tienes una instalación fotovoltaica? Aumenta tu independencia energética instalando baterías y sistemas de respaldo.'
     },
     {
