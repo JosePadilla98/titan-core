@@ -23,7 +23,7 @@ export const headerMenu: MenuItem[] = [
             },
             {
                 name: 'Energía solar',
-                link: '/about',
+                link: '/instalaciones-fotovoltaicas',
                 showArrow: false
             }
         ]
@@ -44,6 +44,11 @@ export const footerMenu: MenuItem[] = [
     {
         name: 'Instalaciones eléctricas',
         link: '/instalaciones-electricas',
+        showArrow: false
+    },
+    {
+        name: 'Instalaciones fotovoltaicas',
+        link: '/instalaciones-fotovoltaicas',
         showArrow: false
     },
     {
