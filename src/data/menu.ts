@@ -23,6 +23,11 @@ export const footerMenu: MenuItem[] = [
         name: 'Inicio',
         link: '/',
         showArrow: false
+    },
+    {
+        name: 'Sobre nosotros',
+        link: '/about',
+        showArrow: false
     }
 ];
 
