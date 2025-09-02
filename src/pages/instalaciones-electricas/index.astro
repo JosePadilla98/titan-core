@@ -1,0 +1,80 @@
+---
+import InnerHero from "@components/sections/InnerHero.astro"
+import Layout from "@layouts/Layout.astro"
+
+const heroContent = {
+    title: "Instalaciones Eléctricas",
+    description: "Servicios profesionales de instalaciones eléctricas para hogares y empresas"
+}
+
+const seoTitle = "Instalaciones Eléctricas Profesionales - Ampereon"
+const seoDescription = "Expertos en instalaciones eléctricas autorizados. Servicios de instalación, reformas, mantenimiento y reparación para viviendas, negocios y pequeñas industrias."
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+    
+    <section class="container mx-auto px-4 py-16">
+        <div class="max-w-3xl mx-auto prose prose-lg">
+            <p class="text-lg leading-relaxed mb-6">
+                En Ampereon somos instaladores autorizados, habilitados para realizar todo tipo de
+                trabajos eléctricos, tanto en viviendas como en negocios o pequeñas industrias. Nos
+                encargamos de instalaciones nuevas, reformas, mantenimiento, reparación de averías
+                y también de gestiones técnicas como el alta de suministro eléctrico o la firma de
+                boletines eléctricos (certificados de instalación).
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-6">
+                Trabajamos con seriedad, compromiso y cercanía, adaptándonos a cada cliente y
+                necesidad, ya sea un proyecto completo o una intervención puntual. Siempre con
+                cumplimiento normativo, materiales de calidad y atención personalizada.
+            </p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6">¿Por qué elegir Ampereon?</h2>
+            
+            <p class="text-lg leading-relaxed mb-6">
+                En electricidad, no todo vale. Realizar cualquier intervención sin un instalador
+                autorizado puede poner en riesgo tu seguridad, la de tu familia o tu negocio, además de
+                invalidar garantías y seguros.
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-6">
+                En Ampereon trabajamos con la tranquilidad de estar habilitados legalmente para
+                realizar instalaciones, reparaciones, altas de suministro y emitir boletines eléctricos,
+                cumpliendo siempre con la normativa vigente.
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-6">
+                Pero más allá de eso, lo que realmente nos diferencia es el trato directo y
+                personalizado. Escuchamos a cada cliente y ofrecemos soluciones adaptadas a sus
+                necesidades reales y a su presupuesto, sin vender de más ni prometer lo imposible.
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-6">
+                Utilizamos materiales de calidad, trabajamos con responsabilidad y dejamos cada
+                trabajo con su correspondiente garantía, porque entendemos que detrás de cada
+                instalación eléctrica hay personas que confían en nosotros para que todo funcione
+                bien y de forma segura.
+            </p>
+            
+            <p class="text-lg leading-relaxed">
+                Ya sea una reforma completa, una avería puntual o una nueva instalación, en
+                Ampereon vas a encontrar un profesional que responde, te asesora y te acompaña en
+                todo el proceso.
+            </p>
+        </div>
+    </section>
+</Layout>
+
+<style>
+.prose {
+    color: inherit;
+}
+.prose p {
+    margin-bottom: 1.5rem;
+}
+.prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+</style>

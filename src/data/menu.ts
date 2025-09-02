@@ -18,7 +18,7 @@ export const headerMenu: MenuItem[] = [
         children: [
             {
                 name: 'Instalaciones eléctricas',
-                link: '/about',
+                link: '/instalaciones-electricas',
                 showArrow: false
             },
             {
@@ -39,6 +39,11 @@ export const footerMenu: MenuItem[] = [
     {
         name: 'Inicio',
         link: '/',
+        showArrow: false
+    },
+    {
+        name: 'Instalaciones eléctricas',
+        link: '/instalaciones-electricas',
         showArrow: false
     },
     {
