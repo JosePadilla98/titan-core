@@ -2,6 +2,7 @@
 import ContactInfo from '@components/sections/ContactInfo.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
+import { undefined } from 'astro:schema';
 import headerImage from 'src/assets/images/header.jpg';
 
 const heroContent = {
@@ -10,11 +11,17 @@ const heroContent = {
     backgroundImage: headerImage,
     overlayOpacity: 0.4,
 };
+
+const FooterCta = {
+    hideBtn: true,
+    postBtnDescription: '',
+};
 ---
 
 <Layout
     title="Contacto - Instalaciones Eléctricas y Solares"
     description="Contacta con nuestros expertos para presupuestos de instalaciones eléctricas y placas solares sin compromiso"
+    footerCta={FooterCta}
 >
     <InnerHero content={heroContent} />
     <ContactInfo background="base" padding="base" />
