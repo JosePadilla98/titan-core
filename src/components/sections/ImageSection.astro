@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 const { image, title, imageLeft = false } = Astro.props;
 
-const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-8 py-2', { 'lg:flex-row-reverse': imageLeft });
+const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-12 py-2', { 'lg:flex-row-reverse': imageLeft });
 ---
 
 <section class={sectionClass}>
@@ -17,7 +17,7 @@ const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-8 py-2', {
     <!-- Imagen: si pasas prop `image` la usa, si no puedes pasar un slot named "image" -->
     <div class="w-full lg:w-1/2">
         <slot name="image">
-            {image ? <img src={image.src || image} alt={title} class="w-full rounded-lg shadow-md" /> : null}
+            {image ? <img src={image.src || image} alt={title} class="w-full rounded-lg shadow-lg" /> : null}
         </slot>
     </div>
 </section>
