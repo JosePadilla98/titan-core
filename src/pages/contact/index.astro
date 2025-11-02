@@ -1,15 +1,21 @@
 ---
-import ContactInfo from "@components/sections/ContactInfo.astro"
-import InnerHero from "@components/sections/InnerHero.astro"
-import Layout from "@layouts/Layout.astro"
+import ContactInfo from '@components/sections/ContactInfo.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import Layout from '@layouts/Layout.astro';
+import headerImage from 'src/assets/images/header.jpg';
 
 const heroContent = {
-    title: "Contacta con Nosotros",
-    description: "Solicita presupuesto sin compromiso para tus instalaciones eléctricas o placas solares"
-}
+    title: 'Contacta con Nosotros',
+    description: 'Solicita presupuesto sin compromiso para tus instalaciones eléctricas o placas solares',
+    backgroundImage: headerImage,
+    overlayOpacity: 0.4,
+};
 ---
 
-<Layout title="Contacto - Instalaciones Eléctricas y Solares" description="Contacta con nuestros expertos para presupuestos de instalaciones eléctricas y placas solares sin compromiso">
+<Layout
+    title="Contacto - Instalaciones Eléctricas y Solares"
+    description="Contacta con nuestros expertos para presupuestos de instalaciones eléctricas y placas solares sin compromiso"
+>
     <InnerHero content={heroContent} />
     <ContactInfo background="base" padding="base" />
 </Layout>

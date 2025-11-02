@@ -10,82 +10,88 @@ import { statsLists } from '@data/stats';
 import Layout from '@layouts/Layout.astro';
 import heroImage from '../assets/images/home/default-hero-2.jpg';
 
-const seoTitle = "Instalaciones Eléctricas y Placas Solares";
-const seoDescription = "Expertos en instalaciones eléctricas y placas solares. Servicios profesionales para hogares y empresas con los más altos estándares de calidad.";
+const seoTitle = 'Instalaciones Eléctricas y Placas Solares';
+const seoDescription =
+    'Expertos en instalaciones eléctricas y placas solares. Servicios profesionales para hogares y empresas con los más altos estándares de calidad.';
 
 const heroContent = {
     title: 'Expertos en Instalaciones eléctricas y energía Solar',
-    description: 'Ofrecemos servicios profesionales de instalación eléctrica y placas solares para hogares y empresas. Calidad garantizada, ahorro energético y soluciones sostenibles.',
+    description:
+        'Ofrecemos servicios profesionales de instalación eléctrica y placas solares para hogares y empresas. Calidad garantizada, ahorro energético y soluciones sostenibles.',
     buttons: [
         {
             text: 'Llamar Ahora',
             link: `tel:${siteConfig.Socials.Phone}`,
-            target: '_self'
-        }
+            target: '_self',
+        },
     ],
     backgroundImage: heroImage,
-    overlayOpacity: 0.2
-}
+    overlayOpacity: 0.2,
+};
 
 const servicesTabs = {
-    eyebrow: "NUESTROS SERVICIOS",
-    title: "Soluciones energéticas completas",
-    description: "Ofrecemos un servicio integral para todas tus necesidades eléctricas y de energía solar, con la máxima calidad y garantía.",
+    eyebrow: 'NUESTROS SERVICIOS',
+    title: 'Soluciones energéticas completas',
+    description:
+        'Ofrecemos un servicio integral para todas tus necesidades eléctricas y de energía solar, con la máxima calidad y garantía.',
     tabs: [
         {
-            id: "electrical",
-            label: "Instalaciones eléctricas",
+            id: 'electrical',
+            label: 'Instalaciones eléctricas',
             features: electricalFeatures,
-            columns: 2
+            columns: 2,
         },
         {
-            id: "photovoltaic",
-            label: "Energía solar",
-            features: photovoltaicFeatures
-        }
+            id: 'photovoltaic',
+            label: 'Energía solar',
+            features: photovoltaicFeatures,
+        },
     ],
-}
+};
 
 const FooterCta = {
-    eyebrow: "¿Necesitas Ayuda?",
+    eyebrow: '¿Necesitas Ayuda?',
     title: 'Contacta con Nuestros Expertos',
-    description: 'Estamos aquí para ayudarte con cualquier consulta sobre instalaciones eléctricas o energía solar. Presupuestos sin compromiso.',
+    description:
+        'Estamos aquí para ayudarte con cualquier consulta sobre instalaciones eléctricas o energía solar. Presupuestos sin compromiso.',
     hideCta: false,
     button: {
         text: 'Contactar Ahora',
         link: '/contact',
-        target: '_self'
-    }
-}
+        target: '_self',
+    },
+};
 
 const sideBySideStats = {
-    eyebrow: "NUESTROS RESULTADOS",
-    title: "Experiencia y Confianza",
-    description: "Llevamos años proporcionando soluciones energéticas de calidad a nuestros clientes, con resultados que hablan por sí mismos.",
+    eyebrow: 'NUESTROS RESULTADOS',
+    title: 'Experiencia y Confianza',
+    description:
+        'Llevamos años proporcionando soluciones energéticas de calidad a nuestros clientes, con resultados que hablan por sí mismos.',
     variant: 'side-by-side' as const,
     stats: statsLists.withContent.stats,
     content: {
-        title: "¿Por qué Elegirnos?",
-        description: "Profesionales certificados, materiales de primera calidad y atención personalizada. Tu satisfacción es nuestra prioridad.",
+        title: '¿Por qué Elegirnos?',
+        description:
+            'Profesionales certificados, materiales de primera calidad y atención personalizada. Tu satisfacción es nuestra prioridad.',
         // button: {
         //     text: "Conoce Más",
         //     link: "/contact",
         //     variant: "primary" as const
         // }
-    }
+    },
 };
 
 const faqsSection = {
-    eyebrow: "PREGUNTAS FRECUENTES",
+    eyebrow: 'PREGUNTAS FRECUENTES',
     title: 'Resolvemos Tus Dudas',
     description: 'Encuentra respuestas a las preguntas más comunes sobre instalaciones eléctricas y placas solares.',
-    faqs: faqLists.main.faqs
-}
+    faqs: faqLists.main.faqs,
+};
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="light" />
-    <Stats content={sideBySideStats} background='dark' padding="base"/>
+    <Stats content={sideBySideStats} background="dark" padding="base" />
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>

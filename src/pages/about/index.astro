@@ -1,9 +1,11 @@
 ---
 import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
+
 import image1 from '../../assets/images/aboutUs/1.jpg';
 import image2 from '../../assets/images/aboutUs/2.jpg';
 import heroImage from '../../assets/images/aboutUs/header.jpg';
+import ImageSection from '@components/sections/ImageSection.astro';
 
 const heroContent = {
     title: 'Sobre Nosotros',
@@ -19,76 +21,40 @@ const heroContent = {
 >
     <InnerHero content={heroContent} />
 
-    <section class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 space-x-12">
-            <!-- Imágenes (solo escritorio, a la izquierda) -->
-            <div class="flex flex-col justify-between order-1 hidden lg:flex">
-                <img src={image1.src} alt="Imagen sobre nosotros 1" class="w-full rounded-lg" />
-                <img src={image2.src} alt="Imagen sobre nosotros 2" class="w-full rounded-lg" />
-            </div>
+    <div class="container mx-auto px-4 py-16 space-y-16">
+        <ImageSection image={image1} title="Quiénes somos">
+            <p>
+                Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de calidad, adaptadas a las
+                necesidades reales de cada cliente. Somos una empresa habilitada para trabajar en instalaciones
+                eléctricas en baja tensión y en sistemas fotovoltaicos de autoconsumo, tanto conectados a red como
+                aislados.
+            </p>
+        </ImageSection>
 
-            <!-- Texto -->
-            <div class="prose prose-lg flex flex-col space-y-12 order-2">
-                <div>
-                    <h2 class="title-color">Quienes somos</h2>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de calidad,
-                        adaptadas a las necesidades reales de cada cliente. Somos una empresa habilitada para trabajar
-                        en instalaciones eléctricas en baja tensión y en sistemas fotovoltaicos de autoconsumo, tanto
-                        conectados a red como aislados.
-                    </p>
-                </div>
+        <ImageSection image={image2} imageLeft title="Experiencia y compromiso">
+            <p>
+                Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos en el diseño e
+                instalación de energía fotovoltaica de autoconsumo, lo que nos permite ofrecer un servicio técnico
+                sólido y actualizado.
+            </p>
+            <p>
+                Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia en el sector,
+                comprometido con hacer las cosas bien, con seriedad y atención al detalle. Nos enfocamos tanto en
+                instalaciones completas como en trabajos puntuales, asesorando de forma clara y honesta desde el primer
+                contacto.
+            </p>
+        </ImageSection>
 
-                <!-- Imagen 1 (solo móvil) -->
-                <img src={image1.src} alt="Imagen sobre nosotros 1" class="w-full rounded-lg block lg:hidden" />
-
-                <div>
-                    <h2 class="title-color">Experiencia y compromiso</h2>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos en el diseño
-                        e instalación de energía fotovoltaica de autoconsumo, lo que nos permite ofrecer un servicio
-                        técnico sólido y actualizado.
-                    </p>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia en el
-                        sector, comprometido con hacer las cosas bien, con seriedad y atención al detalle. Nos enfocamos
-                        tanto en instalaciones completas como en trabajos puntuales, asesorando de forma clara y honesta
-                        desde el primer contacto.
-                    </p>
-                </div>
-
-                <!-- Imagen 2 (solo móvil) -->
-                <img src={image2.src} alt="Imagen sobre nosotros 2" class="w-full rounded-lg block lg:hidden" />
-
-                <div>
-                    <h2 class="title-color">Nuestra forma de trabajar</h2>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se va a
-                        hacer, por qué, y con qué garantías. Trabajamos con materiales de calidad, marcas confiables y
-                        cumpliendo siempre con la normativa vigente.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon buscamos
-                        ofrecer siempre una solución eficiente, segura y a medida, con un trato directo y compromiso
-                        real.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <ImageSection image={image1} title="Nuestra forma de trabajar">
+            <p>
+                Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se va a hacer, por
+                qué, y con qué garantías. Trabajamos con materiales de calidad, marcas confiables y cumpliendo siempre
+                con la normativa vigente.
+            </p>
+            <p>
+                Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon buscamos ofrecer
+                siempre una solución eficiente, segura y a medida, con un trato directo y compromiso real.
+            </p>
+        </ImageSection>
+    </div>
 </Layout>
-
-<style>
-    .prose {
-        color: inherit;
-    }
-    .prose p {
-        margin-bottom: 1.5rem;
-    }
-    .title-color {
-        color: var(--color-primary-light);
-        font-size: var(--text-h3);
-        margin-bottom: 0.2rem;
-    }
-</style>

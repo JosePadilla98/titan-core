@@ -1,0 +1,45 @@
+---
+import clsx from 'clsx';
+const { image, title, imageLeft = false } = Astro.props;
+
+const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-8 py-2', { 'lg:flex-row-reverse': imageLeft });
+---
+
+<section class={sectionClass}>
+    <!-- Texto: siempre primero en móvil (imagen debajo) -->
+    <div class="w-full lg:w-1/2">
+        <h2 class="title-color mb-4">{title}</h2>
+        <div class="prose prose-lg leading-relaxed">
+            <slot />
+        </div>
+    </div>
+
+    <!-- Imagen: si pasas prop `image` la usa, si no puedes pasar un slot named "image" -->
+    <div class="w-full lg:w-1/2">
+        <slot name="image">
+            {image ? <img src={image.src || image} alt={title} class="w-full rounded-lg shadow-md" /> : null}
+        </slot>
+    </div>
+</section>
+
+<style>
+    section {
+        color: inherit;
+    }
+
+    .title-color {
+        color: var(--color-primary-light);
+        font-size: var(--text-h3);
+    }
+
+    .prose p {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Forzar columna en pantallas <= lg para asegurarnos que la imagen quede debajo */
+    @media (max-width: 1024px) {
+        section {
+            flex-direction: column !important;
+        }
+    }
+</style>
