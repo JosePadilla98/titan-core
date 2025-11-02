@@ -49,19 +49,6 @@ const servicesTabs = {
     ],
 };
 
-const FooterCta = {
-    eyebrow: '¿Necesitas Ayuda?',
-    title: 'Contacta con Nuestros Expertos',
-    description:
-        'Estamos aquí para ayudarte con cualquier consulta sobre instalaciones eléctricas o energía solar. Presupuestos sin compromiso.',
-    hideCta: false,
-    button: {
-        text: 'Contactar Ahora',
-        link: '/contact',
-        target: '_self',
-    },
-};
-
 const sideBySideStats = {
     eyebrow: 'NUESTROS RESULTADOS',
     title: 'Experiencia y Confianza',
@@ -89,7 +76,7 @@ const faqsSection = {
 };
 ---
 
-<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="light" />
     <Stats content={sideBySideStats} background="dark" padding="base" />
