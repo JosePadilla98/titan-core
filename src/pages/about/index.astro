@@ -17,12 +17,15 @@ const heroContent = {
     <InnerHero content={heroContent} />
 
     <section class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 space-x-12">
-            <div class="flex flex-col justify-between space-y-8 md:col-span-1">
+        <div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 space-x-12">
+            <!-- Imágenes (solo escritorio, a la izquierda) -->
+            <div class="flex flex-col justify-between order-1 hidden lg:flex">
                 <img src={image1.src} alt="Imagen sobre nosotros 1" class="w-full rounded-lg" />
                 <img src={image2.src} alt="Imagen sobre nosotros 2" class="w-full rounded-lg" />
             </div>
-            <div class="prose prose-lg md:col-span-2 flex flex-col space-y-12">
+
+            <!-- Texto -->
+            <div class="prose prose-lg flex flex-col space-y-12 order-2">
                 <div>
                     <h2 class="title-color">Quienes somos</h2>
                     <p class="text-lg leading-relaxed mb-6">
@@ -32,6 +35,9 @@ const heroContent = {
                         conectados a red como aislados.
                     </p>
                 </div>
+
+                <!-- Imagen 1 (solo móvil) -->
+                <img src={image1.src} alt="Imagen sobre nosotros 1" class="w-full rounded-lg block lg:hidden" />
 
                 <div>
                     <h2 class="title-color">Experiencia y compromiso</h2>
@@ -47,6 +53,9 @@ const heroContent = {
                         desde el primer contacto.
                     </p>
                 </div>
+
+                <!-- Imagen 2 (solo móvil) -->
+                <img src={image2.src} alt="Imagen sobre nosotros 2" class="w-full rounded-lg block lg:hidden" />
 
                 <div>
                     <h2 class="title-color">Nuestra forma de trabajar</h2>
