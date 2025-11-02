@@ -1,341 +1,491 @@
 ---
-import InnerHero from "@components/sections/InnerHero.astro";
-import Layout from "@layouts/Layout.astro";
+import InnerHero from '@components/sections/InnerHero.astro';
+import Layout from '@layouts/Layout.astro';
 import { Battery, FileText, Home, Plus, Wrench, Zap } from 'lucide-astro';
+import headerImage from '../../assets/images/instalaciones-fotovoltaicas/header.jpg';
+import { siteConfig } from '@data/config';
 
 // Configuración de iconos - establecer en false para ocultar todos los iconos
 const SHOW_ICONS = true;
 
 const heroContent = {
-    title: "Instalaciones Fotovoltaicas",
-    description: "Soluciones de energía solar para hogares y empresas"
-}
+    title: 'Instalaciones Fotovoltaicas',
+    description:
+        'En Ampereon diseñamos e instalamos sistemas fotovoltaicos de autoconsumo adaptados a cada cliente, gestionando también todos los trámites necesarios como licencia de obra, certificados energéticos y legalización.',
+    backgroundImage: headerImage,
+    overlayOpacity: 0.4,
+    buttons: [
+        {
+            text: 'Solicitar presupuesto',
+            link: `tel:${siteConfig.Socials.Phone}`,
+            target: '_self',
+        },
+    ],
+};
 
-const seoTitle = "Instalaciones Fotovoltaicas - Ampereon Energía Solar"
-const seoDescription = "Expertos en instalaciones fotovoltaicas de autoconsumo. Sistemas solares para viviendas, empresas y comunidades con ahorro garantizado."
+const seoTitle = 'Instalaciones Fotovoltaicas - Ampereon Energía Solar';
+const seoDescription =
+    'Expertos en instalaciones fotovoltaicas de autoconsumo. Sistemas solares para viviendas, empresas y comunidades con ahorro garantizado.';
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
     <InnerHero content={heroContent} />
-    
+
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">
-                        ¿Por qué Ampereon?
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">¿Por qué Ampereon?</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
-                
+
                 <div class="space-y-6">
                     <p class="text-lg leading-relaxed">
-                        Las instalaciones fotovoltaicas de autoconsumo permiten generar electricidad a partir
-                        de la energía solar para utilizarla directamente en viviendas, empresas o industrias.
-                        Este tipo de sistemas ofrece una solución sostenible y eficiente para reducir la
-                        dependencia de la red eléctrica convencional, disminuir la factura de electricidad y
-                        contribuir activamente a la protección del medio ambiente. Además, gracias a la
-                        normativa actual, es posible verter el excedente de energía a la red y obtener
-                        compensaciones económicas.
+                        Las instalaciones fotovoltaicas de autoconsumo permiten generar electricidad a partir de la
+                        energía solar para utilizarla directamente en viviendas, empresas o industrias. Este tipo de
+                        sistemas ofrece una solución sostenible y eficiente para reducir la dependencia de la red
+                        eléctrica convencional, disminuir la factura de electricidad y contribuir activamente a la
+                        protección del medio ambiente. Además, gracias a la normativa actual, es posible verter el
+                        excedente de energía a la red y obtener compensaciones económicas.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Con una vida útil que supera los 25 años y un bajo coste
-                        de mantenimiento, suponen una solución energética fiable y concisa para conseguir un
-                        ahorro definitivo.
+                        Con una vida útil que supera los 25 años y un bajo coste de mantenimiento, suponen una solución
+                        energética fiable y concisa para conseguir un ahorro definitivo.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Nuestras instalaciones se adaptan a cada necesidad, ya sea con o sin baterías,
-                        conectadas a red o totalmente autónomas.
-                        Diseñamos sistemas a medida, ya sea para viviendas, empresas o comunidades, con
-                        posibilidad de almacenar energía en baterías o verter el excedente a la red. Aprovecha
-                        una energía limpia que, con una vida útil que supera los 25 años y un bajo coste de
-                        mantenimiento, suponen una solución energética fiable y concisa para conseguir un
-                        ahorro definitivo.
+                        Nuestras instalaciones se adaptan a cada necesidad, ya sea con o sin baterías, conectadas a red
+                        o totalmente autónomas. Diseñamos sistemas a medida, ya sea para viviendas, empresas o
+                        comunidades, con posibilidad de almacenar energía en baterías o verter el excedente a la red.
+                        Aprovecha una energía limpia que, con una vida útil que supera los 25 años y un bajo coste de
+                        mantenimiento, suponen una solución energética fiable y concisa para conseguir un ahorro
+                        definitivo.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Con más de 5 años de experiencia en energía fotovoltaica de autoconsumo, en
-                        Ampereon ofrecemos diseño, instalación, asesoramiento y legalización de
-                        instalaciones, garantizando soluciones eficientes y seguras adaptadas a cada cliente.
-                        ¡Nos encargamos de todo! Invierte hoy y empieza a ahorrar desde el primer día.
+                        Con más de 5 años de experiencia en energía fotovoltaica de autoconsumo, en Ampereon ofrecemos
+                        diseño, instalación, asesoramiento y legalización de instalaciones, garantizando soluciones
+                        eficientes y seguras adaptadas a cada cliente. ¡Nos encargamos de todo! Invierte hoy y empieza a
+                        ahorrar desde el primer día.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Sección: Energía solar (con desplegables) -->
     <section class="py-16 bg-background-light">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">
-                        Energía solar
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">Energía solar</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
-                
+
                 <div class="space-y-4">
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <Zap class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
-                                    <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo conectadas a red</h3>
+                                    <h3 class="text-xl font-bold text-headline">
+                                        Instalaciones fotovoltaicas de autoconsumo conectadas a red
+                                    </h3>
                                     <p class="text-base text-body-base mt-2">
-                                        Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti.
+                                        Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la
+                                        energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a
+                                        ti.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Las instalaciones fotovoltaicas de autoconsumo conectadas a red permiten generar electricidad a partir de la energía solar para cubrir el consumo eléctrico diario, sin desconectarse de la red convencional. Esto garantiza un suministro estable y continuo, aprovechando la energía solar y recurriendo a la red convencional solo cuando es necesario.
+                                    Las instalaciones fotovoltaicas de autoconsumo conectadas a red permiten generar
+                                    electricidad a partir de la energía solar para cubrir el consumo eléctrico diario,
+                                    sin desconectarse de la red convencional. Esto garantiza un suministro estable y
+                                    continuo, aprovechando la energía solar y recurriendo a la red convencional solo
+                                    cuando es necesario.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    El excedente de energía puede verterse a la red y compensarse económicamente según la normativa vigente, incluso pudiendo derivar dicha compensación de excedentes a segundas viviendas. Este tipo de sistema no requiere baterías, lo que reduce costes y mantenimiento, siendo una solución eficiente, rentable y sostenible.
+                                    El excedente de energía puede verterse a la red y compensarse económicamente según
+                                    la normativa vigente, incluso pudiendo derivar dicha compensación de excedentes a
+                                    segundas viviendas. Este tipo de sistema no requiere baterías, lo que reduce costes
+                                    y mantenimiento, siendo una solución eficiente, rentable y sostenible.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed">
                                     En nuestra empresa nos ocupamos de todo el proceso de la instalación:
                                 </p>
-                                
+
                                 <ul class="list-disc pl-6 space-y-2 mt-4 mb-4">
                                     <li class="text-lg leading-relaxed">Asesoramiento personalizado</li>
                                     <li class="text-lg leading-relaxed">Diseño técnico</li>
                                     <li class="text-lg leading-relaxed">Instalación profesional</li>
                                     <li class="text-lg leading-relaxed">Legalización completa de la instalación</li>
                                 </ul>
-                                
+
                                 <p class="text-lg leading-relaxed">
                                     Ofrecemos presupuestos y diseños amoldados a las necesidades específicas.
                                 </p>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Desplegable 2: Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <Home class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
-                                    <h3 class="text-xl font-bold text-headline">Instalaciones fotovoltaicas de autoconsumo aisladas de la red</h3>
+                                    <h3 class="text-xl font-bold text-headline">
+                                        Instalaciones fotovoltaicas de autoconsumo aisladas de la red
+                                    </h3>
                                     <p class="text-base text-body-base mt-2">
-                                        Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red.
+                                        Genera, almacena y gestiona tu propia energía de forma segura, eficiente y
+                                        sostenible. Soluciones a medida para viviendas y proyectos fuera de red.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Las instalaciones fotovoltaicas de autoconsumo aisladas de la red eléctrica están diseñadas para suministrar energía de forma totalmente independiente, sin conexión a la red convencional. Son la solución ideal para viviendas, fincas, refugios o instalaciones en zonas rurales donde no llega el tendido eléctrico, o donde se busca una completa autonomía energética.
+                                    Las instalaciones fotovoltaicas de autoconsumo aisladas de la red eléctrica están
+                                    diseñadas para suministrar energía de forma totalmente independiente, sin conexión a
+                                    la red convencional. Son la solución ideal para viviendas, fincas, refugios o
+                                    instalaciones en zonas rurales donde no llega el tendido eléctrico, o donde se busca
+                                    una completa autonomía energética.
                                 </p>
-                                
-                                <p class="text-lg leading-relaxed font-bold mb-4">
-                                    Beneficios principales:
-                                </p>
-                                
+
+                                <p class="text-lg leading-relaxed font-bold mb-4">Beneficios principales:</p>
+
                                 <ul class="list-disc pl-6 space-y-2 mb-4">
                                     <li class="text-lg leading-relaxed">Autonomía total frente a la red eléctrica</li>
-                                    <li class="text-lg leading-relaxed">Ahorro a largo plazo al evitar costes de acometida o ampliación de red</li>
-                                    <li class="text-lg leading-relaxed">Adaptable a cualquier tipo de consumo (iluminación, electrodomésticos, bombeo, etc.)</li>
-                                    <li class="text-lg leading-relaxed">Ideal para zonas rurales, viviendas de uso esporádico o continuo, y actividades agrícolas o ganaderas</li>
-                                    <li class="text-lg leading-relaxed">Energía limpia, renovable y respetuosa con el medio ambiente</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Ahorro a largo plazo al evitar costes de acometida o ampliación de red
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Adaptable a cualquier tipo de consumo (iluminación, electrodomésticos, bombeo,
+                                        etc.)
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Ideal para zonas rurales, viviendas de uso esporádico o continuo, y actividades
+                                        agrícolas o ganaderas
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Energía limpia, renovable y respetuosa con el medio ambiente
+                                    </li>
                                     <li class="text-lg leading-relaxed">Funcionamiento silencioso y sin emisiones</li>
                                 </ul>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Su diseño se adapta a la demanda energética real del usuario, garantizando fiabilidad y continuidad en el suministro. En Ampereon nos aseguramos de realizar un estudio exhaustivo y personalizado de la necesidad de cada instalación para garantizar un correcto dimensionamiento, siendo clave para garantizar un suministro estable y adaptado al consumo real.
+                                    Su diseño se adapta a la demanda energética real del usuario, garantizando
+                                    fiabilidad y continuidad en el suministro. En Ampereon nos aseguramos de realizar un
+                                    estudio exhaustivo y personalizado de la necesidad de cada instalación para
+                                    garantizar un correcto dimensionamiento, siendo clave para garantizar un suministro
+                                    estable y adaptado al consumo real.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Nos encargamos de todo el proceso: asesoramiento técnico, diseño a medida, instalación profesional y legalización de la instalación.
+                                    Nos encargamos de todo el proceso: asesoramiento técnico, diseño a medida,
+                                    instalación profesional y legalización de la instalación.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed">
-                                    Ofrecemos presupuestos personalizados y soluciones adaptadas a cada necesidad, priorizando la eficiencia, el ahorro y la fiabilidad del sistema.
+                                    Ofrecemos presupuestos personalizados y soluciones adaptadas a cada necesidad,
+                                    priorizando la eficiencia, el ahorro y la fiabilidad del sistema.
                                 </p>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Desplegable 3: Mantenimiento -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <Wrench class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Mantenimiento</h3>
                                     <p class="text-base text-body-base mt-2">
-                                        Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día.
+                                        Confía en profesionales para que tu sistema fotovoltaico funcione como el primer
+                                        día.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed mb-4">
-                                    En Ampereon ofrecemos un servicio especializado de mantenimiento para instalaciones fotovoltaicas ya existentes, tanto conectadas a red como aisladas. Un buen mantenimiento es fundamental para asegurar el rendimiento óptimo del sistema, alargar su vida útil y prevenir posibles averías que puedan afectar la producción de energía.
+                                    En Ampereon ofrecemos un servicio especializado de mantenimiento para instalaciones
+                                    fotovoltaicas ya existentes, tanto conectadas a red como aisladas. Un buen
+                                    mantenimiento es fundamental para asegurar el rendimiento óptimo del sistema,
+                                    alargar su vida útil y prevenir posibles averías que puedan afectar la producción de
+                                    energía.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Realizamos inspecciones técnicas, limpieza de paneles, revisión de conexiones, comprobación de inversores, verificación del estado de baterías (si las hay) y análisis de producción, entre otros servicios. Trabajamos con instalaciones de cualquier tamaño y tecnología, aunque no hayan sido instaladas por nuestra empresa.
+                                    Realizamos inspecciones técnicas, limpieza de paneles, revisión de conexiones,
+                                    comprobación de inversores, verificación del estado de baterías (si las hay) y
+                                    análisis de producción, entre otros servicios. Trabajamos con instalaciones de
+                                    cualquier tamaño y tecnología, aunque no hayan sido instaladas por nuestra empresa.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed font-bold mb-4">
                                     Beneficios del mantenimiento profesional:
                                 </p>
-                                
+
                                 <ul class="list-disc pl-6 space-y-2 mb-4">
-                                    <li class="text-lg leading-relaxed">Mejora del rendimiento y eficiencia energética</li>
-                                    <li class="text-lg leading-relaxed">Prevención de fallos y detección temprana de incidencias</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Mejora del rendimiento y eficiencia energética
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Prevención de fallos y detección temprana de incidencias
+                                    </li>
                                     <li class="text-lg leading-relaxed">Mayor vida útil de los componentes</li>
                                     <li class="text-lg leading-relaxed">Ahorro a medio y largo plazo</li>
                                     <li class="text-lg leading-relaxed">Asesoramiento técnico continuo</li>
                                 </ul>
-                                
+
                                 <p class="text-lg leading-relaxed">
-                                    Nuestro equipo técnico cualificado garantiza un servicio rápido, eficaz y adaptado a las necesidades de cada cliente. Ofrecemos revisiones puntuales o planes de mantenimiento periódico, con informes detallados del estado de la instalación. Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día.
+                                    Nuestro equipo técnico cualificado garantiza un servicio rápido, eficaz y adaptado a
+                                    las necesidades de cada cliente. Ofrecemos revisiones puntuales o planes de
+                                    mantenimiento periódico, con informes detallados del estado de la instalación.
+                                    Confía en profesionales para que tu sistema fotovoltaico funcione como el primer
+                                    día.
                                 </p>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Desplegable 4: Baterías y Sistemas de Respaldo -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <Battery class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Baterías y sistemas de respaldo</h3>
                                     <p class="text-base text-body-base mt-2">
-                                        Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro.
+                                        Aumenta tu independencia energética instalando baterías y sistemas de respaldo.
+                                        Almacena excedente solar y protégete frente a cortes de suministro.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Ofrecemos la instalación de baterías y sistemas de respaldo (back-up) en instalaciones fotovoltaicas de autoconsumo ya existentes, estén o no realizadas por nuestra empresa. Este servicio permite optimizar el aprovechamiento de la energía solar, almacenar el excedente de producción y disponer de energía en momentos de baja generación o ante cortes de suministro.
+                                    Ofrecemos la instalación de baterías y sistemas de respaldo (back-up) en
+                                    instalaciones fotovoltaicas de autoconsumo ya existentes, estén o no realizadas por
+                                    nuestra empresa. Este servicio permite optimizar el aprovechamiento de la energía
+                                    solar, almacenar el excedente de producción y disponer de energía en momentos de
+                                    baja generación o ante cortes de suministro.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Incorporar baterías a una instalación fotovoltaica mejora la autonomía energética, reduce aún más la dependencia de la red eléctrica y maximiza el ahorro en la factura de luz. Además, los sistemas de back-up garantizan el suministro en caso de apagones, protegiendo los consumos esenciales y aportando mayor seguridad.
+                                    Incorporar baterías a una instalación fotovoltaica mejora la autonomía energética,
+                                    reduce aún más la dependencia de la red eléctrica y maximiza el ahorro en la factura
+                                    de luz. Además, los sistemas de back-up garantizan el suministro en caso de
+                                    apagones, protegiendo los consumos esenciales y aportando mayor seguridad.
                                 </p>
-                                
-                                <p class="text-lg leading-relaxed font-bold mb-4">
-                                    Ventajas principales:
-                                </p>
-                                
+
+                                <p class="text-lg leading-relaxed font-bold mb-4">Ventajas principales:</p>
+
                                 <ul class="list-disc pl-6 space-y-2 mb-4">
-                                    <li class="text-lg leading-relaxed">Almacenamiento del excedente solar para uso nocturno o en días nublados</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Almacenamiento del excedente solar para uso nocturno o en días nublados
+                                    </li>
                                     <li class="text-lg leading-relaxed">Mayor independencia de la red eléctrica</li>
                                     <li class="text-lg leading-relaxed">Protección frente a cortes de suministro</li>
-                                    <li class="text-lg leading-relaxed">Reducción del término de energía en la factura eléctrica</li>
-                                    <li class="text-lg leading-relaxed">Posibilidad de funcionamiento híbrido (conexión a red + batería)</li>
-                                    <li class="text-lg leading-relaxed">Ampliación adaptable a las necesidades del cliente</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Reducción del término de energía en la factura eléctrica
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Posibilidad de funcionamiento híbrido (conexión a red + batería)
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Ampliación adaptable a las necesidades del cliente
+                                    </li>
                                 </ul>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Nos encargamos de todo el proceso: análisis técnico, diseño del sistema de almacenamiento, instalación y puesta en marcha. Trabajamos con marcas líderes y tecnologías de última generación, asegurando compatibilidad con la mayoría de las instalaciones existentes.
+                                    Nos encargamos de todo el proceso: análisis técnico, diseño del sistema de
+                                    almacenamiento, instalación y puesta en marcha. Trabajamos con marcas líderes y
+                                    tecnologías de última generación, asegurando compatibilidad con la mayoría de las
+                                    instalaciones existentes.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed">
-                                    Ofrecemos soluciones personalizadas, eficientes y escalables, adaptadas al consumo real y a las expectativas de cada cliente.
+                                    Ofrecemos soluciones personalizadas, eficientes y escalables, adaptadas al consumo
+                                    real y a las expectativas de cada cliente.
                                 </p>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Desplegable 5: Ampliaciones -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <Plus class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Ampliaciones</h3>
                                     <p class="text-base text-body-base mt-2">
-                                        Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro.
+                                        Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar
+                                        tu ahorro.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Si tu consumo eléctrico ha aumentado, es posible que tu instalación fotovoltaica actual ya no cubra tus necesidades energéticas como antes. En estos casos, ampliar el sistema existente es una solución eficiente y rentable que permite recuperar el equilibrio entre producción y consumo, optimizando de nuevo el ahorro en la factura de la luz.
+                                    Si tu consumo eléctrico ha aumentado, es posible que tu instalación fotovoltaica
+                                    actual ya no cubra tus necesidades energéticas como antes. En estos casos, ampliar
+                                    el sistema existente es una solución eficiente y rentable que permite recuperar el
+                                    equilibrio entre producción y consumo, optimizando de nuevo el ahorro en la factura
+                                    de la luz.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Ya sea por la incorporación de nuevos electrodomésticos, un cambio en los hábitos de uso, la instalación de un aire acondicionado, una piscina o incluso la compra de un vehículo eléctrico, tu instalación puede y debe adaptarse.
+                                    Ya sea por la incorporación de nuevos electrodomésticos, un cambio en los hábitos de
+                                    uso, la instalación de un aire acondicionado, una piscina o incluso la compra de un
+                                    vehículo eléctrico, tu instalación puede y debe adaptarse.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed font-bold mb-4">
                                     Beneficios de ampliar tu sistema fotovoltaico:
                                 </p>
-                                
+
                                 <ul class="list-disc pl-6 space-y-2 mb-4">
-                                    <li class="text-lg leading-relaxed">Mayor producción de energía adaptada al nuevo consumo</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Mayor producción de energía adaptada al nuevo consumo
+                                    </li>
                                     <li class="text-lg leading-relaxed">Aumento del ahorro mensual en electricidad</li>
-                                    <li class="text-lg leading-relaxed">Mejora del aprovechamiento de la inversión inicial</li>
-                                    <li class="text-lg leading-relaxed">Posibilidad de combinar con baterías para almacenar el excedente</li>
-                                    <li class="text-lg leading-relaxed">Adaptación a nuevas necesidades sin necesidad de empezar desde cero</li>
+                                    <li class="text-lg leading-relaxed">
+                                        Mejora del aprovechamiento de la inversión inicial
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Posibilidad de combinar con baterías para almacenar el excedente
+                                    </li>
+                                    <li class="text-lg leading-relaxed">
+                                        Adaptación a nuevas necesidades sin necesidad de empezar desde cero
+                                    </li>
                                 </ul>
-                                
+
                                 <p class="text-lg leading-relaxed mb-4">
-                                    Nos encargamos del análisis de tu instalación actual, el diseño técnico de la ampliación y su correcta integración con el sistema existente, sin importar si fue realizado por nuestra empresa o por terceros.
+                                    Nos encargamos del análisis de tu instalación actual, el diseño técnico de la
+                                    ampliación y su correcta integración con el sistema existente, sin importar si fue
+                                    realizado por nuestra empresa o por terceros.
                                 </p>
-                                
+
                                 <p class="text-lg leading-relaxed">
-                                    Es fundamental que toda ampliación esté correctamente legalizada y ejecutada por personal cualificado. Una ampliación mal realizada o sin legalización puede suponer sanciones, pérdida de garantías o incluso riesgos para la seguridad de la vivienda. Ofrecemos soluciones personalizadas, seguras y eficientes, garantizando compatibilidad, rendimiento y cumplimiento con la normativa vigente.
+                                    Es fundamental que toda ampliación esté correctamente legalizada y ejecutada por
+                                    personal cualificado. Una ampliación mal realizada o sin legalización puede suponer
+                                    sanciones, pérdida de garantías o incluso riesgos para la seguridad de la vivienda.
+                                    Ofrecemos soluciones personalizadas, seguras y eficientes, garantizando
+                                    compatibilidad, rendimiento y cumplimiento con la normativa vigente.
                                 </p>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Desplegable 6: Legalización -->
                     <details class="bg-white rounded-lg border border-primary/20">
-                        <summary class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300">
-                            <div class={SHOW_ICONS ? "flex items-start gap-4" : ""}>
+                        <summary
+                            class="cursor-pointer p-6 flex justify-between items-center hover:bg-background-light transition-colors duration-300"
+                        >
+                            <div class={SHOW_ICONS ? 'flex items-start gap-4' : ''}>
                                 {SHOW_ICONS && <FileText class="w-6 h-6 text-primary flex-shrink-0 mt-1" />}
                                 <div>
                                     <h3 class="text-xl font-bold text-headline">Legalización</h3>
                                     <p class="text-base text-body-base mt-2">
-                                        ¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla.
+                                        ¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos
+                                        a ponerla en regla.
                                     </p>
                                 </div>
                             </div>
-                            <svg class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg
+                                class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                                ></path>
                             </svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="pt-4 border-t border-gray-200">
                                 <p class="text-lg leading-relaxed">
-                                    Como instaladores autorizados, nos encargamos de inspeccionar, documentar y legalizar tu sistema, asegurando que cumpla con la normativa vigente y funcione de forma segura y legal.
+                                    Como instaladores autorizados, nos encargamos de inspeccionar, documentar y
+                                    legalizar tu sistema, asegurando que cumpla con la normativa vigente y funcione de
+                                    forma segura y legal.
                                 </p>
                             </div>
                         </div>
