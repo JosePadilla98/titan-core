@@ -74,9 +74,21 @@ const faqsSection = {
     description: 'Encuentra respuestas a las preguntas más comunes sobre instalaciones eléctricas y placas solares.',
     faqs: faqLists.main.faqs,
 };
+
+const FooterCta = {
+    title: '¿Necesitas una instalación eléctrica o solar de confianza?',
+    description: 'En Ampereon te asesoramos sin compromiso.',
+    hideCta: false,
+    button: {
+        text: 'Contactar ahora',
+        link: '/contact',
+        target: '_self',
+    },
+    postBtnDescription: '',
+};
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="light" />
     <Stats content={sideBySideStats} background="dark" padding="base" />
