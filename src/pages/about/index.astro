@@ -1,58 +1,73 @@
 ---
-import InnerHero from "@components/sections/InnerHero.astro"
-import Layout from "@layouts/Layout.astro"
+import InnerHero from '@components/sections/InnerHero.astro';
+import Layout from '@layouts/Layout.astro';
+import image1 from '../../assets/images/aboutUs/1.jpg';
+import image2 from '../../assets/images/aboutUs/2.jpg';
 
 const heroContent = {
-    title: "Sobre Nosotros",
-    description: "Conoce más sobre Ampereon y nuestra experiencia en instalaciones eléctricas y solares"
-}
+    title: 'Sobre Nosotros',
+    description: 'Conoce más sobre Ampereon y nuestra experiencia en instalaciones eléctricas y solares',
+};
 ---
 
-<Layout title="Sobre Nosotros - Ampereon Instalaciones Eléctricas y Solares" description="Ampereon ofrece soluciones eléctricas y energéticas de calidad con más de 5 años de experiencia en el sector">
+<Layout
+    title="Sobre Nosotros - Ampereon Instalaciones Eléctricas y Solares"
+    description="Ampereon ofrece soluciones eléctricas y energéticas de calidad con más de 5 años de experiencia en el sector"
+>
     <InnerHero content={heroContent} />
-    
+
     <section class="container mx-auto px-4 py-16">
-        <div class="max-w-3xl mx-auto prose prose-lg">
-            <p class="text-lg leading-relaxed mb-6">
-                Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de
-                calidad, adaptadas a las necesidades reales de cada cliente. Somos una empresa
-                habilitada para trabajar en instalaciones eléctricas en baja tensión y en sistemas
-                fotovoltaicos de autoconsumo, tanto conectados a red como aislados.
-            </p>
-            
-            <p class="text-lg leading-relaxed mb-6">
-                Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos
-                en el diseño e instalación de energía fotovoltaica de autoconsumo, lo que nos permite
-                ofrecer un servicio técnico sólido y actualizado.
-            </p>
-            
-            <p class="text-lg leading-relaxed mb-6">
-                Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia
-                en el sector, comprometido con hacer las cosas bien, con seriedad y atención al
-                detalle. Nos enfocamos tanto en instalaciones completas como en trabajos puntuales,
-                asesorando de forma clara y honesta desde el primer contacto.
-            </p>
-            
-            <p class="text-lg leading-relaxed mb-6">
-                Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se
-                va a hacer, por qué, y con qué garantías. Trabajamos con materiales de calidad,
-                marcas confiables y cumpliendo siempre con la normativa vigente.
-            </p>
-            
-            <p class="text-lg leading-relaxed">
-                Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon
-                buscamos ofrecer siempre una solución eficiente, segura y a medida, con un trato
-                directo y compromiso real.
-            </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+                <img src={image1.src} alt="Imagen sobre nosotros 1" class="w-full rounded-lg" />
+                <img src={image2.src} alt="Imagen sobre nosotros 2" class="w-full rounded-lg" />
+            </div>
+            <div class="prose prose-lg">
+                <h2 class="title-color">Quienes somos</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de calidad, adaptadas a
+                    las necesidades reales de cada cliente. Somos una empresa habilitada para trabajar en instalaciones
+                    eléctricas en baja tensión y en sistemas fotovoltaicos de autoconsumo, tanto conectados a red como
+                    aislados.
+                </p>
+
+                <h2 class="title-color">Experiencia y compromiso</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos en el diseño e
+                    instalación de energía fotovoltaica de autoconsumo, lo que nos permite ofrecer un servicio técnico
+                    sólido y actualizado.
+                </p>
+                <p class="text-lg leading-relaxed mb-6">
+                    Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia en el sector,
+                    comprometido con hacer las cosas bien, con seriedad y atención al detalle. Nos enfocamos tanto en
+                    instalaciones completas como en trabajos puntuales, asesorando de forma clara y honesta desde el
+                    primer contacto.
+                </p>
+
+                <h2 class="title-color">Nuestra forma de trabajar</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se va a hacer,
+                    por qué, y con qué garantías. Trabajamos con materiales de calidad, marcas confiables y cumpliendo
+                    siempre con la normativa vigente.
+                </p>
+
+                <p class="text-lg leading-relaxed">
+                    Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon buscamos ofrecer
+                    siempre una solución eficiente, segura y a medida, con un trato directo y compromiso real.
+                </p>
+            </div>
         </div>
     </section>
 </Layout>
 
 <style>
-.prose {
-    color: inherit;
-}
-.prose p {
-    margin-bottom: 1.5rem;
-}
+    .prose {
+        color: inherit;
+    }
+    .prose p {
+        margin-bottom: 1.5rem;
+    }
+    .title-color {
+        color: var(--color-primary-light);
+    }
 </style>
