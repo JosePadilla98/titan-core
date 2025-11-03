@@ -1,101 +1,98 @@
 ---
-import InnerHero from "@components/sections/InnerHero.astro"
-import Layout from "@layouts/Layout.astro"
+import InnerHero from '@components/sections/InnerHero.astro';
+import Layout from '@layouts/Layout.astro';
+import heroImage from '../../assets/images/instalaciones-electricas/header.jpg';
 
 const heroContent = {
-    title: "Instalaciones Eléctricas",
-    description: "Servicios profesionales de instalaciones eléctricas para hogares y empresas"
-}
+    title: 'Instalaciones Eléctricas',
+    description: 'Servicios profesionales de instalaciones eléctricas para hogares y empresas',
+    backgroundImage: heroImage,
+    overlayOpacity: 0.4,
+};
 
-const seoTitle = "Instalaciones Eléctricas Profesionales - Ampereon"
-const seoDescription = "Expertos en instalaciones eléctricas autorizados. Servicios de instalación, reformas, mantenimiento y reparación para viviendas, negocios y pequeñas industrias."
+const seoTitle = 'Instalaciones Eléctricas Profesionales - Ampereon';
+const seoDescription =
+    'Expertos en instalaciones eléctricas autorizados. Servicios de instalación, reformas, mantenimiento y reparación para viviendas, negocios y pequeñas industrias.';
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
     <InnerHero content={heroContent} />
-    
+
     <!-- Sección: ¿Por qué elegir Ampereon? -->
     <section class="bg-background-light py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">
-                        ¿Por qué Ampereon?
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">¿Por qué Ampereon?</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
-                
+
                 <div class="space-y-6">
                     <p class="text-lg leading-relaxed">
-                        En Ampereon somos instaladores autorizados, habilitados para realizar todo tipo de
-                        trabajos eléctricos, tanto en viviendas como en negocios o pequeñas industrias. Nos
-                        encargamos de instalaciones nuevas, reformas, mantenimiento, reparación de averías
-                        y también de gestiones técnicas como el alta de suministro eléctrico o la firma de
-                        boletines eléctricos (certificados de instalación).
+                        En Ampereon somos instaladores autorizados, habilitados para realizar todo tipo de trabajos
+                        eléctricos, tanto en viviendas como en negocios o pequeñas industrias. Nos encargamos de
+                        instalaciones nuevas, reformas, mantenimiento, reparación de averías y también de gestiones
+                        técnicas como el alta de suministro eléctrico o la firma de boletines eléctricos (certificados
+                        de instalación).
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Trabajamos con seriedad, compromiso y cercanía, adaptándonos a cada cliente y
-                        necesidad, ya sea un proyecto completo o una intervención puntual. Siempre con
-                        cumplimiento normativo, materiales de calidad y atención personalizada.
+                        Trabajamos con seriedad, compromiso y cercanía, adaptándonos a cada cliente y necesidad, ya sea
+                        un proyecto completo o una intervención puntual. Siempre con cumplimiento normativo, materiales
+                        de calidad y atención personalizada.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        En electricidad, no todo vale. Realizar cualquier intervención sin un instalador
-                        autorizado puede poner en riesgo tu seguridad, la de tu familia o tu negocio, además de
-                        invalidar garantías y seguros.
+                        En electricidad, no todo vale. Realizar cualquier intervención sin un instalador autorizado
+                        puede poner en riesgo tu seguridad, la de tu familia o tu negocio, además de invalidar garantías
+                        y seguros.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        En Ampereon trabajamos con la tranquilidad de estar habilitados legalmente para
-                        realizar instalaciones, reparaciones, altas de suministro y emitir boletines eléctricos,
-                        cumpliendo siempre con la normativa vigente.
+                        En Ampereon trabajamos con la tranquilidad de estar habilitados legalmente para realizar
+                        instalaciones, reparaciones, altas de suministro y emitir boletines eléctricos, cumpliendo
+                        siempre con la normativa vigente.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Pero más allá de eso, lo que realmente nos diferencia es el trato directo y
-                        personalizado. Escuchamos a cada cliente y ofrecemos soluciones adaptadas a sus
-                        necesidades reales y a su presupuesto, sin vender de más ni prometer lo imposible.
+                        Pero más allá de eso, lo que realmente nos diferencia es el trato directo y personalizado.
+                        Escuchamos a cada cliente y ofrecemos soluciones adaptadas a sus necesidades reales y a su
+                        presupuesto, sin vender de más ni prometer lo imposible.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Utilizamos materiales de calidad, trabajamos con responsabilidad y dejamos cada
-                        trabajo con su correspondiente garantía, porque entendemos que detrás de cada
-                        instalación eléctrica hay personas que confían en nosotros para que todo funcione
-                        bien y de forma segura.
+                        Utilizamos materiales de calidad, trabajamos con responsabilidad y dejamos cada trabajo con su
+                        correspondiente garantía, porque entendemos que detrás de cada instalación eléctrica hay
+                        personas que confían en nosotros para que todo funcione bien y de forma segura.
                     </p>
-                    
+
                     <p class="text-lg leading-relaxed">
-                        Ya sea una reforma completa, una avería puntual o una nueva instalación, en
-                        Ampereon vas a encontrar un profesional que responde, te asesora y te acompaña en
-                        todo el proceso.
+                        Ya sea una reforma completa, una avería puntual o una nueva instalación, en Ampereon vas a
+                        encontrar un profesional que responde, te asesora y te acompaña en todo el proceso.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Sección: Servicios de electricidad -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">
-                        Servicios de electricidad
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">Servicios de electricidad</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
-                
+
                 <div class="space-y-6">
                     <p class="text-lg leading-relaxed">
-                        En Ampereon ofrecemos una amplia gama de servicios eléctricos para viviendas,
-                        comercios, comunidades e instalaciones industriales en baja tensión.
-                        Trabajamos con seriedad, materiales de calidad y todas las garantías, adaptando cada
-                        solución a las necesidades y presupuesto del cliente.
-                        Tanto si necesitas una instalación nueva, resolver una avería, hacer una reforma o
+                        En Ampereon ofrecemos una amplia gama de servicios eléctricos para viviendas, comercios,
+                        comunidades e instalaciones industriales en baja tensión. Trabajamos con seriedad, materiales de
+                        calidad y todas las garantías, adaptando cada solución a las necesidades y presupuesto del
+                        cliente. Tanto si necesitas una instalación nueva, resolver una avería, hacer una reforma o
                         gestionar el alta de suministro, estamos para ayudarte.
                     </p>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Instalaciones eléctricas completas</h3>
@@ -104,30 +101,31 @@ const seoDescription = "Expertos en instalaciones eléctricas autorizados. Servi
                                 instalación adaptados a normativa vigente.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Reformas y actualizaciones eléctricas</h3>
                             <p class="text-base leading-relaxed">
-                                Actualización de instalaciones antiguas para cumplir con seguridad, eficiencia y
-                                nuevos consumos.
+                                Actualización de instalaciones antiguas para cumplir con seguridad, eficiencia y nuevos
+                                consumos.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Reparación de averías eléctricas</h3>
                             <p class="text-base leading-relaxed">
-                                Atendemos cortes, fallos, derivaciones, sobrecargas y cualquier problema eléctrico, con diagnóstico y solución rápida.
+                                Atendemos cortes, fallos, derivaciones, sobrecargas y cualquier problema eléctrico, con
+                                diagnóstico y solución rápida.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Boletines eléctricos (CIE)</h3>
                             <p class="text-base leading-relaxed">
-                                Certificados de instalación para altas, ampliaciones de potencia o modificaciones.
-                                Firma como instalador autorizado.
+                                Certificados de instalación para altas, ampliaciones de potencia o modificaciones. Firma
+                                como instalador autorizado.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Alta de suministro eléctrico</h3>
                             <p class="text-base leading-relaxed">
@@ -135,33 +133,38 @@ const seoDescription = "Expertos en instalaciones eléctricas autorizados. Servi
                                 documentación técnica y legal.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Cuadros eléctricos y automatismos</h3>
                             <p class="text-base leading-relaxed">
-                                Montaje, mantenimiento y mejora de cuadros eléctricos, protecciones y sistemas automáticos.
+                                Montaje, mantenimiento y mejora de cuadros eléctricos, protecciones y sistemas
+                                automáticos.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
                             <h3 class="text-xl font-bold text-headline mb-3">Iluminación interior y exterior</h3>
                             <p class="text-base leading-relaxed">
-                                Diseño e instalación de iluminación eficiente para hogares, jardines, galpones, locales y comunidades.
+                                Diseño e instalación de iluminación eficiente para hogares, jardines, galpones, locales
+                                y comunidades.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20">
-                            <h3 class="text-xl font-bold text-headline mb-3">Instalación de puntos de recarga para vehículos eléctricos</h3>
+                            <h3 class="text-xl font-bold text-headline mb-3">
+                                Instalación de puntos de recarga para vehículos eléctricos
+                            </h3>
                             <p class="text-base leading-relaxed">
-                                Soluciones seguras y adaptadas a normativas para particulares, garajes comunitarios o empresas.
+                                Soluciones seguras y adaptadas a normativas para particulares, garajes comunitarios o
+                                empresas.
                             </p>
                         </div>
-                        
+
                         <div class="bg-background-light p-6 rounded-lg border border-primary/20 md:col-span-2">
                             <h3 class="text-xl font-bold text-headline mb-3">Mantenimiento preventivo y correctivo</h3>
                             <p class="text-base leading-relaxed">
-                                Planes de mantenimiento para viviendas, locales y comunidades. Revisiones
-                                periódicas y asistencia técnica.
+                                Planes de mantenimiento para viviendas, locales y comunidades. Revisiones periódicas y
+                                asistencia técnica.
                             </p>
                         </div>
                     </div>
@@ -175,11 +178,11 @@ const seoDescription = "Expertos en instalaciones eléctricas autorizados. Servi
     :global(.bg-background-light) {
         background-color: var(--color-background-light);
     }
-    
+
     :global(.text-headline) {
         color: var(--color-headline);
     }
-    
+
     :global(.border-primary\/20) {
         border-color: var(--color-primary) / 20%;
     }
