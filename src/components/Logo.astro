@@ -3,9 +3,10 @@ import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
 interface Props {
     variant?: 'header' | 'footer' | 'dark';
+    useLogo?: boolean;
 }
 
-const { variant = 'header' } = Astro.props;
+const { variant = 'header', useLogo } = Astro.props;
 
 // Determine the appropriate CSS class based on the variant
 const getLogoClass = () => {
@@ -28,6 +29,13 @@ const getLogoClass = () => {
         // Please, use something like your company name or “Home”, not “logo.”
         // If there is link text, leave alt empty.
     }
-    <Image src={logo} alt="" class={'h-8 w-auto'} />
-    <!-- <span class="font-bold">Am]p</span>ereon -->
+    {
+        useLogo ? (
+            <Image src={logo} alt="" class={'h-8 w-auto'} />
+        ) : (
+            <>
+                <span class="font-bold">Amp</span>ereon
+            </>
+        )
+    }
 </a>
