@@ -13,7 +13,8 @@ const ctaButton = {
 const currentPath = Astro.url.pathname;
 
 // Function to check if a link is the current page or a parent of the current page
-const isCurrentPage = (link: string) => {
+const isCurrentPage = (link: string, hasChildren = false) => {
+    if (hasChildren) return false;
     if (link === '/') {
         return currentPath === '/';
     }
@@ -36,11 +37,11 @@ const isCurrentPage = (link: string) => {
                                         href={item.link}
                                         class:list={[
                                             'text-small font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                            isCurrentPage(item.link)
+                                            isCurrentPage(item.link, !!item.children)
                                                 ? 'text-nav-text-current font-semibold'
                                                 : 'text-nav-text hover:text-nav-text-hover',
                                         ]}
-                                        aria-current={isCurrentPage(item.link) ? 'page' : undefined}
+                                        aria-current={isCurrentPage(item.link, !!item.children) ? 'page' : undefined}
                                     >
                                         {item.name}
                                         {item.children && item.showArrow && (
@@ -120,11 +121,13 @@ const isCurrentPage = (link: string) => {
                                                 href={item.link}
                                                 class:list={[
                                                     'py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                    isCurrentPage(item.link)
+                                                    isCurrentPage(item.link, !!item.children)
                                                         ? 'text-nav-mobile-text-current font-semibold'
                                                         : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
                                                 ]}
-                                                aria-current={isCurrentPage(item.link) ? 'page' : undefined}
+                                                aria-current={
+                                                    isCurrentPage(item.link, !!item.children) ? 'page' : undefined
+                                                }
                                             >
                                                 {item.name}
                                             </a>
@@ -132,7 +135,7 @@ const isCurrentPage = (link: string) => {
                                                 <button
                                                     class:list={[
                                                         'mobile-submenu-button p-2 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                        isCurrentPage(item.link)
+                                                        isCurrentPage(item.link, !!item.children)
                                                             ? 'text-nav-mobile-text-current'
                                                             : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
                                                     ]}
