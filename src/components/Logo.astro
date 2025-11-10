@@ -4,9 +4,10 @@ import logo from '../assets/images/triangle.webp';
 interface Props {
     variant?: 'header' | 'footer' | 'dark';
     useLogo?: boolean;
+    blueFont?: boolean;
 }
 
-const { variant = 'header', useLogo } = Astro.props;
+const { variant = 'header', useLogo, blueFont } = Astro.props;
 
 // Determine the appropriate CSS class based on the variant
 const getLogoClass = () => {
@@ -31,9 +32,11 @@ const getLogoClass = () => {
     }
     {
         useLogo ? (
-            <div class="flex items-center justify-center text-base space-x-1">
+            <div class:list={['flex items-center  text-base space-x-1', variant === 'footer' ? '' : 'justify-center']}>
                 <Image src={logo} alt="Ampereon logo" class="h-8 [@media(max-width:335px)]:h-4 w-auto" />
-                <span class:list={['font-bold text-[#1a1f3c]']}>ampereon</span>
+                <span class:list={['font-bold text-[#1a1f3c]', blueFont ? 'text-[#005ce2]' : 'text-[#1a1f3c]']}>
+                    ampereon
+                </span>
             </div>
         ) : (
             <span class="font-light uppercase font-logo">
