@@ -15,4 +15,27 @@ const legal = defineCollection({
     }),
 });
 
-export const collections = { legal };
+const blog = defineCollection({
+    loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
+    schema: z.object({
+        title: z.string(),
+        excerpt: z.string(),
+        featuredImage: z.string().optional(),
+        publishDate: z.date(),
+        categories: z.array(z.string()),
+        publish: z.boolean().optional().default(true),
+    }),
+});
+
+const team = defineCollection({
+    loader: glob({ base: './src/content/team', pattern: '**/*.md' }),
+    schema: z.object({
+        name: z.string(),
+        jobTitle: z.string(),
+        headshot: z.string().optional(),
+        order: z.number(),
+        publish: z.boolean().optional().default(true),
+    }),
+});
+
+export const collections = { legal, blog, team };
