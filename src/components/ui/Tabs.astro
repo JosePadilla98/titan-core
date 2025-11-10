@@ -28,127 +28,130 @@ export interface Props {
 }
 
 const {
-    content: {
-        eyebrow,
-        title,
-        description,
-        tabs,
-        button
-    },
-    background = 'base'
+    content: { eyebrow, title, description, tabs, button },
+    background = 'base',
 } = Astro.props;
 
 const bgColor = getBackgroundColor(background);
 const textColor = getTextColor(background);
-const paddingClass = getPaddingClass({ 
+const paddingClass = getPaddingClass({
     padding: Astro.props.padding,
     paddingTop: Astro.props.paddingTop,
-    paddingBottom: Astro.props.paddingBottom 
+    paddingBottom: Astro.props.paddingBottom,
 });
 ---
 
-<section class:list={["relative", bgColor, paddingClass]}>
+<section class:list={['relative', bgColor, paddingClass]}>
     <div class="site-container px-4">
-        {(title || description) && (
-            <div class="text-center mb-12 max-w-3xl mx-auto">
-                {eyebrow && (
-                    <Eyebrow 
-                        text={eyebrow} 
-                        background={background} 
-                    />
-                )}
-                {title && (
-                    <h2 class:list={[textColor]} data-aos="fade-up">
-                        {title}
-                    </h2>
-                )}
-                {description && (
-                    <p class:list={["mt-4", textColor, "opacity-90"]} data-aos="fade-up" data-aos-delay="100">
-                        {description}
-                    </p>
-                )}
-            </div>
-        )}
+        {
+            (title || description) && (
+                <div class="text-center mb-12 max-w-3xl mx-auto">
+                    {eyebrow && <Eyebrow text={eyebrow} background={background} />}
+                    {title && (
+                        <h2 class:list={[textColor]} data-aos="fade-up">
+                            {title}
+                        </h2>
+                    )}
+                    {description && (
+                        <p class:list={['mt-4', textColor, 'opacity-90']} data-aos="fade-up" data-aos-delay="100">
+                            {description}
+                        </p>
+                    )}
+                </div>
+            )
+        }
 
         {/* Tabs Navigation */}
-        {tabs.length > 0 && (
-            <div class="flex justify-center mb-12" data-aos="fade-up">
-                <div class="flex bg-background/20 rounded-lg p-1 border border-border" id="tabs-container">
-                    {tabs.map((tab, index) => (
-                        <button
-                            type="button"
-                            class:list={[
-                                "px-6 py-3 rounded-md text-sm font-medium transition-all duration-200 tab-button",
-                                index === 0 ? "bg-primary text-white shadow-sm" : "text-foreground/70 hover:text-foreground hover:bg-background/30"
-                            ]}
-                            data-tab={tab.id}
-                        >
-                            {tab.label}
-                        </button>
-                    ))}
+        {
+            tabs.length > 0 && (
+                <div class:list={'flex justify-center mb-12'}>
+                    <div
+                        class="flex w-full max-w-md shadow-lg bg-background-light rounded-lg"
+                        id="tabs-container"
+                        data-aos="fade-up"
+                    >
+                        {tabs.map((tab, index) => (
+                            <button
+                                type="button"
+                                class:list={[
+                                    'flex-1 px-6 py-3 text-lg text-nowrap font-medium transition-all duration-200 tab-button',
+                                    index === 0
+                                        ? 'bg-primary text-white rounded-l-lg'
+                                        : 'text-foreground/70 hover:text-foreground hover:bg-background/30 rounded-r-lg',
+                                ]}
+                                data-tab={tab.id}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        )}
+            )
+        }
 
         {/* Tab Content */}
         <div id="tab-content">
-            {tabs.map((tab, index) => (
-                <div 
-                    id={`tab-${tab.id}`}
-                    class:list={[
-                        "grid gap-8 auto-rows-fr tab-panel",
-                        tab.columns === 3 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit",
-                        index === 0 ? "block" : "hidden"
-                    ]}
-                    data-aos="fade-up"
-                >
-                    {tab.features.map((feature, featureIndex) => (
-                        <div 
-                            class:list={[
-                                "p-6 rounded-lg border border-black",
-                                background === 'dark' ? 'bg-background-base/10' : 'bg-background/90',
-                                "flex flex-col"
-                            ]}
-                            data-aos="fade-up"
-                            data-aos-delay={featureIndex * 100}
-                        >
-                            <div class:list={[
-                                "w-12 h-12 flex items-center justify-center rounded-lg mb-4",
-                                "bg-primary"
-                            ]}>
-                                <feature.icon
-                                    size={24}
-                                    class="text-white"
-                                />
+            {
+                tabs.map((tab, index) => (
+                    <div
+                        id={`tab-${tab.id}`}
+                        class:list={[
+                            'grid gap-8 auto-rows-fr tab-panel',
+                            tab.columns === 3
+                                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit',
+                            index === 0 ? 'block' : 'hidden',
+                        ]}
+                        data-aos="fade-up"
+                    >
+                        {tab.features.map((feature, featureIndex) => (
+                            <div
+                                class:list={[
+                                    'p-6 rounded-lg bg-background-light shadow-xl',
+                                    // background === 'dark' ? 'bg-background-base/10' : 'bg-background/90',
+                                    'flex flex-col',
+                                ]}
+                                data-aos="fade-up"
+                                data-aos-delay={featureIndex * 100}
+                            >
+                                <div
+                                    class:list={[
+                                        'w-12 h-12 flex items-center justify-center rounded-lg mb-4',
+                                        'bg-primary',
+                                    ]}
+                                >
+                                    <feature.icon size={24} class="text-white" />
+                                </div>
+                                <h3 class:list={['text-h4 mb-2', textColor]}>{feature.title}</h3>
+                                <p class:list={['text-base', textColor, 'opacity-90']}>{feature.description}</p>
                             </div>
-                            <h3 class:list={["text-h4 mb-2", textColor]}>
-                                {feature.title}
-                            </h3>
-                            <p class:list={["text-base", textColor, "opacity-90"]}>
-                                {feature.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            ))}
+                        ))}
+                    </div>
+                ))
+            }
         </div>
 
-        {button && (
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a
-                    href={button.link}
-                    class:list={[
-                        "inline-flex items-center px-6 py-3 rounded-lg font-medium transition-colors",
-                        button.variant === 'secondary' ? "bg-secondary text-secondary-foreground hover:bg-secondary/90" :
-                        button.variant === 'ghostLight' ? "bg-transparent text-white hover:bg-white/10" :
-                        button.variant === 'ghostDark' ? "bg-transparent text-foreground hover:bg-foreground/10" :
-                        "bg-primary text-primary-foreground hover:bg-primary/90"
-                    ]}
-                >
-                    {button.text}
-                </a>
-            </div>
-        )}
+        {
+            button && (
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a
+                        href={button.link}
+                        class:list={[
+                            'inline-flex items-center px-6 py-3 rounded-lg font-medium transition-colors',
+                            button.variant === 'secondary'
+                                ? 'bg-secondary text-secondary-foreground hover:bg-secondary/90'
+                                : button.variant === 'ghostLight'
+                                  ? 'bg-transparent text-white hover:bg-white/10'
+                                  : button.variant === 'ghostDark'
+                                    ? 'bg-transparent text-foreground hover:bg-foreground/10'
+                                    : 'bg-primary text-primary-foreground hover:bg-primary/90',
+                        ]}
+                    >
+                        {button.text}
+                    </a>
+                </div>
+            )
+        }
     </div>
 </section>
 
@@ -159,13 +162,13 @@ const paddingClass = getPaddingClass({
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabPanels = document.querySelectorAll('.tab-panel');
-        
+
         function switchTab(tabId: string) {
             // Update buttons
-            tabButtons.forEach(button => {
+            tabButtons.forEach((button) => {
                 if (button.getAttribute('data-tab') === tabId) {
                     button.classList.add('bg-primary', 'text-white', 'shadow-sm');
                     button.classList.remove('text-foreground/70', 'hover:text-foreground', 'hover:bg-background/30');
@@ -174,9 +177,9 @@ const paddingClass = getPaddingClass({
                     button.classList.add('text-foreground/70', 'hover:text-foreground', 'hover:bg-background/30');
                 }
             });
-            
+
             // Update panels
-            tabPanels.forEach(panel => {
+            tabPanels.forEach((panel) => {
                 if (panel.id === 'tab-' + tabId) {
                     panel.classList.remove('hidden');
                     panel.classList.add('block');
@@ -186,10 +189,10 @@ const paddingClass = getPaddingClass({
                 }
             });
         }
-        
+
         // Add click events
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function(this: HTMLElement) {
+        tabButtons.forEach((button) => {
+            button.addEventListener('click', function (this: HTMLElement) {
                 const tabId = this.getAttribute('data-tab');
                 if (tabId) {
                     switchTab(tabId);
