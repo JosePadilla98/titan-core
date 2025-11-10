@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/triangle.webp';
 interface Props {
     variant?: 'header' | 'footer' | 'dark';
     useLogo?: boolean;
@@ -23,7 +23,7 @@ const getLogoClass = () => {
 };
 ---
 
-<a href="/" class:list={['logo uppercase font-logo transition-colors duration-200 font-light', getLogoClass()]}>
+<a href="/" class:list={['logo transition-colors duration-200', getLogoClass()]}>
     {
         // If image is the only element in this link, its alt attribute should be a textual representation.
         // Please, use something like your company name or “Home”, not “logo.”
@@ -31,16 +31,14 @@ const getLogoClass = () => {
     }
     {
         useLogo ? (
-            <>
-                <Image src={logo} alt="Ampereon logo" class="h-8 w-auto [@media(max-width:340px)]:hidden pb-1" />
-                <span class="hidden [@media(max-width:340px)]:block">
-                    <span class="font-bold">Amp</span>ereon
-                </span>
-            </>
+            <div class="flex items-center justify-center text-base space-x-1">
+                <Image src={logo} alt="Ampereon logo" class="h-8 [@media(max-width:335px)]:h-4 w-auto" />
+                <span class:list={['font-bold text-[#1a1f3c]']}>ampereon</span>
+            </div>
         ) : (
-            <>
+            <span class="font-light uppercase font-logo">
                 <span class="font-bold">Amp</span>ereon
-            </>
+            </span>
         )
     }
 </a>
