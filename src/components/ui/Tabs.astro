@@ -106,12 +106,17 @@ const paddingClass = getPaddingClass({
                     >
                         {tab.features.map((feature, featureIndex) => (
                             <div
-                                class:list={['p-6 rounded-lg bg-background-light shadow-xl', 'flex flex-col']}
+                                class:list={['p-6 pb-8 rounded-lg bg-background-light shadow-xl', 'flex flex-col']}
                                 data-aos="fade-up"
                                 data-aos-delay={featureIndex * 100}
                             >
-                                <div class:list={['w-12 h-12 flex items-center justify-center rounded-lg mb-4']}>
-                                    <feature.icon size={24} class="text-primary" />
+                                <div
+                                    class:list={[
+                                        'w-12 h-12 flex items-center justify-center rounded-lg mb-4',
+                                        'bg-primary',
+                                    ]}
+                                >
+                                    <feature.icon size={24} class="text-white" />
                                 </div>
                                 <h3 class:list={['text-h4 mb-2', textColor]}>{feature.title}</h3>
                                 <p class:list={['text-base', textColor, 'opacity-90']}>{feature.description}</p>
