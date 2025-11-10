@@ -48,7 +48,13 @@ const paddingClass = getPaddingClass({
                 <div class="text-center mb-12 max-w-3xl mx-auto">
                     {eyebrow && <Eyebrow text={eyebrow} background={background} />}
                     {title && (
-                        <h2 class:list={[textColor]} data-aos="fade-up">
+                        <h2
+                            class:list={[
+                                'text-transparent bg-clip-text bg-gradient-to-t to-[#1a1f3c] from-[#4b6ed4]',
+                                // textColor,
+                            ]}
+                            data-aos="fade-up"
+                        >
                             {title}
                         </h2>
                     )}
