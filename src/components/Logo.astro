@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/astro.svg';
+import logo from '../assets/images/logo.png';
 interface Props {
     variant?: 'header' | 'footer' | 'dark';
 }
@@ -22,12 +22,12 @@ const getLogoClass = () => {
 };
 ---
 
-<a href="/" class:list={['logo uppercase font-logo transition-colors duration-200 font-light', getLogoClass()]}>
+<a href="/" class:list={['logo uppercase font-logo transition-colors duration-200 font-light pb-1', getLogoClass()]}>
     {
         // If image is the only element in this link, its alt attribute should be a textual representation.
         // Please, use something like your company name or “Home”, not “logo.”
         // If there is link text, leave alt empty.
     }
-    <Image src={logo} alt="" class="hidden" />
-    <span class="font-bold">Amp</span>ereon
+    <Image src={logo} alt="" class={'h-8 w-auto'} />
+    <!-- <span class="font-bold">Am]p</span>ereon -->
 </a>
