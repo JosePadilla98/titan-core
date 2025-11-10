@@ -3,7 +3,7 @@ import Eyebrow from '@components/ui/Eyebrow.astro';
 import type { Feature } from '@data/features';
 import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
 import { getBackgroundColor, getPaddingClass, getTextColor } from '@utils/styleUtils';
-import { Zap } from 'lucide-astro';
+import { Cable, SolarPanel } from 'lucide-astro';
 
 export interface Props {
     content: {
@@ -83,7 +83,7 @@ const paddingClass = getPaddingClass({
                                 ]}
                                 data-tab={tab.id}
                             >
-                                {index === 0 ? <Zap size={20} /> : <Zap size={20} />}
+                                {index === 0 ? <Cable size={20} /> : <SolarPanel size={20} />}
                                 {tab.label}
                             </button>
                         ))}

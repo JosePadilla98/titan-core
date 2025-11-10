@@ -21,7 +21,7 @@
         "@tailwindcss/vite": "^4.0.14",
         "@types/aos": "^3.0.7",
         "astro": "^5.15.3",
-        "lucide-astro": "^0.483.0",
+        "lucide-astro": "^0.553.0",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1"
     }
