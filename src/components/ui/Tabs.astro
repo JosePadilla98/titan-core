@@ -1,6 +1,7 @@
 ---
 import Eyebrow from '@components/ui/Eyebrow.astro';
 import type { Feature } from '@data/features';
+import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
 import { getBackgroundColor, getPaddingClass, getTextColor } from '@utils/styleUtils';
 import { Cable, SolarPanel } from 'lucide-astro';
@@ -51,7 +52,7 @@ const paddingClass = getPaddingClass({
                     {title && (
                         <h2
                             class:list={[
-                                'text-transparent bg-clip-text bg-gradient-to-t to-[#1a1f3c] from-[#4b6ed4]',
+                                COOL_TEXT_STYLE,
                                 // textColor,
                             ]}
                             data-aos="fade-up"
