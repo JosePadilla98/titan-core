@@ -22,9 +22,11 @@ const isCurrentPage = (link: string, hasChildren = false) => {
 };
 ---
 
-<header class="fixed top-0 z-50 w-full left-0">
+<header class="fixed top-0 z-50 w-full left-0 transition-all duration-300" id="main-header">
     <div class="site-container mx-auto px-4 mt-4">
-        <div class="flex justify-between items-center bg-white py-4 rounded-lg px-4 shadow-lg">
+        <div
+            class="flex justify-between items-center bg-white py-4 rounded-lg px-4 shadow-lg transition-all duration-300 hover:shadow-xl"
+        >
             <Logo useLogo />
             <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
                 {/* Desktop Menu */}
@@ -36,7 +38,7 @@ const isCurrentPage = (link: string, hasChildren = false) => {
                                     <a
                                         href={item.link}
                                         class:list={[
-                                            'text-small font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                            'text-small font-medium rounded-md px-2 py-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-nav-text-active hover:bg-nav-submenu-bg hover:scale-105',
                                             isCurrentPage(item.link, !!item.children)
                                                 ? 'text-nav-text-current font-semibold'
                                                 : 'text-nav-text hover:text-nav-text-hover',
@@ -109,7 +111,7 @@ const isCurrentPage = (link: string, hasChildren = false) => {
 
                 {/* Mobile Menu Panel */}
                 <div
-                    class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-primary lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto"
+                    class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-primary lg:hidden hidden opacity-0 scale-95 transform transition-all duration-300 ease-out overflow-y-auto"
                 >
                     <ul class="flex flex-col gap-4">
                         {
@@ -339,9 +341,106 @@ const isCurrentPage = (link: string, hasChildren = false) => {
             mobileMenu?.classList.remove('opacity-100', 'scale-100');
             setTimeout(() => {
                 mobileMenu?.classList.add('hidden');
-            }, 200);
+            }, 300);
             menuIcon?.classList.remove('hidden');
             closeIcon?.classList.add('hidden');
         }
     });
+
+    // Scroll behavior - shrink header on scroll
+    let lastScrollTop = 0;
+    const header = document.getElementById('main-header');
+    const headerContainer = header?.querySelector('.site-container');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 50) {
+            header?.classList.add('header-scrolled');
+            headerContainer?.classList.add('mt-2');
+            headerContainer?.classList.remove('mt-4');
+        } else {
+            header?.classList.remove('header-scrolled');
+            headerContainer?.classList.remove('mt-2');
+            headerContainer?.classList.add('mt-4');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    // Logo hover animation
+    const logo = document.querySelector('[data-logo]') as HTMLElement;
+    if (logo) {
+        logo.addEventListener('mouseenter', () => {
+            logo.style.transform = 'scale(1.05)';
+            logo.style.transition = 'transform 0.2s ease';
+        });
+
+        logo.addEventListener('mouseleave', () => {
+            logo.style.transform = 'scale(1)';
+        });
+    }
+
+    // Animate chevron icons on hover
+    document.querySelectorAll('.group').forEach((item) => {
+        const chevron = item.querySelector('svg') as SVGElement;
+        if (chevron) {
+            item.addEventListener('mouseenter', () => {
+                chevron.style.transform = 'rotate(180deg) scale(1.1)';
+                chevron.style.transition = 'transform 0.3s ease';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                chevron.style.transform = 'rotate(0deg) scale(1)';
+            });
+        }
+    });
+
+    // Enhanced focus states
+    document.querySelectorAll('a, button').forEach((element) => {
+        const htmlElement = element as HTMLElement;
+        htmlElement.addEventListener('focus', () => {
+            htmlElement.style.outline = '2px solid var(--color-primary)';
+            htmlElement.style.outlineOffset = '2px';
+        });
+
+        htmlElement.addEventListener('blur', () => {
+            htmlElement.style.outline = '';
+            htmlElement.style.outlineOffset = '';
+        });
+    });
 </script>
+
+<style>
+    /* Scroll behavior styles */
+    .header-scrolled .flex {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    /* Enhanced mobile menu animations */
+    .mobile-menu {
+        backdrop-filter: blur(10px);
+    }
+
+    /* Smooth submenu animations */
+    .submenu {
+        transform: translateY(-10px);
+    }
+
+    .submenu.visible {
+        transform: translateY(0);
+    }
+
+    /* Button hover effects */
+    .mobile-menu-button:hover .menu-icon svg,
+    .mobile-menu-button:hover .close-icon svg {
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+    }
+
+    /* Logo animation */
+    [data-logo] {
+        transition: transform 0.2s ease;
+    }
+</style>
