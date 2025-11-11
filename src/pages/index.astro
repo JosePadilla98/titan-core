@@ -6,7 +6,7 @@ import Tabs from '@components/ui/Tabs.astro';
 import { siteConfig } from '@data/config';
 import { faqLists } from '@data/faqs';
 import { electricalFeatures, photovoltaicFeatures } from '@data/features';
-import { statsLists } from '@data/stats';
+
 import Layout from '@layouts/Layout.astro';
 import { GraduationCap, User, Settings, Leaf } from 'lucide-astro';
 import heroImage from '../assets/images/home/header2.jpg';
@@ -51,26 +51,21 @@ const servicesTabs = {
 };
 
 const iconStats = {
-    title: '¿Por qué elegirnos?',
-    variant: 'icons' as const,
+    title: 'Nuestras Fortalezas',
     stats: [
         {
-            value: 0,
             label: 'Experiencia y formación técnica',
             icon: GraduationCap,
         },
         {
-            value: 0,
             label: 'Atención personalizada',
             icon: User,
         },
         {
-            value: 0,
             label: 'Instalaciones a medida',
             icon: Settings,
         },
         {
-            value: 0,
             label: 'Compromiso con la calidad y el ahorro energético',
             icon: Leaf,
         },
