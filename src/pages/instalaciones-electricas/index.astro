@@ -2,6 +2,13 @@
 import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
 import heroImage from '../../assets/images/instalaciones-electricas/header.jpg';
+import Stats from '@components/sections/Stats.astro';
+import { ShieldCheck, BadgeCheck, FileText, Clock, User } from 'lucide-astro';
+import { COOL_TEXT_STYLE } from '@utils/styleUtils';
+import image1 from '../../assets/images/home/imageSection/1.jpg';
+import image2 from '../../assets/images/home/imageSection/2.jpg';
+
+
 
 const heroContent = {
     title: 'Instalaciones Eléctricas',
@@ -13,74 +20,44 @@ const heroContent = {
 const seoTitle = 'Instalaciones Eléctricas Profesionales - Ampereon';
 const seoDescription =
     'Expertos en instalaciones eléctricas autorizados. Servicios de instalación, reformas, mantenimiento y reparación para viviendas, negocios y pequeñas industrias.';
+
+
+const iconStats = {
+    title: '¿Por qué elegir Ampereon?',
+    stats: [
+        {
+            label: 'Instaladores autorizados con más de 5 años de experiencia',
+            icon: ShieldCheck, // Instaladores autorizados y experiencia
+        },
+        {
+            label: 'Materiales certificados de primeras marcas',
+            icon: BadgeCheck, // Materiales certificados
+        },
+        {
+            label: 'Cumplimiento estricto de la normativa eléctrica',
+            icon: FileText, // Normativa eléctrica
+        },
+        {
+            label: 'Atención rápida y asesoramiento personalizado',
+            icon: User, // Atención personalizada
+        },
+    ],
+    images: {
+        image1: image1,
+        image2: image2,
+    },
+};
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
     <InnerHero content={heroContent} />
-
-    <!-- Sección: ¿Por qué elegir Ampereon? -->
-    <section class="bg-background-light py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">¿Por qué Ampereon?</h2>
-                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-                </div>
-
-                <div class="space-y-6">
-                    <p class="text-lg leading-relaxed">
-                        En Ampereon somos instaladores autorizados, habilitados para realizar todo tipo de trabajos
-                        eléctricos, tanto en viviendas como en negocios o pequeñas industrias. Nos encargamos de
-                        instalaciones nuevas, reformas, mantenimiento, reparación de averías y también de gestiones
-                        técnicas como el alta de suministro eléctrico o la firma de boletines eléctricos (certificados
-                        de instalación).
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Trabajamos con seriedad, compromiso y cercanía, adaptándonos a cada cliente y necesidad, ya sea
-                        un proyecto completo o una intervención puntual. Siempre con cumplimiento normativo, materiales
-                        de calidad y atención personalizada.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        En electricidad, no todo vale. Realizar cualquier intervención sin un instalador autorizado
-                        puede poner en riesgo tu seguridad, la de tu familia o tu negocio, además de invalidar garantías
-                        y seguros.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        En Ampereon trabajamos con la tranquilidad de estar habilitados legalmente para realizar
-                        instalaciones, reparaciones, altas de suministro y emitir boletines eléctricos, cumpliendo
-                        siempre con la normativa vigente.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Pero más allá de eso, lo que realmente nos diferencia es el trato directo y personalizado.
-                        Escuchamos a cada cliente y ofrecemos soluciones adaptadas a sus necesidades reales y a su
-                        presupuesto, sin vender de más ni prometer lo imposible.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Utilizamos materiales de calidad, trabajamos con responsabilidad y dejamos cada trabajo con su
-                        correspondiente garantía, porque entendemos que detrás de cada instalación eléctrica hay
-                        personas que confían en nosotros para que todo funcione bien y de forma segura.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Ya sea una reforma completa, una avería puntual o una nueva instalación, en Ampereon vas a
-                        encontrar un profesional que responde, te asesora y te acompaña en todo el proceso.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Sección: Servicios de electricidad -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">Servicios de electricidad</h2>
+                    <h2 class={COOL_TEXT_STYLE}>Servicios de electricidad</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
 
@@ -170,8 +147,10 @@ const seoDescription =
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
+    <Stats content={iconStats} background="dark" className="pt-24 pb-32" />
 </Layout>
 
 <style>
