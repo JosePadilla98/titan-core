@@ -47,19 +47,24 @@ const headlineColor = getHeadlineColor(background);
 const textColor = getTextColor(background);
 ---
 
-<section class:list={['relative', bgColor, paddingClass]}>
-    <div class="site-container px-4">
+<section class:list={['relative overflow-hidden', bgColor, paddingClass]}>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+    <div class="site-container px-4 relative z-10">
         {
             (title || description) && (
-                <div class="max-w-3xl mx-auto text-center mb-12">
+                <div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
                     {eyebrow && <Eyebrow text={eyebrow} background={background} />}
                     {title && (
                         <h2 data-aos="fade-up" class:list={['text-3xl font-bold mb-4', COOL_TEXT_STYLE]}>
-                            {title}
+                            <span class="">{title}</span>
                         </h2>
                     )}
                     {description && (
-                        <p data-aos="fade-up" class:list={['text-lg', textColor]}>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            class:list={['text-lg lg:text-xl leading-relaxed', textColor, 'opacity-90']}
+                        >
                             {description}
                         </p>
                     )}
@@ -77,20 +82,37 @@ const textColor = getTextColor(background);
                         class:list={['tab-panel', tabIndex === 0 ? 'block' : 'hidden']}
                         data-toggle-id="faqs"
                     >
-                        <div class="divide-y divide-gray-200">
-                            {tab.faqs.map(({ question, answer }, index) => (
-                                <Details class="py-6" data-aos="fade-up" data-aos-delay={index * 100}>
-                                    <span
-                                        slot="heading"
-                                        class="pr-8 text-xl font-semibold"
-                                        class:list={[headlineColor]}
-                                    >
-                                        {question}
-                                    </span>
-                                    <div class="overflow-hidden">
-                                        <div class:list={['pt-4 pr-8 text-small', textColor]}>{answer}</div>
-                                    </div>
-                                </Details>
+                        <div class="space-y-4">
+                            {tab.faqs.map(({ question, answer, icon }, index) => (
+                                <div
+                                    class="group relative bg-background-light/50 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <Details class="relative z-10 p-6 lg:p-8">
+                                        <div slot="heading" class="flex items-center gap-4 pr-8">
+                                            {icon && null}
+                                            <span
+                                                class="text-lg lg:text-xl font-semibold transition-colors duration-300 group-hover:text-primary flex-1"
+                                                class:list={[headlineColor]}
+                                            >
+                                                {question}
+                                            </span>
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <div
+                                                class:list={[
+                                                    'pt-4 pr-8 text-base leading-relaxed',
+                                                    textColor,
+                                                    'opacity-90',
+                                                ]}
+                                            >
+                                                {answer}
+                                            </div>
+                                        </div>
+                                    </Details>
+                                </div>
                             ))}
                         </div>
                     </div>
