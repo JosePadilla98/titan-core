@@ -1,7 +1,7 @@
 ---
 title: 'Why Page Speed is Critical for SEO Success'
 excerpt: 'Discover how website performance directly impacts your search engine rankings and user experience'
-featuredImage: './images/page-speed-seo.jpg'
+featuredImage: '/images/blog/page-speed-seo.jpg'
 publishDate: 2025-04-05
 publish: true
 categories: ['SEO', 'Web Development']
@@ -9,7 +9,7 @@ categories: ['SEO', 'Web Development']
 seo:
     title: 'Why Page Speed is Critical for SEO Success'
     description: 'Learn how website loading speed affects your search rankings, user experience, and conversion rates'
-    image: './images/page-speed-seo.jpg'
+    image: '/images/blog/page-speed-seo.jpg'
 ---
 
 ## The Speed-SEO Connection

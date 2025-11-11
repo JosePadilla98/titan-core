@@ -1,7 +1,7 @@
 ---
 title: 'How to edit blog posts in Astro'
 excerpt: 'Learn how to edit posts in Astro'
-featuredImage: './images/edit-posts.jpg'
+featuredImage: '/images/blog/edit-posts.jpg'
 publishDate: 2025-02-22
 publish: true
 categories: ['Theme Usage']
@@ -31,7 +31,7 @@ The frontmatter is the metadata section at the top of your markdown file, contai
 ```javascript
 title: 'How to edit blog posts in Astro';
 excerpt: 'Learn how to edit posts in Astro';
-featuredImage: './images/edit-posts.jpg';
+featuredImage: '/images/blog/edit-posts.jpg';
 publishDate: '2024-03-10';
 publish: true;
 categories: ['Theme Usage'];
@@ -44,7 +44,7 @@ description: 'Custom SEO Description (Optional)';
 
 For the `featuredImage`, use a relative path to the image in your content folder:
 
-- `"./images/my-image.jpg"` - Image in the blog/images folder
+- `"/images/blog/my-image.jpg"` - Image in the blog/images folder
 
 #### SEO Settings
 

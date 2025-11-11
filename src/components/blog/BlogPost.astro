@@ -2,7 +2,6 @@
 import { categories } from '../../data/categories';
 import HashtagCategory from '../ui/HashtagCategory.astro';
 import Date from '../ui/Date.astro';
-import { Image } from 'astro:assets';
 
 interface Props {
     title: string;
@@ -33,11 +32,9 @@ const validCategories = postCategories.filter((categoryName: string) =>
     >
         {
             featuredImage && (
-                <Image
-                    src={featuredImage}
+                <img
+                    src={typeof featuredImage === 'string' ? featuredImage : featuredImage.src}
                     alt=""
-                    width={600}
-                    height={338}
                     class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
             )

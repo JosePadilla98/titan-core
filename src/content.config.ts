@@ -1,5 +1,5 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, image } from 'astro:content';
 
 const legal = defineCollection({
     loader: glob({ base: './src/content/legal', pattern: '**/*.md' }),
