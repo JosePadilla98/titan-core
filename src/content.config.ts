@@ -24,6 +24,13 @@ const blog = defineCollection({
         publishDate: z.date(),
         categories: z.array(z.string()),
         publish: z.boolean().optional().default(true),
+        seo: z
+            .object({
+                title: z.string().optional(),
+                description: z.string().optional(),
+                image: z.string().optional(),
+            })
+            .optional(),
     }),
 });
 
