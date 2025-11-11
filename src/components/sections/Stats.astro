@@ -10,21 +10,18 @@ export interface Props {
         stats: Stat[];
     };
     background?: ThemeColor;
-    padding?: PaddingSize;
-    paddingTop?: PaddingSize;
-    paddingBottom?: PaddingSize;
+    className?: string;
 }
 
-const { content, background = 'base', padding, paddingTop, paddingBottom } = Astro.props;
+const { content, background = 'base', className } = Astro.props;
 
 const { title, description, stats } = content;
 
 const bgColor = getBackgroundColor(background);
 const textColor = getTextColor(background);
-const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
 ---
 
-<section class:list={['overflow-hidden', bgColor, paddingClass]}>
+<section class:list={['overflow-hidden', bgColor, className]}>
     <div class="site-container px-4">
         {
             (title || description) && (
