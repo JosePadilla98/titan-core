@@ -32,6 +32,7 @@ const { open } = Astro.props;
 <style>
     titan-details {
         display: block;
+        cursor: pointer;
     }
 
     titan-details[open] button svg.lucide-plus,
@@ -74,7 +75,7 @@ const { open } = Astro.props;
             super();
             this.$button = this.querySelector('button') as HTMLButtonElement;
             this.$content = this.querySelector('.content') as HTMLButtonElement;
-            this.$button.addEventListener('click', () => {
+            this.addEventListener('click', () => {
                 this.open = !this.open;
             });
         }
