@@ -47,9 +47,22 @@ const iconStats = {
         image2: image2,
     },
 };
+
+const FooterCta = {
+    title: '¿Necesitas una instalación eléctrica o revisión profesional?',
+    description: 'En Ampereon te ofrecemos un servicio rápido, seguro y adaptado a tus necesidades.',
+    hideCta: false,
+    button: {
+        text: 'Contactar ahora',
+        link: '/contact',
+        target: '_self',
+    },
+    postBtnDescription: '',
+};
+
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} footerCta={FooterCta}>
     <InnerHero content={heroContent} />
 
     <!-- Sección: Servicios de electricidad -->
