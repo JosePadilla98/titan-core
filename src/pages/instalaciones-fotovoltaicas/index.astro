@@ -4,6 +4,8 @@ import Layout from '@layouts/Layout.astro';
 import { Battery, FileText, Home, Plus, Wrench, Zap } from 'lucide-astro';
 import headerImage from '../../assets/images/instalaciones-fotovoltaicas/header.jpg';
 import { siteConfig } from '@data/config';
+import Hero from '@components/sections/Hero.astro';
+import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 
 // Configuración de iconos - establecer en false para ocultar todos los iconos
 const SHOW_ICONS = true;
@@ -11,7 +13,7 @@ const SHOW_ICONS = true;
 const heroContent = {
     title: 'Instalaciones solares fotovoltaicas',
     description:
-        'En Ampereon diseñamos e instalamos sistemas fotovoltaicos de autoconsumo adaptados a cada cliente, gestionando también todos los trámites necesarios como licencia de obra, certificados energéticos y legalización.',
+        'Adaptadas a cada cliente, gestionando también todos los trámites necesarios como licencia de obra, certificados energéticos y legalización.',
     backgroundImage: headerImage,
     overlayOpacity: 0.4,
     buttons: [
@@ -29,60 +31,20 @@ const seoDescription =
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <InnerHero content={heroContent} />
-
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">¿Por qué Ampereon?</h2>
-                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-                </div>
-
-                <div class="space-y-6">
-                    <p class="text-lg leading-relaxed">
-                        Las instalaciones fotovoltaicas de autoconsumo permiten generar electricidad a partir de la
-                        energía solar para utilizarla directamente en viviendas, empresas o industrias. Este tipo de
-                        sistemas ofrece una solución sostenible y eficiente para reducir la dependencia de la red
-                        eléctrica convencional, disminuir la factura de electricidad y contribuir activamente a la
-                        protección del medio ambiente. Además, gracias a la normativa actual, es posible verter el
-                        excedente de energía a la red y obtener compensaciones económicas.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Con una vida útil que supera los 25 años y un bajo coste de mantenimiento, suponen una solución
-                        energética fiable y concisa para conseguir un ahorro definitivo.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Nuestras instalaciones se adaptan a cada necesidad, ya sea con o sin baterías, conectadas a red
-                        o totalmente autónomas. Diseñamos sistemas a medida, ya sea para viviendas, empresas o
-                        comunidades, con posibilidad de almacenar energía en baterías o verter el excedente a la red.
-                        Aprovecha una energía limpia que, con una vida útil que supera los 25 años y un bajo coste de
-                        mantenimiento, suponen una solución energética fiable y concisa para conseguir un ahorro
-                        definitivo.
-                    </p>
-
-                    <p class="text-lg leading-relaxed">
-                        Con más de 5 años de experiencia en energía fotovoltaica de autoconsumo, en Ampereon ofrecemos
-                        diseño, instalación, asesoramiento y legalización de instalaciones, garantizando soluciones
-                        eficientes y seguras adaptadas a cada cliente. ¡Nos encargamos de todo! Invierte hoy y empieza a
-                        ahorrar desde el primer día.
-                    </p>
-                </div>
-            </div>
+    <Hero content={heroContent} />
+    <section class="pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class={COOL_TEXT_STYLE}>
+                Expertos en instalaciones solares conectadas a red, sistemas aislados y mantenimiento fotovoltaico en
+                Sevilla y alrededores.
+            </h3>
         </div>
     </section>
 
     <!-- Sección: Energía solar (con desplegables) -->
-    <section class="py-16 bg-background-light">
+    <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">Energía solar</h2>
-                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-                </div>
-
                 <div class="space-y-4">
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
                     <details class="bg-white rounded-lg border border-primary/20">
@@ -490,6 +452,49 @@ const seoDescription =
                             </div>
                         </div>
                     </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-headline mb-4">¿Por qué Ampereon?</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        Las instalaciones fotovoltaicas de autoconsumo permiten generar electricidad a partir de la
+                        energía solar para utilizarla directamente en viviendas, empresas o industrias. Este tipo de
+                        sistemas ofrece una solución sostenible y eficiente para reducir la dependencia de la red
+                        eléctrica convencional, disminuir la factura de electricidad y contribuir activamente a la
+                        protección del medio ambiente. Además, gracias a la normativa actual, es posible verter el
+                        excedente de energía a la red y obtener compensaciones económicas.
+                    </p>
+
+                    <p class="text-lg leading-relaxed">
+                        Con una vida útil que supera los 25 años y un bajo coste de mantenimiento, suponen una solución
+                        energética fiable y concisa para conseguir un ahorro definitivo.
+                    </p>
+
+                    <p class="text-lg leading-relaxed">
+                        Nuestras instalaciones se adaptan a cada necesidad, ya sea con o sin baterías, conectadas a red
+                        o totalmente autónomas. Diseñamos sistemas a medida, ya sea para viviendas, empresas o
+                        comunidades, con posibilidad de almacenar energía en baterías o verter el excedente a la red.
+                        Aprovecha una energía limpia que, con una vida útil que supera los 25 años y un bajo coste de
+                        mantenimiento, suponen una solución energética fiable y concisa para conseguir un ahorro
+                        definitivo.
+                    </p>
+
+                    <p class="text-lg leading-relaxed">
+                        Con más de 5 años de experiencia en energía fotovoltaica de autoconsumo, en Ampereon ofrecemos
+                        diseño, instalación, asesoramiento y legalización de instalaciones, garantizando soluciones
+                        eficientes y seguras adaptadas a cada cliente. ¡Nos encargamos de todo! Invierte hoy y empieza a
+                        ahorrar desde el primer día.
+                    </p>
                 </div>
             </div>
         </div>
