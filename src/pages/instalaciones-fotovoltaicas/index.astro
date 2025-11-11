@@ -88,13 +88,28 @@ const FooterCta = {
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="space-y-4">
+                    <script is:inline>
+                        // Animación con Intersection Observer
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const items = document.querySelectorAll('.fade-in-up');
+                            const observer = new window.IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        entry.target.classList.add('animate');
+                                    }
+                                });
+                            }, { threshold: 0.2 });
+                            items.forEach(item => observer.observe(item));
+                        });
+                    </script>
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
-                    <ServiceDetails
-                        title="Instalaciones fotovoltaicas de autoconsumo conectadas a red"
-                        description="Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti."
-                        icon={Zap}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Instalaciones fotovoltaicas de autoconsumo conectadas a red"
+                            description="Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti."
+                            icon={Zap}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed mb-4">
                             Las instalaciones fotovoltaicas de autoconsumo conectadas a red permiten generar
                             electricidad a partir de la energía solar para cubrir el consumo eléctrico diario, sin
@@ -123,15 +138,17 @@ const FooterCta = {
                         <p class="text-lg leading-relaxed">
                             Ofrecemos presupuestos y diseños amoldados a las necesidades específicas.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
 
                     <!-- Desplegable 2: Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red -->
-                    <ServiceDetails
-                        title="Instalaciones fotovoltaicas de autoconsumo aisladas de la red"
-                        description="Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red."
-                        icon={Home}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Instalaciones fotovoltaicas de autoconsumo aisladas de la red"
+                            description="Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red."
+                            icon={Home}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed mb-4">
                             Las instalaciones fotovoltaicas de autoconsumo aisladas de la red eléctrica están diseñadas
                             para suministrar energía de forma totalmente independiente, sin conexión a la red
@@ -177,15 +194,17 @@ const FooterCta = {
                             Ofrecemos presupuestos personalizados y soluciones adaptadas a cada necesidad, priorizando
                             la eficiencia, el ahorro y la fiabilidad del sistema.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
 
                     <!-- Desplegable 3: Mantenimiento -->
-                    <ServiceDetails
-                        title="Mantenimiento"
-                        description="Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día."
-                        icon={Wrench}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Mantenimiento"
+                            description="Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día."
+                            icon={Wrench}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed mb-4">
                             En Ampereon ofrecemos un servicio especializado de mantenimiento para instalaciones
                             fotovoltaicas ya existentes, tanto conectadas a red como aisladas. Un buen mantenimiento es
@@ -218,15 +237,17 @@ const FooterCta = {
                             periódico, con informes detallados del estado de la instalación. Confía en profesionales
                             para que tu sistema fotovoltaico funcione como el primer día.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
 
                     <!-- Desplegable 4: Baterías y Sistemas de Respaldo -->
-                    <ServiceDetails
-                        title="Baterías y sistemas de respaldo"
-                        description="Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro."
-                        icon={Battery}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Baterías y sistemas de respaldo"
+                            description="Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro."
+                            icon={Battery}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed mb-4">
                             Ofrecemos la instalación de baterías y sistemas de respaldo (back-up) en instalaciones
                             fotovoltaicas de autoconsumo ya existentes, estén o no realizadas por nuestra empresa. Este
@@ -268,15 +289,17 @@ const FooterCta = {
                             Ofrecemos soluciones personalizadas, eficientes y escalables, adaptadas al consumo real y a
                             las expectativas de cada cliente.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
 
                     <!-- Desplegable 5: Ampliaciones -->
-                    <ServiceDetails
-                        title="Ampliaciones"
-                        description="Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro."
-                        icon={SwatchBook}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Ampliaciones"
+                            description="Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro."
+                            icon={SwatchBook}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed mb-4">
                             Si tu consumo eléctrico ha aumentado, es posible que tu instalación fotovoltaica actual ya
                             no cubra tus necesidades energéticas como antes. En estos casos, ampliar el sistema
@@ -321,20 +344,23 @@ const FooterCta = {
                             soluciones personalizadas, seguras y eficientes, garantizando compatibilidad, rendimiento y
                             cumplimiento con la normativa vigente.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
 
                     <!-- Desplegable 6: Legalización -->
-                    <ServiceDetails
-                        title="Legalización"
-                        description="¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla."
-                        icon={FileText}
-                        showIcons={SHOW_ICONS}
-                    >
+                    <div class="fade-in-up">
+                        <ServiceDetails
+                            title="Legalización"
+                            description="¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla."
+                            icon={FileText}
+                            showIcons={SHOW_ICONS}
+                        >
                         <p class="text-lg leading-relaxed">
                             Como instaladores autorizados, nos encargamos de inspeccionar, documentar y legalizar tu
                             sistema, asegurando que cumpla con la normativa vigente y funcione de forma segura y legal.
                         </p>
-                    </ServiceDetails>
+                        </ServiceDetails>
+                    </div>
                 </div>
             </div>
         </div>
