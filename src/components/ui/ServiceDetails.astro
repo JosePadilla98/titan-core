@@ -1,4 +1,6 @@
 ---
+import { Plus, Minus } from 'lucide-astro';
+
 interface Props {
     title: string;
     description: string;
@@ -24,15 +26,10 @@ const { title, description, icon: Icon, showIcons = true } = Astro.props;
                 </p>
             </div>
         </div>
-        <svg
-            class="w-6 h-6 text-primary transition-transform duration-300 group-open:rotate-180"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
+        <div class="relative flex-shrink-0 w-6 h-6">
+            <Plus class="absolute inset-0 w-6 h-6 text-primary plus" />
+            <Minus class="absolute inset-0 w-6 h-6 text-primary minus" />
+        </div>
     </summary>
     <div class="px-6 pb-6">
         <div class="pt-4 border-t border-gray-200">
@@ -40,3 +37,20 @@ const { title, description, icon: Icon, showIcons = true } = Astro.props;
         </div>
     </div>
 </details>
+
+<style>
+    .plus,
+    .minus {
+        transition: opacity 0.2s ease-out;
+    }
+
+    details[open] .plus {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    details:not([open]) .minus {
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
