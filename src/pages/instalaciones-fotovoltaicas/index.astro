@@ -88,22 +88,16 @@ const FooterCta = {
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <div class="space-y-4">
+                    <!-- Importar estilos de AOS y script -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+                    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" is:inline></script>
                     <script is:inline>
-                        // Animación con Intersection Observer
                         document.addEventListener('DOMContentLoaded', () => {
-                            const items = document.querySelectorAll('.fade-in-up');
-                            const observer = new window.IntersectionObserver((entries) => {
-                                entries.forEach(entry => {
-                                    if (entry.isIntersecting) {
-                                        entry.target.classList.add('animate');
-                                    }
-                                });
-                            }, { threshold: 0.2 });
-                            items.forEach(item => observer.observe(item));
+                            if (window.AOS) window.AOS.init();
                         });
                     </script>
                     <!-- Desplegable 1: Instalaciones Fotovoltaicas de Autoconsumo Conectadas a Red -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900">
                         <ServiceDetails
                             title="Instalaciones fotovoltaicas de autoconsumo conectadas a red"
                             description="Genera tu propia electricidad, reduce tu factura y aprovecha al máximo la energía del sol. Ahorro, eficiencia y sostenibilidad con un sistema adaptado a ti."
@@ -142,7 +136,7 @@ const FooterCta = {
                     </div>
 
                     <!-- Desplegable 2: Instalaciones Fotovoltaicas de Autoconsumo Aisladas de la Red -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
                         <ServiceDetails
                             title="Instalaciones fotovoltaicas de autoconsumo aisladas de la red"
                             description="Genera, almacena y gestiona tu propia energía de forma segura, eficiente y sostenible. Soluciones a medida para viviendas y proyectos fuera de red."
@@ -198,7 +192,7 @@ const FooterCta = {
                     </div>
 
                     <!-- Desplegable 3: Mantenimiento -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
                         <ServiceDetails
                             title="Mantenimiento"
                             description="Confía en profesionales para que tu sistema fotovoltaico funcione como el primer día."
@@ -241,7 +235,7 @@ const FooterCta = {
                     </div>
 
                     <!-- Desplegable 4: Baterías y Sistemas de Respaldo -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
                         <ServiceDetails
                             title="Baterías y sistemas de respaldo"
                             description="Aumenta tu independencia energética instalando baterías y sistemas de respaldo. Almacena excedente solar y protégete frente a cortes de suministro."
@@ -293,7 +287,7 @@ const FooterCta = {
                     </div>
 
                     <!-- Desplegable 5: Ampliaciones -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
                         <ServiceDetails
                             title="Ampliaciones"
                             description="Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro."
@@ -348,7 +342,7 @@ const FooterCta = {
                     </div>
 
                     <!-- Desplegable 6: Legalización -->
-                    <div class="fade-in-up">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="500">
                         <ServiceDetails
                             title="Legalización"
                             description="¿Tu actual instalación fotovoltaica esta sin legalizar? En Ampereon te ayudamos a ponerla en regla."

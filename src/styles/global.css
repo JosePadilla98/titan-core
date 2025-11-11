@@ -1,13 +1,4 @@
-/* Animaciones para fade-in y slide-up */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
-}
-.fade-in-up.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
+
 @import 'tailwindcss';
 
 @theme {
