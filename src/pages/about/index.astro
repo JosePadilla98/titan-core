@@ -22,10 +22,10 @@ const heroContent = {
 >
     <InnerHero content={heroContent} />
 
-    <div class="container mx-auto px-4 py-16 lg:py-24 space-y-24 lg:space-y-32">
+    <div class="container mx-auto px-4 py-16 lg:py-24 space-y-24 lg:space-y-32 overflow-hidden">
         <div data-aos="fade-up" data-aos-delay="200" class="relative">
             <div
-                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 transform rotate-1"
+                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
             <ImageSection image={image1} title="Quiénes somos">
@@ -40,7 +40,7 @@ const heroContent = {
 
         <div data-aos="fade-up" data-aos-delay="400" class="relative">
             <div
-                class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 transform -rotate-1"
+                class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:-rotate-1"
             >
             </div>
             <ImageSection image={image2} imageLeft title="Experiencia y compromiso">
@@ -60,7 +60,7 @@ const heroContent = {
 
         <div data-aos="fade-up" data-aos-delay="600" class="relative">
             <div
-                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 transform rotate-1"
+                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
             <ImageSection image={image3} title="Nuestra forma de trabajar">
