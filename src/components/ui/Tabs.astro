@@ -43,25 +43,24 @@ const paddingClass = getPaddingClass({
 });
 ---
 
-<section class:list={['relative', bgColor, paddingClass]}>
-    <div class="site-container px-4">
+<section class:list={['relative overflow-hidden', bgColor, paddingClass]}>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+    <div class="site-container px-4 relative z-10">
         {
             (title || description) && (
-                <div class="text-center mb-12 max-w-3xl mx-auto">
-                    {eyebrow && <Eyebrow text={eyebrow} background={background} />}
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    {eyebrow && <Eyebrow text={eyebrow} background={background} data-aos="fade-up" />}
                     {title && (
-                        <h2
-                            class:list={[
-                                COOL_TEXT_STYLE,
-                                // textColor,
-                            ]}
-                            data-aos="fade-up"
-                        >
-                            {title}
+                        <h2 class:list={[COOL_TEXT_STYLE, 'font-bold']} data-aos="fade-up" data-aos-delay="100">
+                            <span class="bg-clip-text text-transparent">{title}</span>
                         </h2>
                     )}
                     {description && (
-                        <p class:list={['mt-4', textColor, 'opacity-90']} data-aos="fade-up" data-aos-delay="100">
+                        <p
+                            class:list={['mt-6 text-lg lg:text-xl', textColor, 'opacity-90 leading-relaxed']}
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
                             {description}
                         </p>
                     )}
@@ -90,20 +89,43 @@ const paddingClass = getPaddingClass({
                     >
                         {tab.features.map((feature, featureIndex) => (
                             <div
-                                class:list={['p-6 pb-8 rounded-lg bg-background-light shadow-xl', 'flex flex-col']}
+                                class:list={[
+                                    'cursor-pointer group relative p-6 pb-8 rounded-2xl bg-background-light shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 flex flex-col overflow-hidden',
+                                ]}
                                 data-aos="fade-up"
-                                data-aos-delay={featureIndex * 100}
+                                data-aos-delay={featureIndex * 150 + 200}
                             >
-                                <div
-                                    class:list={[
-                                        'w-12 h-12 flex items-center justify-center rounded-lg mb-4',
-                                        'bg-primary',
-                                    ]}
-                                >
-                                    <feature.icon size={24} class="text-white" />
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div class="relative z-10">
+                                    <div class="flex justify-center mb-6 relative">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
+                                        <div
+                                            class:list={[
+                                                'relative w-14 h-14 flex items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3',
+                                                'bg-primary shadow-lg',
+                                            ]}
+                                        >
+                                            <feature.icon size={28} class="text-white drop-shadow-lg" />
+                                        </div>
+                                    </div>
+                                    <h3
+                                        class:list={[
+                                            'text-h4 mb-3 font-bold transition-colors duration-300 group-hover:text-primary',
+                                            textColor,
+                                        ]}
+                                    >
+                                        {feature.title}
+                                    </h3>
+                                    <p
+                                        class:list={[
+                                            'text-base leading-relaxed transition-opacity duration-300 group-hover:opacity-100',
+                                            textColor,
+                                            'opacity-90',
+                                        ]}
+                                    >
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <h3 class:list={['text-h4 mb-2', textColor]}>{feature.title}</h3>
-                                <p class:list={['text-base', textColor, 'opacity-90']}>{feature.description}</p>
                             </div>
                         ))}
                     </div>
@@ -113,21 +135,22 @@ const paddingClass = getPaddingClass({
 
         {
             button && (
-                <div class="text-center mt-12" data-aos="fade-up">
+                <div class="text-center mt-16 lg:mt-20" data-aos="fade-up" data-aos-delay="300">
                     <a
                         href={button.link}
                         class:list={[
-                            'inline-flex items-center px-6 py-3 rounded-lg font-medium transition-colors',
+                            'group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl',
                             button.variant === 'secondary'
                                 ? 'bg-secondary text-secondary-foreground hover:bg-secondary/90'
                                 : button.variant === 'ghostLight'
-                                  ? 'bg-transparent text-white hover:bg-white/10'
+                                  ? 'bg-transparent text-white hover:bg-white/10 border border-white/20'
                                   : button.variant === 'ghostDark'
-                                    ? 'bg-transparent text-foreground hover:bg-foreground/10'
-                                    : 'bg-primary text-primary-foreground hover:bg-primary/90',
+                                    ? 'bg-transparent text-foreground hover:bg-foreground/10 border border-foreground/20'
+                                    : 'bg-gradient-to-r from-primary to-secondary text-white hover:from-primary/90 hover:to-secondary/90',
                         ]}
                     >
-                        {button.text}
+                        <span class="relative z-10">{button.text}</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </a>
                 </div>
             )
