@@ -25,8 +25,7 @@ const { footerCta } = Astro.props;
 
 const defaultCta = {
     title: '¿Quieres dar el siguiente paso con Ampereon?',
-    description:
-        'Cuéntanos tu proyecto y te asesoraremos sin compromiso. Nuestro equipo técnico analizará tu caso y te ofrecerá la solución eléctrica o fotovoltaica más eficiente y segura.',
+    description: '',
     hideCta: false,
     hideBtn: false,
     button: {
@@ -34,7 +33,8 @@ const defaultCta = {
         link: '/contact',
         target: '_self',
     },
-    postBtnDescription: 'Instaladores eléctricos y solares en Sevilla con soluciones a medida para cada cliente.',
+    postBtnDescription:
+        'Cuéntanos tu proyecto y te asesoraremos sin compromiso. Nuestro equipo técnico analizará tu caso y te ofrecerá la solución eléctrica o fotovoltaica más eficiente y segura.',
 };
 
 const cta = { ...defaultCta };
@@ -53,13 +53,16 @@ const currentYear = new Date().getFullYear();
     <div class="site-container mx-auto px-4">
         {
             !cta.hideCta && (
-                <div class="text-center border-b border-background-light mb-12 py-small">
+                <div class="text-center border-b border-background-light mb-12 py-small pb-16 flex flex-col items-center gap-4">
                     <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">
                         {cta.title}
                     </h2>
-                    <p class="text-white mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                        {cta.description}
-                    </p>
+
+                    {cta.description !== '' ? (
+                        <p class="text-white mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            {cta.description}
+                        </p>
+                    ) : null}
 
                     {cta.hideBtn || !cta.button ? null : (
                         <Button
@@ -106,26 +109,12 @@ const currentYear = new Date().getFullYear();
             </div>
         </div>
 
-        <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
+        <div class="mt-8 flex flex-col space-y-4">
+            <div>Instaladores eléctricos y solares en Sevilla con soluciones a medida para cada cliente.</div>
             <div class="text-body-dark text-sm">
                 © {currentYear}
                 {siteConfig.companyName}. All rights reserved.
             </div>
-
-            <!-- <nav class="mt-4 md:mt-0">
-        <ul class="flex flex-wrap gap-6">
-          {legalMenu.map(item => (
-            <li>
-              <a 
-                href={item.link} 
-                class="text-sm text-body-dark hover:text-white transition-colors"
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav> -->
         </div>
     </div>
 </footer>
