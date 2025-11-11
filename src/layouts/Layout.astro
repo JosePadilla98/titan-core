@@ -84,8 +84,13 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
         <script>
             import AOS from 'aos';
             AOS.init({
-                duration: 800,
+                duration: 1000,
                 once: true,
+                offset: 80,
+                delay: 50,
+                easing: 'ease-out-cubic',
+                throttleDelay: 16,
+                startEvent: 'DOMContentLoaded',
             });
         </script>
     </body>

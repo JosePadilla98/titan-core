@@ -56,7 +56,7 @@ const textColor = getTextColor(background);
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {
                 stats.map((stat, index) => (
-                    <div class="text-center group" data-aos="fade-up" data-aos-delay={index * 150 + 200}>
+                    <div class="text-center group" data-aos="fade-up" data-aos-delay={index * 100 + 100}>
                         {stat.icon && (
                             <div class="flex justify-center mb-6 relative">
                                 <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
@@ -89,7 +89,7 @@ const textColor = getTextColor(background);
             content.images && (
                 <div class="mt-20 lg:mt-24">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                        <div class="relative group" data-aos="fade-right" data-aos-delay="600">
+                        <div class="relative group" data-aos="fade-right" data-aos-delay="400">
                             <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                             <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
                                 <img
@@ -105,7 +105,7 @@ const textColor = getTextColor(background);
                                 </div>
                             </div>
                         </div>
-                        <div class="relative group" data-aos="fade-left" data-aos-delay="800">
+                        <div class="relative group" data-aos="fade-left" data-aos-delay="500">
                             <div class="absolute -inset-2 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                             <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
                                 <img

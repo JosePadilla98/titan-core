@@ -595,6 +595,15 @@
     .cursor-pointer {
         cursor: pointer;
     }
+
+    /* Optimizaciones para animaciones AOS */
+    [data-aos] {
+        will-change: transform, opacity;
+    }
+
+    [data-aos].aos-animate {
+        will-change: auto;
+    }
 }
 
 html,
