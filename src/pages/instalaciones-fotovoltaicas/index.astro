@@ -57,9 +57,22 @@ const iconStats = {
         image2: image2,
     },
 };
+
+const FooterCta = {
+    title: '¿Quieres producir tu propia energía solar?​',
+    description: 'En Ampereon te asesoramos y gestionamos todo el proceso para que empieces a ahorrar desde el primer día.​',
+    hideCta: false,
+    button: {
+        text: 'Contactar ahora',
+        link: '/contact',
+        target: '_self',
+    },
+    postBtnDescription: '',
+};
+
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} footerCta={FooterCta}>
     <Hero content={heroContent} />
     <section class="pt-16">
         <div class="container mx-auto px-4 text-center">
