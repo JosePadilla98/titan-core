@@ -13,28 +13,24 @@ export const faqLists: Record<string, FaqList> = {
         id: 'solar',
         faqs: [
             {
-                question: '¿Cuánto tiempo tarda una instalación de placas solares?',
-                answer: 'Una instalación residencial típica de placas solares puede completarse en 2-3 días hábiles, dependiendo del tamaño del sistema y las condiciones del tejado.',
+                question: '¿Qué ventajas tiene una instalación solar de autoconsumo?',
+                answer: 'Permite reducir significativamente la factura eléctrica, aprovechar la energía solar y aumentar la independencia energética del hogar o negocio.',
             },
             {
-                question: '¿Necesito algún permiso para instalar placas solares?',
-                answer: 'Nosotros nos encargamos de toda la tramitación necesaria, incluyendo permisos municipales y la comunicación con la compañía eléctrica. Solo necesitamos tu autorización.',
+                question: '¿Qué tipo de instalaciones solares realizáis?',
+                answer: 'Diseñamos e instalamos sistemas conectados a red y aislados, adaptándonos a cada necesidad: viviendas, negocios, comunidades o entornos rurales. Principalmente en Sevilla, aunque abarcamos toda Andalucía.',
             },
             {
-                question: '¿Qué mantenimiento requieren las placas solares?',
-                answer: 'Las placas solares requieren muy poco mantenimiento. Recomendamos una limpieza anual y revisiones periódicas del inversor para garantizar el máximo rendimiento.',
+                question: '¿Tramitáis las ayudas y la legalización ante Industria?',
+                answer: 'Sí. Nos encargamos de todo el proceso administrativo, desde la solicitud de subvenciones hasta la legalización y registro de la instalación.',
             },
             {
-                question: '¿Ofrecen garantía en las instalaciones?',
-                answer: 'Sí, ofrecemos garantía de 2 años en la mano de obra y hasta 25 años en los paneles solares, dependiendo del fabricante.',
+                question: '¿Cuánto tiempo se tarda en realizar una instalación fotovoltaica?',
+                answer: 'Depende del tamaño del proyecto, pero en la mayoría de los casos la instalación completa se realiza en 1 a 3 días, más el tiempo de tramitación administrativa.',
             },
             {
-                question: '¿Puedo financiar la instalación?',
-                answer: 'Sí, trabajamos con varias entidades financieras que ofrecen planes de financiación adaptados a instalaciones de energías renovables.',
-            },
-            {
-                question: '¿Qué ahorro puedo esperar con placas solares?',
-                answer: 'Depende de tu consumo, pero la mayoría de nuestros clientes ahorran entre 50-70% en su factura eléctrica desde el primer mes.',
+                question: '¿Qué mantenimiento requiere una instalación solar?',
+                answer: 'El mantenimiento es mínimo: recomendamos una limpieza de paneles una o dos veces al año y una revisión periódica para garantizar el máximo rendimiento.',
             },
         ],
     },
@@ -42,28 +38,24 @@ export const faqLists: Record<string, FaqList> = {
         id: 'electricity',
         faqs: [
             {
-                question: '¿Cuánto cuesta una instalación eléctrica completa?',
-                answer: 'El costo depende del tamaño de la vivienda y la complejidad de la instalación. Ofrecemos presupuestos gratuitos y detallados.',
+                question: '¿Realizáis instalaciones eléctricas en viviendas y negocios?',
+                answer: 'Sí, diseñamos y ejecutamos instalaciones eléctricas tanto en viviendas particulares como en locales comerciales, oficinas e industrias. Todas nuestras instalaciones cumplen la normativa vigente y se entregan con certificado oficial.',
             },
             {
-                question: '¿Necesito permisos para reformas eléctricas?',
-                answer: 'Sí, todas las reformas eléctricas requieren permisos municipales. Nos encargamos de toda la tramitación por ti.',
+                question: '¿Podéis revisar o reparar una instalación eléctrica existente?',
+                answer: 'Por supuesto. Diagnosticamos averías, realizamos reparaciones y actualizamos instalaciones antiguas para mejorar su seguridad y eficiencia.',
             },
             {
-                question: '¿Qué incluye una instalación eléctrica?',
-                answer: 'Incluye cableado, interruptores, enchufes, iluminación, sistema de protección contra sobrecargas y certificación oficial.',
+                question: '¿Tramitáis los boletines o certificados eléctricos?',
+                answer: 'Sí. Como instaladores autorizados, emitimos boletines eléctricos (CIE) y gestionamos toda la documentación necesaria ante la compañía distribuidora.',
             },
             {
-                question: '¿Ofrecen garantía en instalaciones eléctricas?',
-                answer: 'Sí, garantizamos la instalación por 5 años y los materiales según normativa. Además, realizamos revisiones periódicas.',
+                question: '¿Ofrecéis servicio de mantenimiento eléctrico?',
+                answer: 'Sí. Realizamos mantenimientos preventivos y correctivos para comunidades, empresas y particulares, asegurando que la instalación funcione correctamente y sin riesgos.',
             },
             {
-                question: '¿Trabajan con instalaciones antiguas?',
-                answer: 'Sí, somos especialistas en renovar instalaciones eléctricas antiguas para adaptarlas a la normativa actual y mejorar la seguridad.',
-            },
-            {
-                question: '¿Cuánto tiempo dura una instalación eléctrica?',
-                answer: 'Una instalación completa puede tomar de 3-7 días hábiles, dependiendo del tamaño y complejidad del proyecto.',
+                question: '¿Atendéis urgencias o incidencias eléctricas?',
+                answer: 'Sí, ofrecemos servicio de atención rápida para incidencias eléctricas, cortes de suministro, cortocircuitos o fallos en cuadros eléctricos.',
             },
         ],
     },
