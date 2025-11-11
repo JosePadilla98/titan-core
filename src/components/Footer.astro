@@ -53,32 +53,42 @@ const currentYear = new Date().getFullYear();
     <div class="site-container mx-auto px-4">
         {
             !cta.hideCta && (
-                <div class="text-center border-b border-background-light mb-12 py-small pb-16 flex flex-col items-center gap-4">
-                    <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">
+                <div class="text-center border-b border-background-light/50 mb-16 py-small pb-20 flex flex-col items-center gap-6">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white" data-aos="fade-up">
                         {cta.title}
                     </h2>
 
                     {cta.description !== '' ? (
-                        <p class="text-white mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        <p
+                            class="text-white/90 mb-8 max-w-3xl mx-auto text-lg leading-relaxed"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                        >
                             {cta.description}
                         </p>
                     ) : null}
 
                     {cta.hideBtn || !cta.button ? null : (
-                        <Button
-                            href={cta.button.link}
-                            variant="ghostLight"
-                            size="lg"
-                            data-aos="fade-up"
-                            data-aos-delay="200"
-                            {...(cta.button.target && { target: cta.button.target })}
-                        >
-                            {cta.button.text}
-                        </Button>
+                        <div data-aos="fade-up" data-aos-delay="200">
+                            <Button
+                                href={cta.button.link}
+                                variant="ghostLight"
+                                size="lg"
+                                class="group relative overflow-hidden"
+                                {...(cta.button.target && { target: cta.button.target })}
+                            >
+                                <span class="relative z-10">{cta.button.text}</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-light/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </Button>
+                        </div>
                     )}
 
                     {cta.postBtnDescription && cta.postBtnDescription.length > 0 && (
-                        <p class="text-white mt-6" data-aos="fade-up" data-aos-delay="300">
+                        <p
+                            class="text-white/80 mt-8 max-w-2xl mx-auto text-base leading-relaxed"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                        >
                             {cta.postBtnDescription}
                         </p>
                     )}
@@ -86,19 +96,23 @@ const currentYear = new Date().getFullYear();
             )
         }
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-background-light">
-            <div class="col-span-1">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 pb-12 border-b border-background-light/30">
+            <div class="col-span-1 md:col-span-2 lg:col-span-1">
                 <Logo variant="footer" useLogo blueFont />
-                <p class="mt-4 text-white">Instalamos confianza, encendemos resultados</p>
+                <p class="mt-4 text-white/80 leading-relaxed">Instalamos confianza, encendemos resultados</p>
             </div>
 
             <div class="col-span-1">
                 <nav>
-                    <ul class="space-y-2">
+                    <h3 class="text-white font-semibold mb-4 text-lg">Enlaces</h3>
+                    <ul class="space-y-3">
                         {
                             footerMenu.map((item) => (
                                 <li>
-                                    <a href={item.link} class="text-body-dark hover:text-white transition-colors">
+                                    <a
+                                        href={item.link}
+                                        class="text-body-dark hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                                    >
                                         {item.name}
                                     </a>
                                 </li>
@@ -107,13 +121,47 @@ const currentYear = new Date().getFullYear();
                     </ul>
                 </nav>
             </div>
+
+            <div class="col-span-1 md:col-span-2 lg:col-span-2">
+                <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 border border-white/10">
+                    <h3 class="text-white font-semibold mb-3 text-lg">¿Necesitas ayuda?</h3>
+                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                        Nuestro equipo de expertos está listo para asesorarte en tu proyecto eléctrico o solar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a
+                            href={`tel:${siteConfig.Socials.Phone}`}
+                            class="text-primary hover:text-primary/80 transition-colors font-medium text-sm"
+                        >
+                            📞 {siteConfig.Socials.Phone}
+                        </a>
+                        <a
+                            href={`mailto:${siteConfig.Socials.Email}`}
+                            class="text-primary hover:text-primary/80 transition-colors font-medium text-sm"
+                        >
+                            ✉️ {siteConfig.Socials.Email}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="mt-8 flex flex-col space-y-4">
-            <div>Instaladores eléctricos y solares en Sevilla con soluciones a medida para cada cliente.</div>
-            <div class="text-body-dark text-sm">
-                © {currentYear}
-                {siteConfig.companyName}. All rights reserved.
+        <div class="mt-6">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="text-white/70 text-center lg:text-left leading-relaxed">
+                    Instaladores eléctricos y solares en Sevilla con soluciones a medida para cada cliente.
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-4 text-sm">
+                    <div class="text-body-dark">
+                        © {currentYear}
+                        {siteConfig.companyName}. All rights reserved.
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-primary">⚡</span>
+                        <span class="text-secondary">☀️</span>
+                        <span class="text-white/50 text-xs">Powered by Excellence</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
