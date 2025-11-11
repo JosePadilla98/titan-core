@@ -8,6 +8,10 @@ export interface Props {
         title?: string;
         description?: string;
         stats: Stat[];
+        images?: {
+            image1: any;
+            image2: any;
+        };
     };
     background?: ThemeColor;
     className?: string;
@@ -21,18 +25,29 @@ const bgColor = getBackgroundColor(background);
 const textColor = getTextColor(background);
 ---
 
-<section class:list={['overflow-hidden', bgColor, className]}>
-    <div class="site-container px-4">
+<section class:list={['overflow-hidden relative', bgColor, className]}>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+    <div class="site-container px-4 relative z-10">
         {
             (title || description) && (
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 lg:mb-20">
                     {title && (
-                        <h2 class:list={[textColor]} data-aos="fade-up">
-                            {title}
+                        <h2 class:list={[textColor, 'font-bold']} data-aos="fade-up">
+                            <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                                {title}
+                            </span>
                         </h2>
                     )}
                     {description && (
-                        <p class:list={['mt-4', textColor, 'opacity-90']} data-aos="fade-up" data-aos-delay="100">
+                        <p
+                            class:list={[
+                                'mt-6 text-lg lg:text-xl',
+                                textColor,
+                                'opacity-90 max-w-3xl mx-auto leading-relaxed',
+                            ]}
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                        >
                             {description}
                         </p>
                     )}
@@ -40,19 +55,77 @@ const textColor = getTextColor(background);
             )
         }
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {
                 stats.map((stat, index) => (
-                    <div class="text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <div class="text-center group" data-aos="fade-up" data-aos-delay={index * 150 + 200}>
                         {stat.icon && (
-                            <div class:list={['flex justify-center mb-4', textColor]}>
-                                <stat.icon size={48} />
+                            <div class="flex justify-center mb-6 relative">
+                                <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
+                                <div
+                                    class:list={[
+                                        'relative p-4 rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3',
+                                        textColor,
+                                        'bg-background-light/10 backdrop-blur-sm border border-white/10',
+                                    ]}
+                                >
+                                    <stat.icon size={48} class="drop-shadow-lg" />
+                                </div>
                             </div>
                         )}
-                        <p class:list={['text-lg', textColor, 'opacity-90']}>{stat.label}</p>
+                        <p
+                            class:list={[
+                                'text-lg lg:text-xl font-medium leading-relaxed transition-colors duration-300 group-hover:text-primary',
+                                textColor,
+                                'opacity-90',
+                            ]}
+                        >
+                            {stat.label}
+                        </p>
                     </div>
                 ))
             }
         </div>
+
+        {
+            content.images && (
+                <div class="mt-20 lg:mt-24">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                        <div class="relative group" data-aos="fade-right" data-aos-delay="600">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                            <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+                                <img
+                                    src={content.images.image1.src}
+                                    alt={'Instalación eléctrica'}
+                                    class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <h3 class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                        Instalaciones Eléctricas
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative group" data-aos="fade-left" data-aos-delay="800">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                            <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+                                <img
+                                    src={content.images.image2.src}
+                                    alt={'Energía solar'}
+                                    class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <h3 class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                        Energía Solar
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     </div>
 </section>

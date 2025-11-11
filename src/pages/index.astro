@@ -72,6 +72,10 @@ const iconStats = {
             icon: Leaf,
         },
     ],
+    images: {
+        image1: image1,
+        image2: image2,
+    },
 };
 
 const faqsSection = {
@@ -108,18 +112,6 @@ const FooterCta = {
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="base" />
-    <Stats content={iconStats} background="dark" className="pt-24 pb-18" />
-    <section class="bg-background-dark pb-24">
-        <div class="site-container px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 space-x-8">
-                <img
-                    src={image1.src}
-                    alt={'Instalación eléctrica'}
-                    class="w-full h-80 object-cover rounded-lg shadow-lg"
-                />
-                <img src={image2.src} alt={'Energía solar'} class="w-full h-80 object-cover rounded-lg shadow-lg" />
-            </div>
-        </div>
-    </section>
+    <Stats content={iconStats} background="dark" className="pt-24 pb-32" />
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>
