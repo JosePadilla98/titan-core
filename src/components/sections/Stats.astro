@@ -1,7 +1,7 @@
 ---
 import type { Stat } from '@data/stats';
-import { getBackgroundColor, getTextColor, getPaddingClass } from '@utils/styleUtils';
-import type { ThemeColor, PaddingSize } from '@utils/styleUtils';
+import type { ThemeColor } from '@utils/styleUtils';
+import { getBackgroundColor, getTextColor } from '@utils/styleUtils';
 
 export interface Props {
     content: {
@@ -33,9 +33,7 @@ const textColor = getTextColor(background);
                 <div class="text-center mb-16 lg:mb-20">
                     {title && (
                         <h2 class:list={[textColor, 'font-bold']} data-aos="fade-up">
-                            <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                                {title}
-                            </span>
+                            <span class="">{title}</span>
                         </h2>
                     )}
                     {description && (
@@ -92,14 +90,14 @@ const textColor = getTextColor(background);
                 <div class="mt-20 lg:mt-24">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                         <div class="relative group" data-aos="fade-right" data-aos-delay="600">
-                            <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                             <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
                                 <img
                                     src={content.images.image1.src}
                                     alt={'Instalación eléctrica'}
                                     class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <div class="absolute bottom-4 left-4 right-4">
                                     <h3 class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
                                         Instalaciones Eléctricas
@@ -108,14 +106,14 @@ const textColor = getTextColor(background);
                             </div>
                         </div>
                         <div class="relative group" data-aos="fade-left" data-aos-delay="800">
-                            <div class="absolute -inset-2 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                             <div class="relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
                                 <img
                                     src={content.images.image2.src}
                                     alt={'Energía solar'}
                                     class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <div class="absolute bottom-4 left-4 right-4">
                                     <h3 class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
                                         Energía Solar
