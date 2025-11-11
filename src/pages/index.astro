@@ -76,7 +76,18 @@ const faqsSection = {
     eyebrow: 'PREGUNTAS FRECUENTES',
     title: 'Resolvemos Tus Dudas',
     description: 'Encuentra respuestas a las preguntas más comunes sobre instalaciones eléctricas y placas solares.',
-    faqs: faqLists.main.faqs,
+    tabs: [
+        {
+            id: 'solar',
+            label: 'Energía Solar',
+            faqs: faqLists.solar.faqs,
+        },
+        {
+            id: 'electricity',
+            label: 'Instalaciones Eléctricas',
+            faqs: faqLists.electricity.faqs,
+        },
+    ],
 };
 
 const FooterCta = {

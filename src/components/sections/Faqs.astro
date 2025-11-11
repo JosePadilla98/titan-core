@@ -10,13 +10,20 @@ import {
 import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
 import Eyebrow from '@components/ui/Eyebrow.astro';
 import Details from '@components/ui/Details.astro';
+import ToggleTabs from '@components/ui/ToggleTabs.astro';
+
+export interface FaqTab {
+    id: string;
+    label: string;
+    faqs: FaqItem[];
+}
 
 export interface Props {
     content: {
         eyebrow?: string;
         title?: string;
         description?: string;
-        faqs: FaqItem[];
+        tabs: FaqTab[];
     };
     background?: ThemeColor;
     padding?: PaddingSize;
@@ -25,7 +32,7 @@ export interface Props {
 }
 
 const {
-    content: { eyebrow, title, description, faqs },
+    content: { eyebrow, title, description, tabs },
     background = 'base',
 } = Astro.props;
 
@@ -60,21 +67,35 @@ const textColor = getTextColor(background);
             )
         }
 
+        {tabs.length === 2 && <ToggleTabs tabs={tabs} id="faqs" />}
+
         <div class="max-w-3xl mx-auto">
-            <div class="divide-y divide-gray-200">
-                {
-                    faqs.map(({ question, answer }, index) => (
-                        <Details class="py-6" data-aos="fade-up" data-aos-delay={index * 100}>
-                            <span slot="heading" class="pr-8 text-xl font-semibold" class:list={[headlineColor]}>
-                                {question}
-                            </span>
-                            <div class="overflow-hidden">
-                                <div class:list={['pt-4 pr-8 text-small', textColor]}>{answer}</div>
-                            </div>
-                        </Details>
-                    ))
-                }
-            </div>
+            {
+                tabs.map((tab, tabIndex) => (
+                    <div
+                        id={`tab-faqs-${tab.id}`}
+                        class:list={['tab-panel', tabIndex === 0 ? 'block' : 'hidden']}
+                        data-toggle-id="faqs"
+                    >
+                        <div class="divide-y divide-gray-200">
+                            {tab.faqs.map(({ question, answer }, index) => (
+                                <Details class="py-6" data-aos="fade-up" data-aos-delay={index * 100}>
+                                    <span
+                                        slot="heading"
+                                        class="pr-8 text-xl font-semibold"
+                                        class:list={[headlineColor]}
+                                    >
+                                        {question}
+                                    </span>
+                                    <div class="overflow-hidden">
+                                        <div class:list={['pt-4 pr-8 text-small', textColor]}>{answer}</div>
+                                    </div>
+                                </Details>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>
