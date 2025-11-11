@@ -8,6 +8,7 @@ import { faqLists } from '@data/faqs';
 import { electricalFeatures, photovoltaicFeatures } from '@data/features';
 import { statsLists } from '@data/stats';
 import Layout from '@layouts/Layout.astro';
+import { GraduationCap, User, Settings, Leaf } from 'lucide-astro';
 import heroImage from '../assets/images/home/header2.jpg';
 
 const seoTitle = 'Instalaciones Eléctricas y Placas Solares';
@@ -49,23 +50,31 @@ const servicesTabs = {
     ],
 };
 
-const sideBySideStats = {
-    eyebrow: 'NUESTROS RESULTADOS',
-    title: 'Experiencia y Confianza',
-    description:
-        'Llevamos años proporcionando soluciones energéticas de calidad a nuestros clientes, con resultados que hablan por sí mismos.',
-    variant: 'side-by-side' as const,
-    stats: statsLists.withContent.stats,
-    content: {
-        title: '¿Por qué Elegirnos?',
-        description:
-            'Profesionales certificados, materiales de primera calidad y atención personalizada. Tu satisfacción es nuestra prioridad.',
-        // button: {
-        //     text: "Conoce Más",
-        //     link: "/contact",
-        //     variant: "primary" as const
-        // }
-    },
+const iconStats = {
+    title: '¿Por qué elegirnos?',
+    variant: 'icons' as const,
+    stats: [
+        {
+            value: 0,
+            label: 'Experiencia y formación técnica',
+            icon: GraduationCap,
+        },
+        {
+            value: 0,
+            label: 'Atención personalizada',
+            icon: User,
+        },
+        {
+            value: 0,
+            label: 'Instalaciones a medida',
+            icon: Settings,
+        },
+        {
+            value: 0,
+            label: 'Compromiso con la calidad y el ahorro energético',
+            icon: Leaf,
+        },
+    ],
 };
 
 const faqsSection = {
@@ -91,6 +100,6 @@ const FooterCta = {
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="base" />
-    <Stats content={sideBySideStats} background="dark" padding="base" />
+    <Stats content={iconStats} background="dark" padding="base" />
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>

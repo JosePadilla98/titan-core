@@ -3,6 +3,7 @@ export interface Stat {
     label: string;
     prefix?: string;
     suffix?: string;
+    icon?: any;
 }
 
 export interface StatsList {
@@ -26,7 +27,7 @@ export const statsLists: Record<string, StatsList> = {
             {
                 value: 250,
                 label: 'Instalaciones Completadas',
-                prefix: '+'
+                prefix: '+',
             },
             {
                 value: 15,
@@ -35,14 +36,14 @@ export const statsLists: Record<string, StatsList> = {
             {
                 value: 98,
                 label: 'Clientes Satisfechos',
-                suffix: '%'
+                suffix: '%',
             },
             {
                 value: 5000,
                 label: 'Paneles Instalados',
-                prefix: '+'
-            }
-        ]
+                prefix: '+',
+            },
+        ],
     },
     withContent: {
         id: 'withContent',
@@ -50,18 +51,18 @@ export const statsLists: Record<string, StatsList> = {
             {
                 value: 70,
                 label: 'Ahorro Energético',
-                suffix: '%'
+                suffix: '%',
             },
             {
                 value: 24,
                 label: 'Horas de Respuesta',
-                suffix: 'h'
+                suffix: 'h',
             },
             {
                 value: 2,
                 label: 'Días de Instalación',
-                prefix: '<'
-            }
-        ]
-    }
+                prefix: '<',
+            },
+        ],
+    },
 };
