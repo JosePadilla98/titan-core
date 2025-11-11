@@ -64,7 +64,7 @@ const isCurrentPage = (link: string, hasChildren = false) => {
                                 {item.children && (
                                     <ul
                                         class:list={[
-                                            'submenu absolute mt-2 bg-nav-submenu-bg rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
+                                            'submenu absolute mt-2 bg-nav-submenu-bg shadow-lg rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
                                             index === headerMenu.length - 1 ? 'right-0' : 'left-0',
                                         ]}
                                     >
