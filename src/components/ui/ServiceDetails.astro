@@ -11,28 +11,35 @@ interface Props {
 const { title, description, icon: Icon, showIcons = true } = Astro.props;
 ---
 
-<details class="bg-white rounded-lg border border-primary/20">
+<details
+    class="bg-white rounded-xl border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:-translate-y-1"
+>
     <summary
-        class="cursor-pointer p-6 flex flex-col justify-between items-center hover:bg-background-light transition-colors duration-300"
+        class="cursor-pointer p-6 md:p-8 flex flex-col justify-between items-center hover:bg-gradient-to-br hover:from-primary/5 hover:to-primary/10 transition-all duration-500 rounded-xl"
     >
-        {showIcons && Icon && <Icon class="size-12 my-12 text-primary flex-shrink-0 mt-1" />}
+        {showIcons && Icon && <Icon class="size-12 md:size-16 my-4 md:my-6 text-primary flex-shrink-0 mt-1 md:mt-2" />}
         <div class={'text-center'}>
             <div>
-                <h3 class="text-xl font-bold text-headline">
+                <h3 class="text-xl md:text-2xl font-bold text-headline leading-tight">
                     {title}
                 </h3>
-                <p class="text-base text-body-base mt-2">
+                <p class="text-base md:text-lg text-body-base mt-3 md:mt-4 leading-relaxed">
                     {description}
                 </p>
             </div>
         </div>
-        <div class="relative flex-shrink-0 w-6 h-6 mt-8">
-            <Plus class="absolute inset-0 w-6 h-6 text-primary plus" />
-            <Minus class="absolute inset-0 w-6 h-6 text-primary minus" />
+        <div class="relative flex-shrink-0 w-6 h-6 md:w-8 md:h-8 mt-6 md:mt-10">
+            <Plus
+                class="absolute inset-0 w-6 h-6 md:w-8 md:h-8 text-primary plus transition-all duration-300 transform hover:scale-110"
+            />
+            <Minus
+                class="absolute inset-0 w-6 h-6 md:w-8 md:h-8 text-primary minus transition-all duration-300 transform hover:scale-110"
+            />
         </div>
     </summary>
-    <div class="px-6 pb-6">
-        <div class="pt-4 border-t border-gray-200">
+    <div class="px-6 md:px-8 pb-6 md:pb-8 fade-in">
+        <div class="pt-4 md:pt-6 relative">
+            <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 to-primary/40"></div>
             <slot />
         </div>
     </div>
@@ -52,5 +59,20 @@ const { title, description, icon: Icon, showIcons = true } = Astro.props;
     details:not([open]) .minus {
         opacity: 0;
         pointer-events: none;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
