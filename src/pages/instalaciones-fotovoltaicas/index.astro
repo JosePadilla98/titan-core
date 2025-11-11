@@ -1,12 +1,11 @@
 ---
-import InnerHero from '@components/sections/InnerHero.astro';
-import Layout from '@layouts/Layout.astro';
-import { Battery, FileText, Home, Plus, Wrench, Zap } from 'lucide-astro';
-import headerImage from '../../assets/images/instalaciones-fotovoltaicas/header.jpg';
-import { siteConfig } from '@data/config';
 import Hero from '@components/sections/Hero.astro';
-import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import ServiceDetails from '@components/ui/ServiceDetails.astro';
+import { siteConfig } from '@data/config';
+import Layout from '@layouts/Layout.astro';
+import { COOL_TEXT_STYLE } from '@utils/styleUtils';
+import { Battery, FileText, Home, SwatchBook, Wrench, Zap } from 'lucide-astro';
+import headerImage from '../../assets/images/instalaciones-fotovoltaicas/header.jpg';
 
 // Configuración de iconos - establecer en false para ocultar todos los iconos
 const SHOW_ICONS = true;
@@ -233,7 +232,7 @@ const seoDescription =
                     <ServiceDetails
                         title="Ampliaciones"
                         description="Si tu instalación ya no cubre tu consumo, te ayudamos a ampliarla para maximizar tu ahorro."
-                        icon={Plus}
+                        icon={SwatchBook}
                         showIcons={SHOW_ICONS}
                     >
                         <p class="text-lg leading-relaxed mb-4">
