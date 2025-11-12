@@ -16,7 +16,7 @@ import {
     BadgeCheck,
     Workflow,
 } from 'lucide-astro';
-import poster from '../../assets/images/instalaciones-fotovoltaicas/header.webp';
+
 import webm from '../../assets/images/instalaciones-fotovoltaicas/header.webm';
 import mp4 from '../../assets/images/instalaciones-fotovoltaicas/output.mp4';
 import Stats from '@components/sections/Stats.astro';
@@ -30,7 +30,7 @@ const heroContent = {
     title: 'Instalaciones solares fotovoltaicas',
     description:
         'Adaptadas a cada cliente, gestionando también todos los trámites necesarios como licencia de obra, certificados energéticos y legalización.',
-    backgroundImage: { poster, webm, mp4 },
+    backgroundImage: { poster: '/images/postersolar.webp', webm, mp4 },
     overlayOpacity: 0.2,
     buttons: [
         {
