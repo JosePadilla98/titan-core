@@ -27,17 +27,29 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
     {
         content.backgroundImage && (
             <div class="absolute inset-0 left-0 top-0 w-full h-full overflow-hidden">
-                <Image
-                    src={content.backgroundImage}
-                    alt=""
-                    width={1920}
-                    height={1080}
-                    class="w-full h-full object-cover"
-                    quality={70}
-                    format="webp"
-                    loading="eager"
-                    decoding="async"
-                />
+                {typeof content.backgroundImage === 'string' &&
+                (content.backgroundImage.endsWith('.webm') || content.backgroundImage.endsWith('.mp4')) ? (
+                    <video
+                        src={content.backgroundImage}
+                        class="w-full h-full object-cover"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                    />
+                ) : (
+                    <Image
+                        src={content.backgroundImage}
+                        alt=""
+                        width={1920}
+                        height={1080}
+                        class="w-full h-full object-cover"
+                        quality={70}
+                        format="webp"
+                        loading="eager"
+                        decoding="async"
+                    />
+                )}
                 <div
                     class="hero-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
                     style={`opacity: ${opacity};`}
