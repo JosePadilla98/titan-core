@@ -13,7 +13,7 @@ export interface Props {
             id: string;
             label: string;
             icon: any;
-            content: string;
+            content: any;
         }[];
         button?: {
             text: string;
@@ -106,7 +106,7 @@ const paddingClass = getPaddingClass({
                         data-toggle-id="detailed-tabs"
                         data-aos="fade-up"
                     >
-                        <div set:html={tab.content} />
+                        {typeof tab.content === 'string' ? <div set:html={tab.content} /> : <tab.content />}
                     </div>
                 ))
             }
