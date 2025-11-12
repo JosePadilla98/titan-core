@@ -1,8 +1,9 @@
 ---
+import { Sun, Battery, Shield, DollarSign, Shuffle, TrendingUp } from 'lucide-astro';
 ---
 
-<h4 class="text-xl font-bold text-primary mb-2">Baterías y sistemas de respaldo</h4>
-<p class="text-lg leading-relaxed mb-4">
+<h4 class="text-xl font-bold text-primary mb-4">Baterías y sistemas de respaldo</h4>
+<p class="text-lg leading-relaxed mb-6">
     Instalamos <span class="font-semibold text-primary"
         >baterías y sistemas de respaldo (back-up)</span
     > en instalaciones fotovoltaicas de autoconsumo ya existentes, estén o no realizadas por
@@ -11,30 +12,40 @@
     >, almacenar el excedente de producción y disponer de energía en momentos de baja
     generación o ante cortes de suministro.
 </p>
-<div class="bg-gray-50 border-l-4 border-primary p-3 mb-4">
+<div class="bg-gray-50 border-l-4 border-primary p-4 mb-6">
     <span class="font-semibold text-primary">¿Por qué instalar baterías?</span> Mejoran la autonomía
     energética, reducen la dependencia de la red eléctrica y maximizan el ahorro en la factura
     de luz. Los sistemas de back-up garantizan el suministro en caso de apagones, protegiendo
     los consumos esenciales y aportando mayor seguridad.
 </div>
-<h4 class="text-xl font-bold text-primary mb-2">Ventajas principales</h4>
-<ul class="list-disc pl-6 space-y-2 mb-4">
-    <li class="text-lg leading-relaxed">
-        🌞 Almacenamiento del excedente solar para uso nocturno o en días nublados
+<h4 class="text-xl font-bold text-primary mb-4">Ventajas principales</h4>
+<ul class="space-y-3 mb-6">
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Sun size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Almacenamiento del excedente solar para uso nocturno o en días nublados</span>
     </li>
-    <li class="text-lg leading-relaxed">🔋 Mayor independencia de la red eléctrica</li>
-    <li class="text-lg leading-relaxed">🛡️ Protección frente a cortes de suministro</li>
-    <li class="text-lg leading-relaxed">
-        💸 Reducción del término de energía en la factura eléctrica
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Battery size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Mayor independencia de la red eléctrica</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        🔀 Posibilidad de funcionamiento híbrido (conexión a red + batería)
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Shield size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Protección frente a cortes de suministro</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        📈 Ampliación adaptable a las necesidades del cliente
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <DollarSign size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Reducción del término de energía en la factura eléctrica</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Shuffle size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Posibilidad de funcionamiento híbrido (conexión a red + batería)</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <TrendingUp size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Ampliación adaptable a las necesidades del cliente</span>
     </li>
 </ul>
-<div class="bg-primary/10 rounded p-3 mb-2">
+<div class="bg-primary/10 rounded-lg p-4 mb-2">
     Nos encargamos de todo el proceso: <span class="font-semibold text-primary"
         >análisis técnico, diseño del sistema de almacenamiento, instalación y puesta en
         marcha</span

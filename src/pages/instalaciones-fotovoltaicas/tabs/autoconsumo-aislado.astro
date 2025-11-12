@@ -1,8 +1,9 @@
 ---
+import { Battery, DollarSign, Lightbulb, Home, Leaf, Volume2, Search, Ruler, Wrench, FileText } from 'lucide-astro';
 ---
 
-<h4 class="text-xl font-bold text-primary mb-2">¿Qué es un sistema aislado?</h4>
-<p class="text-lg leading-relaxed mb-4">
+<h4 class="text-xl font-bold text-primary mb-4">¿Qué es un sistema aislado?</h4>
+<p class="text-lg leading-relaxed mb-6">
     Las instalaciones fotovoltaicas de autoconsumo <span class="font-semibold text-primary"
         >aisladas de la red eléctrica</span
     > están diseñadas para suministrar energía de forma <span class="font-semibold"
@@ -11,37 +12,57 @@
     refugios o instalaciones en zonas rurales donde no llega el tendido eléctrico, o donde
     se busca <span class="font-semibold">autonomía energética total</span>.
 </p>
-<h4 class="text-xl font-bold text-primary mb-2">Beneficios principales</h4>
-<ul class="list-disc pl-6 space-y-2 mb-4">
-    <li class="text-lg leading-relaxed">🔋 Autonomía total frente a la red eléctrica</li>
-    <li class="text-lg leading-relaxed">
-        💸 Ahorro a largo plazo al evitar costes de acometida o ampliación de red
+<h4 class="text-xl font-bold text-primary mb-4">Beneficios principales</h4>
+<ul class="space-y-3 mb-6">
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Battery size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Autonomía total frente a la red eléctrica</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        💡 Adaptable a cualquier tipo de consumo (iluminación, electrodomésticos, bombeo,
-        etc.)
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <DollarSign size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Ahorro a largo plazo al evitar costes de acometida o ampliación de red</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        🏡 Ideal para zonas rurales, viviendas de uso esporádico o continuo, y actividades
-        agrícolas o ganaderas
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Lightbulb size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Adaptable a cualquier tipo de consumo (iluminación, electrodomésticos, bombeo, etc.)</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        🌱 Energía limpia, renovable y respetuosa con el medio ambiente
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Home size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Ideal para zonas rurales, viviendas de uso esporádico o continuo, y actividades agrícolas o ganaderas</span>
     </li>
-    <li class="text-lg leading-relaxed">🔈 Funcionamiento silencioso y sin emisiones</li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Leaf size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Energía limpia, renovable y respetuosa con el medio ambiente</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Volume2 size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Funcionamiento silencioso y sin emisiones</span>
+    </li>
 </ul>
-<div class="bg-gray-50 border-l-4 border-primary p-3 mb-4">
+<div class="bg-gray-50 border-l-4 border-primary p-4 mb-6">
     <span class="font-semibold text-primary">Estudio personalizado</span> para garantizar un
     correcto dimensionamiento y suministro estable adaptado al consumo real.
 </div>
-<h4 class="text-xl font-bold text-primary mb-2">¿Qué hacemos por ti?</h4>
-<ul class="list-disc pl-6 space-y-2 mb-4">
-    <li class="text-lg leading-relaxed">🔍 Asesoramiento técnico</li>
-    <li class="text-lg leading-relaxed">📐 Diseño a medida</li>
-    <li class="text-lg leading-relaxed">🛠️ Instalación profesional</li>
-    <li class="text-lg leading-relaxed">📄 Legalización de la instalación</li>
+<h4 class="text-xl font-bold text-primary mb-4">¿Qué hacemos por ti?</h4>
+<ul class="space-y-3 mb-6">
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Search size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Asesoramiento técnico</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Ruler size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Diseño a medida</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Wrench size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Instalación profesional</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <FileText size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Legalización de la instalación</span>
+    </li>
 </ul>
-<div class="bg-primary/10 rounded p-3 mb-2">
+<div class="bg-primary/10 rounded-lg p-4 mb-2">
     <span class="font-semibold text-primary">Soluciones personalizadas</span> y presupuestos
     adaptados a cada necesidad, priorizando eficiencia, ahorro y fiabilidad.
 </div>

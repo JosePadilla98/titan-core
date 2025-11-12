@@ -1,12 +1,18 @@
 ---
+import { AlertCircle } from 'lucide-astro';
 ---
 
-<h4 class="text-xl font-bold text-primary mb-2">Legalización de instalaciones</h4>
-<div class="bg-gray-50 border-l-4 border-primary p-3 mb-4">
-    <span class="font-semibold text-primary">¿Tu instalación está sin legalizar?</span> En Ampereon
-    te ayudamos a ponerla en regla.
+<h4 class="text-xl font-bold text-primary mb-4">Legalización de instalaciones</h4>
+<div class="bg-gray-50 border-l-4 border-primary p-4 mb-6">
+    <div class="flex items-start gap-3">
+        <AlertCircle size={20} class="text-primary mt-1 flex-shrink-0" />
+        <div>
+            <span class="font-semibold text-primary">¿Tu instalación está sin legalizar?</span> En Ampereon
+            te ayudamos a ponerla en regla.
+        </div>
+    </div>
 </div>
-<p class="text-lg leading-relaxed">
+<p class="text-lg leading-relaxed mb-6">
     Como instaladores autorizados, nos encargamos de <span
         class="font-semibold text-primary"
         >inspeccionar, documentar y legalizar tu sistema</span

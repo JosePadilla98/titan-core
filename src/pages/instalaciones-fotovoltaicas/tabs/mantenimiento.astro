@@ -1,8 +1,9 @@
 ---
+import { Zap, Shield, Clock, DollarSign, Phone } from 'lucide-astro';
 ---
 
-<h4 class="text-xl font-bold text-primary mb-2">Mantenimiento profesional</h4>
-<p class="text-lg leading-relaxed mb-4">
+<h4 class="text-xl font-bold text-primary mb-4">Mantenimiento profesional</h4>
+<p class="text-lg leading-relaxed mb-6">
     En Ampereon ofrecemos un <span class="font-semibold text-primary"
         >servicio especializado de mantenimiento</span
     > para instalaciones fotovoltaicas ya existentes, tanto conectadas a red como aisladas. Un
@@ -10,27 +11,38 @@
         >rendimiento óptimo</span
     > del sistema, alargar su vida útil y prevenir posibles averías.
 </p>
-<div class="bg-gray-50 border-l-4 border-primary p-3 mb-4">
+<div class="bg-gray-50 border-l-4 border-primary p-4 mb-6">
     <span class="font-semibold text-primary">¿Qué incluye?</span> Inspecciones técnicas, limpieza
     de paneles, revisión de conexiones, comprobación de inversores, verificación del estado de
     baterías y análisis de producción. Trabajamos con instalaciones de cualquier tamaño y tecnología,
     aunque no hayan sido instaladas por nuestra empresa.
 </div>
-<h4 class="text-xl font-bold text-primary mb-2">
+<h4 class="text-xl font-bold text-primary mb-4">
     Beneficios del mantenimiento profesional
 </h4>
-<ul class="list-disc pl-6 space-y-2 mb-4">
-    <li class="text-lg leading-relaxed">
-        ⚡ Mejora del rendimiento y eficiencia energética
+<ul class="space-y-3 mb-6">
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Zap size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Mejora del rendimiento y eficiencia energética</span>
     </li>
-    <li class="text-lg leading-relaxed">
-        🛡️ Prevención de fallos y detección temprana de incidencias
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Shield size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Prevención de fallos y detección temprana de incidencias</span>
     </li>
-    <li class="text-lg leading-relaxed">⏳ Mayor vida útil de los componentes</li>
-    <li class="text-lg leading-relaxed">💰 Ahorro a medio y largo plazo</li>
-    <li class="text-lg leading-relaxed">📞 Asesoramiento técnico continuo</li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Clock size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Mayor vida útil de los componentes</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <DollarSign size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Ahorro a medio y largo plazo</span>
+    </li>
+    <li class="text-lg leading-relaxed flex items-start gap-3">
+        <Phone size={20} class="text-primary mt-1 flex-shrink-0" />
+        <span>Asesoramiento técnico continuo</span>
+    </li>
 </ul>
-<div class="bg-primary/10 rounded p-3 mb-2">
+<div class="bg-primary/10 rounded-lg p-4 mb-2">
     Nuestro equipo técnico cualificado garantiza un servicio <span
         class="font-semibold text-primary">rápido, eficaz y adaptado</span
     > a las necesidades de cada cliente. Revisiones puntuales o planes de mantenimiento periódico,
