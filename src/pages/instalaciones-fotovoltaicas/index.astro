@@ -1,34 +1,33 @@
 ---
 import Hero from '@components/sections/Hero.astro';
-import ServiceDetails from '@components/ui/ServiceDetails.astro';
 import DetailedTabs from '@components/ui/DetailedTabs.astro';
-import AutoconsumoConectado from './tabs/autoconsumo-conectado.astro';
-import AutoconsumoAislado from './tabs/autoconsumo-aislado.astro';
-import Mantenimiento from './tabs/mantenimiento.astro';
-import BateriasRespaldo from './tabs/baterias-respaldo.astro';
-import Ampliaciones from './tabs/ampliaciones.astro';
-import Legalizacion from './tabs/legalizacion.astro';
 import { siteConfig } from '@data/config';
 import Layout from '@layouts/Layout.astro';
 import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import {
-    Battery,
-    FileText,
-    Home,
-    SwatchBook,
-    Wrench,
-    Zap,
-    GraduationCap,
-    Settings,
-    BadgeCheck,
-    Workflow,
+BadgeCheck,
+Battery,
+FileText,
+GraduationCap,
+Home,
+Settings,
+SwatchBook,
+Workflow,
+Wrench,
+Zap,
 } from 'lucide-astro';
+import Ampliaciones from './tabs/ampliaciones.astro';
+import AutoconsumoAislado from './tabs/autoconsumo-aislado.astro';
+import AutoconsumoConectado from './tabs/autoconsumo-conectado.astro';
+import BateriasRespaldo from './tabs/baterias-respaldo.astro';
+import Legalizacion from './tabs/legalizacion.astro';
+import Mantenimiento from './tabs/mantenimiento.astro';
 
-import webm from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.webm';
-import mp4 from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.mp4';
 import Stats from '@components/sections/Stats.astro';
-import image1 from '../../assets/images/home/imageSection/electricidad.webp';
 import image2 from '../../assets/images/home/imageSection/casasolar.webp';
+import image1 from '../../assets/images/home/imageSection/electricidad.webp';
+import mp4 from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.mp4';
+import webm from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.webm';
 
 // Configuración de iconos - establecer en false para ocultar todos los iconos
 const SHOW_ICONS = true;
