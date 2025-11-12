@@ -35,11 +35,6 @@ export const faqLists: Record<string, FaqList> = {
                 answer: 'Sí. Realizamos mantenimientos preventivos y correctivos para comunidades, empresas y particulares, asegurando que la instalación funcione correctamente y sin riesgos.',
                 icon: Shield,
             },
-            {
-                question: '¿Atendéis urgencias o incidencias eléctricas?',
-                answer: 'Sí, ofrecemos servicio de atención rápida para incidencias eléctricas, cortes de suministro, cortocircuitos o fallos en cuadros eléctricos.',
-                icon: Clock,
-            },
         ],
     },
     solar: {
@@ -47,7 +42,7 @@ export const faqLists: Record<string, FaqList> = {
         faqs: [
             {
                 question: '¿Qué ventajas tiene una instalación solar de autoconsumo?',
-                answer: 'Permite reducir significativamente la factura eléctrica, aprovechar la energía solar y aumentar la independencia energética del hogar o negocio.',
+                answer: 'Con un diseño solar personalizado puedes llegar a pagar cero en tu factura eléctrica. En Ampereon dimensionamos cada instalación para que produzca justo lo que necesitas y consigas la máxima independencia energética.',
                 icon: Sun,
             },
             {
