@@ -14,7 +14,9 @@ export interface Props {
         tabs: {
             id: string;
             label: string;
-            features: Feature[];
+            icon?: any;
+            features?: Feature[];
+            content?: string;
             columns?: number;
         }[];
         button?: {
@@ -27,11 +29,13 @@ export interface Props {
     padding?: PaddingSize;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
+    mode?: 'features' | 'detailed';
 }
 
 const {
     content: { eyebrow, title, description, tabs, button },
     background = 'base',
+    mode = 'features',
 } = Astro.props;
 
 const bgColor = getBackgroundColor(background);
@@ -69,7 +73,27 @@ const paddingClass = getPaddingClass({
         }
 
         {/* Tabs Navigation */}
-        {tabs.length === 2 && <ToggleTabs tabs={tabs} id="tabs" />}
+        {mode === 'features' && tabs.length > 1 && <ToggleTabs tabs={tabs} id="tabs" />}
+
+        {/* Detailed Grid */}
+        {mode === 'detailed' && (
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-12" id="detailed-tabs" data-aos="fade-up">
+                {tabs.map((tab, index) => (
+                    <button
+                        type="button"
+                        class:list={[
+                            'flex flex-col items-center p-4 rounded-2xl transition-all duration-300',
+                            tab.id === tabs[0].id ? 'bg-primary text-white shadow-lg' : 'bg-background-light text-foreground hover:bg-primary/10 hover:shadow-md',
+                        ]}
+                        data-tab={tab.id}
+                        data-toggle-id="tabs"
+                    >
+                        {tab.icon && <tab.icon size={32} class="mb-2" />}
+                        <span class="text-sm font-medium text-center leading-tight">{tab.label}</span>
+                    </button>
+                ))}
+            </div>
+        )}
 
         {/* Tab Content */}
         <div id="tab-content">
@@ -78,56 +102,63 @@ const paddingClass = getPaddingClass({
                     <div
                         id={`tab-tabs-${tab.id}`}
                         class:list={[
-                            'grid gap-8 auto-rows-fr tab-panel',
-                            tab.columns === 3
+                            mode === 'features' ? 'grid gap-8 auto-rows-fr' : '',
+                            mode === 'features' && tab.columns === 3
                                 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-                                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit',
+                                : mode === 'features'
+                                  ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit'
+                                  : '',
+                            'tab-panel',
                             index === 0 ? 'block' : 'hidden',
                         ]}
                         data-toggle-id="tabs"
                         data-aos="fade-up"
                     >
-                        {tab.features.map((feature, featureIndex) => (
-                            <div
-                                class:list={[
-                                    'cursor-pointer group relative p-6 pb-8 rounded-2xl bg-background-light shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 flex flex-col overflow-hidden',
-                                ]}
-                                data-aos="fade-up"
-                                data-aos-delay={featureIndex * 100 + 100}
-                            >
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div class="relative z-10">
-                                    <div class="flex justify-center mb-6 relative">
-                                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
-                                        <div
+                        {mode === 'features' ? (
+                            tab.features?.map((feature, featureIndex) => (
+                                <div
+                                    class:list={[
+                                        'cursor-pointer group relative p-6 pb-8 rounded-2xl bg-background-light shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 flex flex-col overflow-hidden',
+                                    ]}
+                                    data-aos="fade-up"
+                                    data-aos-delay={featureIndex * 100 + 100}
+                                >
+                                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div class="relative z-10">
+                                        <div class="flex justify-center mb-6 relative">
+                                            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
+                                            <div
+                                                class:list={[
+                                                    'relative w-14 h-14 flex items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3',
+                                                    'bg-primary shadow-lg',
+                                                ]}
+                                            >
+                                                <feature.icon size={28} class="text-white drop-shadow-lg" />
+                                            </div>
+                                        </div>
+                                        <h3
                                             class:list={[
-                                                'relative w-14 h-14 flex items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3',
-                                                'bg-primary shadow-lg',
+                                                'text-h4 mb-3 font-bold transition-colors duration-300 group-hover:text-primary',
+                                                textColor,
                                             ]}
                                         >
-                                            <feature.icon size={28} class="text-white drop-shadow-lg" />
-                                        </div>
+                                            {feature.title}
+                                        </h3>
+                                        <p
+                                            class:list={[
+                                                'text-base leading-relaxed transition-opacity duration-300 group-hover:opacity-100',
+                                                textColor,
+                                                'opacity-90',
+                                            ]}
+                                        >
+                                            {feature.description}
+                                        </p>
                                     </div>
-                                    <h3
-                                        class:list={[
-                                            'text-h4 mb-3 font-bold transition-colors duration-300 group-hover:text-primary',
-                                            textColor,
-                                        ]}
-                                    >
-                                        {feature.title}
-                                    </h3>
-                                    <p
-                                        class:list={[
-                                            'text-base leading-relaxed transition-opacity duration-300 group-hover:opacity-100',
-                                            textColor,
-                                            'opacity-90',
-                                        ]}
-                                    >
-                                        {feature.description}
-                                    </p>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                        ) : (
+                            <div set:html={tab.content} />
+                        )}
                     </div>
                 ))
             }
@@ -163,3 +194,39 @@ const paddingClass = getPaddingClass({
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const detailedButtons = document.querySelectorAll('#detailed-tabs button[data-toggle-id="tabs"]');
+        const tabPanels = document.querySelectorAll('.tab-panel[data-toggle-id="tabs"]');
+
+        function switchTab(tabId) {
+            detailedButtons.forEach((button) => {
+                if (button.getAttribute('data-tab') === tabId) {
+                    button.classList.add('bg-primary', 'text-white', 'shadow-lg');
+                    button.classList.remove('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                } else {
+                    button.classList.remove('bg-primary', 'text-white', 'shadow-lg');
+                    button.classList.add('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                }
+            });
+
+            tabPanels.forEach((panel) => {
+                if (panel.id === 'tab-tabs-' + tabId) {
+                    panel.classList.remove('hidden');
+                    panel.classList.add('block');
+                } else {
+                    panel.classList.remove('block');
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        detailedButtons.forEach((button) => {
+            button.addEventListener('click', function () {
+                const tabId = this.getAttribute('data-tab');
+                if (tabId) switchTab(tabId);
+            });
+        });
+    });
+</script>
