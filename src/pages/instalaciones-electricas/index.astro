@@ -3,7 +3,19 @@ import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
 import heroImage from '../../assets/images/instalaciones-electricas/header.jpg';
 import Stats from '@components/sections/Stats.astro';
-import { ShieldCheck, BadgeCheck, FileText, Clock, User } from 'lucide-astro';
+import {
+    ShieldCheck,
+    BadgeCheck,
+    FileText,
+    Clock,
+    User,
+    Zap,
+    Wrench,
+    Settings,
+    Lightbulb,
+    Battery,
+    Home,
+} from 'lucide-astro';
 import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import image1 from '../../assets/images/home/imageSection/1.jpg';
 import image2 from '../../assets/images/home/imageSection/2.jpg';
@@ -18,7 +30,6 @@ const heroContent = {
 const seoTitle = 'Instalaciones Eléctricas Profesionales - Ampereon';
 const seoDescription =
     'Expertos en instalaciones eléctricas autorizados. Servicios de instalación, reformas, mantenimiento y reparación para viviendas, negocios y pequeñas industrias.';
-
 
 const iconStats = {
     title: '¿Por qué elegir Ampereon?',
@@ -57,7 +68,6 @@ const FooterCta = {
     },
     postBtnDescription: '',
 };
-
 ---
 
 <Layout title={seoTitle} description={seoDescription} footerCta={FooterCta}>
@@ -65,8 +75,8 @@ const FooterCta = {
 
     <!-- Sección: Servicios de electricidad -->
     <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class={COOL_TEXT_STYLE}>Servicios de electricidad</h2>
                     <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
@@ -81,8 +91,11 @@ const FooterCta = {
                         gestionar el alta de suministro, estamos para ayudarte.
                     </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Home class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Instalaciones eléctricas completas</h3>
                             <p class="text-base leading-relaxed">
                                 Obra nueva, reformas de viviendas, locales y pequeños espacios industriales. Diseño e
@@ -90,7 +103,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Settings class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Reformas y actualizaciones eléctricas</h3>
                             <p class="text-base leading-relaxed">
                                 Actualización de instalaciones antiguas para cumplir con seguridad, eficiencia y nuevos
@@ -98,7 +114,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Wrench class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Reparación de averías eléctricas</h3>
                             <p class="text-base leading-relaxed">
                                 Atendemos cortes, fallos, derivaciones, sobrecargas y cualquier problema eléctrico, con
@@ -106,7 +125,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <FileText class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Boletines eléctricos (CIE)</h3>
                             <p class="text-base leading-relaxed">
                                 Certificados de instalación para altas, ampliaciones de potencia o modificaciones. Firma
@@ -114,7 +136,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Zap class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Alta de suministro eléctrico</h3>
                             <p class="text-base leading-relaxed">
                                 Gestión completa para nuevas conexiones con la compañía distribuidora, incluyendo
@@ -122,7 +147,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Settings class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Cuadros eléctricos y automatismos</h3>
                             <p class="text-base leading-relaxed">
                                 Montaje, mantenimiento y mejora de cuadros eléctricos, protecciones y sistemas
@@ -130,7 +158,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Lightbulb class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Iluminación interior y exterior</h3>
                             <p class="text-base leading-relaxed">
                                 Diseño e instalación de iluminación eficiente para hogares, jardines, galpones, locales
@@ -138,7 +169,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        >
+                            <Battery class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">
                                 Instalación de puntos de recarga para vehículos eléctricos
                             </h3>
@@ -148,7 +182,10 @@ const FooterCta = {
                             </p>
                         </div>
 
-                        <div class="bg-background-light p-6 rounded-lg border border-primary/20 md:col-span-2">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 md:col-span-2"
+                        >
+                            <ShieldCheck class="w-12 h-12 text-primary mb-4" />
                             <h3 class="text-xl font-bold text-headline mb-3">Mantenimiento preventivo y correctivo</h3>
                             <p class="text-base leading-relaxed">
                                 Planes de mantenimiento para viviendas, locales y comunidades. Revisiones periódicas y
@@ -158,7 +195,6 @@ const FooterCta = {
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
     <Stats content={iconStats} background="dark" className="pt-24 pb-32" />
