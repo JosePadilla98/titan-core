@@ -41,7 +41,7 @@ const paddingClass = getPaddingClass({
 });
 ---
 
-<section class:list={['relative overflow-hidden', bgColor, paddingClass]}>
+<section class:list={['relative overflow-hidden bg-white', paddingClass]}>
     <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
     <div class="site-container px-4 relative z-10">
         {
@@ -67,19 +67,28 @@ const paddingClass = getPaddingClass({
         }
 
         {/* Detailed Grid */}
-        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-12" id="detailed-tabs" data-aos="fade-up">
+        <div class="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-16" id="detailed-tabs" data-aos="fade-up">
             {tabs.map((tab, index) => (
                 <button
                     type="button"
                     class:list={[
-                        'flex flex-col items-center p-4 rounded-2xl transition-all duration-300',
-                        tab.id === tabs[0].id ? 'bg-primary text-white shadow-lg' : 'bg-background-light text-foreground hover:bg-primary/10 hover:shadow-md',
+                        'group flex flex-col items-center p-6 rounded-3xl transition-all duration-500 transform hover:scale-105 border-2',
+                        tab.id === tabs[0].id
+                            ? 'bg-primary text-white shadow-xl border-primary scale-105'
+                            : 'bg-background-light text-foreground hover:bg-primary/5 hover:shadow-lg border-transparent hover:border-primary/20',
                     ]}
                     data-tab={tab.id}
                     data-toggle-id="detailed-tabs"
                 >
-                    <tab.icon size={32} class="mb-2" />
-                    <span class="text-sm font-medium text-center leading-tight">{tab.label}</span>
+                    <div class:list={[
+                        'p-3 rounded-2xl mb-3 transition-all duration-300',
+                        tab.id === tabs[0].id
+                            ? 'bg-white/20'
+                            : 'bg-primary/10 group-hover:bg-primary/20',
+                    ]}>
+                        {tab.icon && <tab.icon size={28} class="transition-colors duration-300" />}
+                    </div>
+                    <span class="text-sm font-semibold text-center leading-tight">{tab.label}</span>
                 </button>
             ))}
         </div>
@@ -133,14 +142,14 @@ const paddingClass = getPaddingClass({
         const detailedButtons = document.querySelectorAll('#detailed-tabs button[data-toggle-id="detailed-tabs"]');
         const tabPanels = document.querySelectorAll('.tab-panel[data-toggle-id="detailed-tabs"]');
 
-        function switchTab(tabId) {
+        function switchTab(tabId: string) {
             detailedButtons.forEach((button) => {
                 if (button.getAttribute('data-tab') === tabId) {
-                    button.classList.add('bg-primary', 'text-white', 'shadow-lg');
-                    button.classList.remove('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                    button.classList.add('bg-primary', 'text-white', 'shadow-xl', 'border-primary', 'scale-105');
+                    button.classList.remove('bg-background-light', 'text-foreground', 'hover:bg-primary/5', 'hover:shadow-lg', 'border-transparent', 'hover:border-primary/20');
                 } else {
-                    button.classList.remove('bg-primary', 'text-white', 'shadow-lg');
-                    button.classList.add('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                    button.classList.remove('bg-primary', 'text-white', 'shadow-xl', 'border-primary', 'scale-105');
+                    button.classList.add('bg-background-light', 'text-foreground', 'hover:bg-primary/5', 'hover:shadow-lg', 'border-transparent', 'hover:border-primary/20');
                 }
             });
 
@@ -156,7 +165,7 @@ const paddingClass = getPaddingClass({
         }
 
         detailedButtons.forEach((button) => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function (this: HTMLButtonElement) {
                 const tabId = this.getAttribute('data-tab');
                 if (tabId) switchTab(tabId);
             });
