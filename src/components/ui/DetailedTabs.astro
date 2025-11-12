@@ -1,0 +1,165 @@
+---
+import Eyebrow from '@components/ui/Eyebrow.astro';
+import { COOL_TEXT_STYLE } from '@utils/styleUtils';
+import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
+import { getBackgroundColor, getPaddingClass, getTextColor } from '@utils/styleUtils';
+
+export interface Props {
+    content: {
+        eyebrow?: string;
+        title?: string;
+        description?: string;
+        tabs: {
+            id: string;
+            label: string;
+            icon: any;
+            content: string;
+        }[];
+        button?: {
+            text: string;
+            link: string;
+            variant?: 'primary' | 'secondary' | 'ghostLight' | 'ghostDark';
+        };
+    };
+    background?: ThemeColor;
+    padding?: PaddingSize;
+    paddingTop?: PaddingSize;
+    paddingBottom?: PaddingSize;
+}
+
+const {
+    content: { eyebrow, title, description, tabs, button },
+    background = 'base',
+} = Astro.props;
+
+const bgColor = getBackgroundColor(background);
+const textColor = getTextColor(background);
+const paddingClass = getPaddingClass({
+    padding: Astro.props.padding,
+    paddingTop: Astro.props.paddingTop,
+    paddingBottom: Astro.props.paddingBottom,
+});
+---
+
+<section class:list={['relative overflow-hidden', bgColor, paddingClass]}>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+    <div class="site-container px-4 relative z-10">
+        {
+            (title || description) && (
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    {eyebrow && <Eyebrow text={eyebrow} background={background} data-aos="fade-up" />}
+                    {title && (
+                        <h2 class:list={[COOL_TEXT_STYLE, 'font-bold']} data-aos="fade-up" data-aos-delay="100">
+                            <span class="bg-clip-text text-transparent">{title}</span>
+                        </h2>
+                    )}
+                    {description && (
+                        <p
+                            class:list={['mt-6 text-lg lg:text-xl', textColor, 'opacity-90 leading-relaxed']}
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
+                            {description}
+                        </p>
+                    )}
+                </div>
+            )
+        }
+
+        {/* Detailed Grid */}
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-12" id="detailed-tabs" data-aos="fade-up">
+            {tabs.map((tab, index) => (
+                <button
+                    type="button"
+                    class:list={[
+                        'flex flex-col items-center p-4 rounded-2xl transition-all duration-300',
+                        tab.id === tabs[0].id ? 'bg-primary text-white shadow-lg' : 'bg-background-light text-foreground hover:bg-primary/10 hover:shadow-md',
+                    ]}
+                    data-tab={tab.id}
+                    data-toggle-id="detailed-tabs"
+                >
+                    <tab.icon size={32} class="mb-2" />
+                    <span class="text-sm font-medium text-center leading-tight">{tab.label}</span>
+                </button>
+            ))}
+        </div>
+
+        {/* Tab Content */}
+        <div id="detailed-tab-content">
+            {
+                tabs.map((tab, index) => (
+                    <div
+                        id={`tab-detailed-tabs-${tab.id}`}
+                        class:list={[
+                            'tab-panel',
+                            index === 0 ? 'block' : 'hidden',
+                        ]}
+                        data-toggle-id="detailed-tabs"
+                        data-aos="fade-up"
+                    >
+                        <div set:html={tab.content} />
+                    </div>
+                ))
+            }
+        </div>
+
+        {
+            button && (
+                <div class="text-center mt-16 lg:mt-20" data-aos="fade-up" data-aos-delay="300">
+                    <a
+                        href={button.link}
+                        class:list={[
+                            'group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl',
+                            button.variant === 'secondary'
+                                ? 'bg-secondary text-secondary-foreground hover:bg-secondary/90'
+                                : button.variant === 'ghostLight'
+                                  ? 'bg-transparent text-white hover:bg-white/10 border border-white/20'
+                                  : button.variant === 'ghostDark'
+                                    ? 'bg-transparent text-foreground hover:bg-foreground/10 border border-foreground/20'
+                                    : 'bg-gradient-to-r from-primary to-secondary text-white hover:from-primary/90 hover:to-secondary/90',
+                        ]}
+                    >
+                        <span class="relative z-10">{button.text}</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </a>
+                </div>
+            )
+        }
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const detailedButtons = document.querySelectorAll('#detailed-tabs button[data-toggle-id="detailed-tabs"]');
+        const tabPanels = document.querySelectorAll('.tab-panel[data-toggle-id="detailed-tabs"]');
+
+        function switchTab(tabId) {
+            detailedButtons.forEach((button) => {
+                if (button.getAttribute('data-tab') === tabId) {
+                    button.classList.add('bg-primary', 'text-white', 'shadow-lg');
+                    button.classList.remove('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                } else {
+                    button.classList.remove('bg-primary', 'text-white', 'shadow-lg');
+                    button.classList.add('bg-background-light', 'text-foreground', 'hover:bg-primary/10', 'hover:shadow-md');
+                }
+            });
+
+            tabPanels.forEach((panel) => {
+                if (panel.id === 'tab-detailed-tabs-' + tabId) {
+                    panel.classList.remove('hidden');
+                    panel.classList.add('block');
+                } else {
+                    panel.classList.remove('block');
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        detailedButtons.forEach((button) => {
+            button.addEventListener('click', function () {
+                const tabId = this.getAttribute('data-tab');
+                if (tabId) switchTab(tabId);
+            });
+        });
+    });
+</script>
