@@ -42,39 +42,6 @@ const { media, class: className } = Astro.props;
             </div>
         </div>
     </div>
-
-    <!-- Thumbnails Carousel -->
-    <div class="carousel-thumbnails">
-        <div class="carousel-thumbnails__viewport" id="thumbnails-viewport">
-            <div class="carousel-thumbnails__container">
-                {
-                    media.map((item, index) => (
-                        <div class="carousel-thumbnails__slide">
-                            <button class="carousel-thumbnails__button" type="button" data-slide={index}>
-                                {item.type === 'image' ? (
-                                    <img
-                                        src={item.src}
-                                        alt={item.alt || `Thumbnail ${index + 1}`}
-                                        class="carousel-thumbnails__image"
-                                    />
-                                ) : (
-                                    <div class="carousel-thumbnails__video-placeholder">
-                                        <svg
-                                            class="carousel-thumbnails__play-icon"
-                                            viewBox="0 0 24 24"
-                                            fill="currentColor"
-                                        >
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </div>
-                                )}
-                            </button>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -83,9 +50,8 @@ const { media, class: className } = Astro.props;
 
     function setupCarousel() {
         const mainViewport = document.getElementById('main-viewport');
-        const thumbnailsViewport = document.getElementById('thumbnails-viewport');
 
-        if (!mainViewport || !thumbnailsViewport) return;
+        if (!mainViewport) return;
 
         const mainCarousel = EmblaCarousel(
             mainViewport,
@@ -96,41 +62,8 @@ const { media, class: className } = Astro.props;
             [Autoplay({ delay: 4000 })],
         );
 
-        const thumbnailsCarousel = EmblaCarousel(thumbnailsViewport, {
-            containScroll: 'keepSnaps',
-            dragFree: true,
-            align: 'start',
-        });
-
-        // Sync thumbnails with main carousel
-        mainCarousel.on('select', () => {
-            const selectedIndex = mainCarousel.selectedScrollSnap();
-            thumbnailsCarousel.scrollTo(selectedIndex);
-
-            // Update active thumbnail
-            const thumbnailButtons = thumbnailsViewport.querySelectorAll('.carousel-thumbnails__button');
-            thumbnailButtons.forEach((button, index) => {
-                button.classList.toggle('is-selected', index === selectedIndex);
-            });
-        });
-
-        // Handle thumbnail clicks
-        const thumbnailButtons = thumbnailsViewport.querySelectorAll('.carousel-thumbnails__button');
-        thumbnailButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                mainCarousel.scrollTo(index);
-            });
-        });
-
-        // Set initial active thumbnail
-        const firstButton = thumbnailButtons[0];
-        if (firstButton) {
-            firstButton.classList.add('is-selected');
-        }
-
         return () => {
             mainCarousel.destroy();
-            thumbnailsCarousel.destroy();
         };
     }
 
@@ -162,75 +95,17 @@ const { media, class: className } = Astro.props;
     }
 
     .carousel-main__slide {
-        flex: 0 0 100%;
+        flex: 0 0 50%;
         min-width: 0;
+        margin-right: 1rem;
     }
 
     .carousel-main__image,
     .carousel-main__video {
         width: 100%;
         height: auto;
-        max-height: 500px;
+        max-height: 600px;
         object-fit: cover;
         border-radius: 0.5rem;
-    }
-
-    .carousel-thumbnails {
-        overflow: hidden;
-    }
-
-    .carousel-thumbnails__viewport {
-        overflow: hidden;
-    }
-
-    .carousel-thumbnails__container {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    .carousel-thumbnails__slide {
-        flex: 0 0 120px;
-        min-width: 0;
-    }
-
-    .carousel-thumbnails__button {
-        width: 100%;
-        height: 80px;
-        border: 2px solid transparent;
-        border-radius: 0.375rem;
-        overflow: hidden;
-        cursor: pointer;
-        transition: border-color 0.2s ease;
-        background: none;
-        padding: 0;
-    }
-
-    .carousel-thumbnails__button:hover {
-        border-color: #3b82f6;
-    }
-
-    .carousel-thumbnails__button.is-selected {
-        border-color: #2563eb;
-    }
-
-    .carousel-thumbnails__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .carousel-thumbnails__video-placeholder {
-        width: 100%;
-        height: 100%;
-        background: #f3f4f6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #6b7280;
-    }
-
-    .carousel-thumbnails__play-icon {
-        width: 24px;
-        height: 24px;
     }
 </style>
