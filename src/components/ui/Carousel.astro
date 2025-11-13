@@ -25,13 +25,13 @@ const { media, class: className } = Astro.props;
                                 <img
                                     src={item.src}
                                     alt={item.alt || `Slide ${index + 1}`}
-                                    class="carousel-main__image"
+                                    class="carousel-main__image carousel-main__media"
                                     loading={index === 0 ? 'eager' : 'lazy'}
                                 />
                             ) : (
                                 <video
                                     src={item.src}
-                                    class="carousel-main__video"
+                                    class="carousel-main__video carousel-main__media"
                                     controls
                                     preload={index === 0 ? 'metadata' : 'none'}
                                 />
@@ -53,6 +53,81 @@ const { media, class: className } = Astro.props;
 <script>
     import EmblaCarousel from 'embla-carousel';
     import Autoplay from 'embla-carousel-autoplay';
+    import type { EmblaCarouselType, EmblaEventType } from 'embla-carousel';
+
+    const TWEEN_FACTOR_BASE = 0.2;
+    let tweenFactor = 0;
+    let tweenNodes: HTMLElement[] = [];
+
+    const numberWithinRange = (number: number, min: number, max: number): number =>
+        Math.min(Math.max(number, min), max);
+
+    const setTweenNodes = (emblaApi: EmblaCarouselType): void => {
+        tweenNodes = emblaApi.slideNodes().map((slideNode) => {
+            return slideNode.querySelector('.carousel-main__media') as HTMLElement;
+        });
+    };
+
+    const setTweenFactor = (emblaApi: EmblaCarouselType): void => {
+        tweenFactor = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
+    };
+
+    const tweenScale = (emblaApi: EmblaCarouselType, eventName?: EmblaEventType): void => {
+        const engine = emblaApi.internalEngine();
+        const scrollProgress = emblaApi.scrollProgress();
+        const slidesInView = emblaApi.slidesInView();
+        const isScrollEvent = eventName === 'scroll';
+
+        emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+            let diffToTarget = scrollSnap - scrollProgress;
+            const slidesInSnap = engine.slideRegistry[snapIndex];
+
+            slidesInSnap.forEach((slideIndex) => {
+                if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+
+                if (engine.options.loop) {
+                    engine.slideLooper.loopPoints.forEach((loopItem) => {
+                        const target = loopItem.target();
+
+                        if (slideIndex === loopItem.index && target !== 0) {
+                            const sign = Math.sign(target);
+
+                            if (sign === -1) {
+                                diffToTarget = scrollSnap - (1 + scrollProgress);
+                            }
+                            if (sign === 1) {
+                                diffToTarget = scrollSnap + (1 - scrollProgress);
+                            }
+                        }
+                    });
+                }
+
+                const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor);
+                const scale = numberWithinRange(tweenValue, 0, 1);
+                const tweenNode = tweenNodes[slideIndex];
+                if (tweenNode) {
+                    tweenNode.style.transform = `scale(${scale})`;
+                }
+            });
+        });
+    };
+
+    const setupTweenScale = (emblaApi: EmblaCarouselType): (() => void) => {
+        setTweenNodes(emblaApi);
+        setTweenFactor(emblaApi);
+        tweenScale(emblaApi);
+
+        emblaApi
+            .on('reInit', setTweenNodes)
+            .on('reInit', setTweenFactor)
+            .on('reInit', tweenScale)
+            .on('scroll', tweenScale)
+            .on('slideFocus', tweenScale);
+
+        return () => {
+            tweenNodes.forEach((slide) => slide && slide.removeAttribute('style'));
+        };
+    };
 
     function setupCarousel() {
         const mainViewport = document.getElementById('main-viewport');
@@ -70,6 +145,8 @@ const { media, class: className } = Astro.props;
             [Autoplay({ delay: 4000 })],
         );
 
+        const tweenCleanup = setupTweenScale(mainCarousel);
+
         if (prevButton) {
             prevButton.addEventListener('click', () => mainCarousel.scrollPrev(), false);
         }
@@ -79,6 +156,7 @@ const { media, class: className } = Astro.props;
         }
 
         return () => {
+            tweenCleanup();
             mainCarousel.destroy();
         };
     }
