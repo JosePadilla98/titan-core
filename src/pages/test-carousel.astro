@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/ui/Carousel.astro';
+
+const media = [
+    {
+        src: '/images/postersolar.webp',
+        alt: 'Instalación solar',
+        type: 'image' as const,
+    },
+    {
+        src: 'src/assets/images/home/imageSection/electricidad.webp',
+        alt: 'Triangle',
+        type: 'image' as const,
+    },
+    {
+        src: 'src/assets/images/home/imageSection/casasolar.webp',
+        alt: 'Logo',
+        type: 'image' as const,
+    },
+];
+---
+
+<Layout title="Test Carousel">
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Test Carousel con Thumbnails</h1>
+
+        <Carousel {media} class="max-w-4xl mx-auto" />
+    </main>
+</Layout>
