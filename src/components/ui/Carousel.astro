@@ -55,7 +55,7 @@ const { media, class: className } = Astro.props;
     import Autoplay from 'embla-carousel-autoplay';
     import type { EmblaCarouselType, EmblaEventType } from 'embla-carousel';
 
-    const TWEEN_FACTOR_BASE = 0.2;
+    const TWEEN_FACTOR_BASE = 0.35;
     let tweenFactor = 0;
     let tweenNodes: HTMLElement[] = [];
 
@@ -107,6 +107,7 @@ const { media, class: className } = Astro.props;
                 const tweenNode = tweenNodes[slideIndex];
                 if (tweenNode) {
                     tweenNode.style.transform = `scale(${scale})`;
+                    // tweenNode.style.filter = `brightness(${scale})`;
                 }
             });
         });
