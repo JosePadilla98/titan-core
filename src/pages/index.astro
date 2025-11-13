@@ -74,10 +74,10 @@ const iconStats = {
             icon: Leaf,
         },
     ],
-    images: {
-        image1: image1,
-        image2: image2,
-    },
+    // images: {
+    //     image1: image1,
+    //     image2: image2,
+    // },
 };
 
 const faqsSection = {
@@ -133,7 +133,12 @@ const media = [
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="base" />
     <Stats content={iconStats} background="dark" className="pt-24 pb-32">
-        <Carousel {media} class="max-w-4xl mx-auto" />
+        <div class="mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-secondary font-light text-2xl lg:text-3xl">Nuestras instalaciones:</h3>
+            </div>
+            <Carousel {media} class="max-w-4xl mx-auto" />
+        </div>
     </Stats>
 
     <Faqs content={faqsSection} background="base" padding="base" />
