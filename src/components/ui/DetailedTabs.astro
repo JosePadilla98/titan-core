@@ -68,29 +68,31 @@ const paddingClass = getPaddingClass({
 
         {/* Detailed Grid */}
         <div class="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-16" id="detailed-tabs" data-aos="fade-up">
-            {tabs.map((tab, index) => (
-                <button
-                    type="button"
-                    class:list={[
-                        'cursor-pointer group flex flex-col items-center p-6 rounded-3xl transition-all duration-500 transform hover:scale-105 border-2',
-                        tab.id === tabs[0].id
-                            ? 'bg-primary text-white shadow-xl border-primary scale-105'
-                            : 'bg-background-light text-foreground hover:bg-primary/5 hover:shadow-lg border-transparent hover:border-primary/20',
-                    ]}
-                    data-tab={tab.id}
-                    data-toggle-id="detailed-tabs"
-                >
-                    <div class:list={[
-                        'p-3 rounded-2xl mb-3 transition-all duration-300',
-                        tab.id === tabs[0].id
-                            ? 'bg-white/20'
-                            : 'bg-primary/10 group-hover:bg-primary/20',
-                    ]}>
-                        {tab.icon && <tab.icon size={28} class="transition-colors duration-300" />}
-                    </div>
-                    <span class="text-sm font-semibold text-center leading-tight">{tab.label}</span>
-                </button>
-            ))}
+            {
+                tabs.map((tab, index) => (
+                    <button
+                        type="button"
+                        class:list={[
+                            'cursor-pointer group flex flex-col items-center p-6 rounded-3xl transition-all duration-500 transform hover:scale-105 border-2',
+                            tab.id === tabs[0].id
+                                ? 'bg-primary text-white shadow-xl border-primary scale-105'
+                                : 'bg-background-light text-foreground hover:bg-primary/5 hover:shadow-lg border-transparent hover:border-primary/20',
+                        ]}
+                        data-tab={tab.id}
+                        data-toggle-id="detailed-tabs"
+                    >
+                        <div
+                            class:list={[
+                                'p-3 rounded-2xl mb-3 transition-all duration-300',
+                                tab.id === tabs[0].id ? 'bg-white/20' : 'bg-primary/10 group-hover:bg-primary/20',
+                            ]}
+                        >
+                            {tab.icon && <tab.icon size={28} class="transition-colors duration-300" />}
+                        </div>
+                        <span class="text-sm font-semibold text-center leading-tight">{tab.label}</span>
+                    </button>
+                ))
+            }
         </div>
 
         {/* Tab Content */}
@@ -99,10 +101,7 @@ const paddingClass = getPaddingClass({
                 tabs.map((tab, index) => (
                     <div
                         id={`tab-detailed-tabs-${tab.id}`}
-                        class:list={[
-                            'tab-panel',
-                            index === 0 ? 'block' : 'hidden',
-                        ]}
+                        class:list={['tab-panel', index === 0 ? 'block' : 'hidden']}
                         data-toggle-id="detailed-tabs"
                         data-aos="fade-up"
                     >
@@ -146,10 +145,24 @@ const paddingClass = getPaddingClass({
             detailedButtons.forEach((button) => {
                 if (button.getAttribute('data-tab') === tabId) {
                     button.classList.add('bg-primary', 'text-white', 'shadow-xl', 'border-primary', 'scale-105');
-                    button.classList.remove('bg-background-light', 'text-foreground', 'hover:bg-primary/5', 'hover:shadow-lg', 'border-transparent', 'hover:border-primary/20');
+                    button.classList.remove(
+                        'bg-background-light',
+                        'text-foreground',
+                        'hover:bg-primary/5',
+                        'hover:shadow-lg',
+                        'border-transparent',
+                        'hover:border-primary/20',
+                    );
                 } else {
                     button.classList.remove('bg-primary', 'text-white', 'shadow-xl', 'border-primary', 'scale-105');
-                    button.classList.add('bg-background-light', 'text-foreground', 'hover:bg-primary/5', 'hover:shadow-lg', 'border-transparent', 'hover:border-primary/20');
+                    button.classList.add(
+                        'bg-background-light',
+                        'text-foreground',
+                        'hover:bg-primary/5',
+                        'hover:shadow-lg',
+                        'border-transparent',
+                        'hover:border-primary/20',
+                    );
                 }
             });
 
@@ -170,5 +183,12 @@ const paddingClass = getPaddingClass({
                 if (tabId) switchTab(tabId);
             });
         });
+
+        // Check for tab parameter in URL and switch to it
+        const urlParams = new URLSearchParams(window.location.search);
+        const tabParam = urlParams.get('tab');
+        if (tabParam) {
+            switchTab(tabParam);
+        }
     });
 </script>

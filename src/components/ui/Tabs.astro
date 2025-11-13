@@ -6,6 +6,27 @@ import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
 import { getBackgroundColor, getPaddingClass, getTextColor } from '@utils/styleUtils';
 
+// Mapeo de títulos de features fotovoltaicas a IDs de tabs en DetailedTabs
+const photovoltaicTabMap: Record<string, string> = {
+    'Instalaciones fotovoltaicas de autoconsumo conectadas a red': 'autoconsumo-conectado',
+    'Instalaciones fotovoltaicas de autoconsumo aisladas de la red': 'autoconsumo-aislado',
+    Mantenimiento: 'mantenimiento',
+    'Baterías y sistemas de respaldo': 'baterias-respaldo',
+    Ampliaciones: 'ampliaciones',
+    Legalización: 'legalizacion',
+};
+
+// Función para obtener el enlace basado en el tab ID y título del feature
+function getFeatureLink(tabId: string, title: string): string {
+    if (tabId === 'electrical') {
+        return '/instalaciones-electricas';
+    } else if (tabId === 'photovoltaic') {
+        const tabIdMapped = photovoltaicTabMap[title];
+        return tabIdMapped ? `/instalaciones-fotovoltaicas?tab=${tabIdMapped}` : '/instalaciones-fotovoltaicas';
+    }
+    return '#';
+}
+
 export interface Props {
     content: {
         eyebrow?: string;
@@ -88,9 +109,10 @@ const paddingClass = getPaddingClass({
                         data-aos="fade-up"
                     >
                         {tab.features.map((feature, featureIndex) => (
-                            <div
+                            <a
+                                href={getFeatureLink(tab.id, feature.title)}
                                 class:list={[
-                                    'cursor-pointer group relative p-6 pb-8 rounded-2xl bg-background-light shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 flex flex-col overflow-hidden',
+                                    'group relative p-6 pb-8 rounded-2xl bg-background-light shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 flex flex-col overflow-hidden',
                                 ]}
                                 data-aos="fade-up"
                                 data-aos-delay={featureIndex * 100 + 100}
@@ -126,7 +148,7 @@ const paddingClass = getPaddingClass({
                                         {feature.description}
                                     </p>
                                 </div>
-                            </div>
+                            </a>
                         ))}
                     </div>
                 ))
