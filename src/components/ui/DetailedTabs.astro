@@ -189,6 +189,11 @@ const paddingClass = getPaddingClass({
         const tabParam = urlParams.get('tab');
         if (tabParam) {
             switchTab(tabParam);
+            // Scroll to the DetailedTabs section
+            const detailedTabsElement = document.getElementById('detailed-tabs');
+            if (detailedTabsElement) {
+                detailedTabsElement.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 </script>
