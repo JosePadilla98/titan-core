@@ -41,6 +41,12 @@ const { media, class: className } = Astro.props;
                 }
             </div>
         </div>
+        <button class="carousel-main__button carousel-main__button--prev" id="prev-button" aria-label="Previous slide">
+            ‹
+        </button>
+        <button class="carousel-main__button carousel-main__button--next" id="next-button" aria-label="Next slide">
+            ›
+        </button>
     </div>
 </div>
 
@@ -50,6 +56,8 @@ const { media, class: className } = Astro.props;
 
     function setupCarousel() {
         const mainViewport = document.getElementById('main-viewport');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
 
         if (!mainViewport) return;
 
@@ -61,6 +69,14 @@ const { media, class: className } = Astro.props;
             },
             [Autoplay({ delay: 4000 })],
         );
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => mainCarousel.scrollPrev(), false);
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => mainCarousel.scrollNext(), false);
+        }
 
         return () => {
             mainCarousel.destroy();
@@ -84,6 +100,7 @@ const { media, class: className } = Astro.props;
 
     .carousel-main {
         overflow: hidden;
+        position: relative;
     }
 
     .carousel-main__viewport {
@@ -107,5 +124,36 @@ const { media, class: className } = Astro.props;
         max-height: 600px;
         object-fit: cover;
         border-radius: 0.5rem;
+    }
+
+    .carousel-main__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+    }
+
+    .carousel-main__button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-main__button--prev {
+        left: 10px;
+    }
+
+    .carousel-main__button--next {
+        right: 10px;
     }
 </style>
