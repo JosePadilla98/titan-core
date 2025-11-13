@@ -12,6 +12,8 @@ import image2 from '../assets/images/home/imageSection/casasolar.webp';
 import Layout from '@layouts/Layout.astro';
 import { GraduationCap, User, Settings, Leaf } from 'lucide-astro';
 import heroImage from '../assets/images/home/header2.jpg';
+import Carousel from '@components/ui/Carousel.astro';
+import { getBackgroundColor } from '@utils/styleUtils';
 
 const seoTitle = 'Instalaciones Eléctricas y Placas Solares';
 const seoDescription =
@@ -107,11 +109,32 @@ const FooterCta = {
     },
     postBtnDescription: '',
 };
+
+const media = [
+    {
+        src: '/images/postersolar.webp',
+        alt: 'Instalación solar',
+        type: 'image' as const,
+    },
+    {
+        src: 'src/assets/images/home/imageSection/electricidad.webp',
+        alt: 'Triangle',
+        type: 'image' as const,
+    },
+    {
+        src: 'src/assets/images/home/imageSection/casasolar.webp',
+        alt: 'Logo',
+        type: 'image' as const,
+    },
+];
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="base" />
-    <Stats content={iconStats} background="dark" className="pt-24 pb-32" />
+    <Stats content={iconStats} background="dark" className="pt-24 pb-32">
+        <Carousel {media} class="max-w-4xl mx-auto" />
+    </Stats>
+
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>
