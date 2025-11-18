@@ -19,10 +19,10 @@ export const POST: APIRoute = async ({ request }) => {
     // Validar campos requeridos
     if (!name || !email || !message || !terms) {
       return new Response(
-        JSON.stringify({ 
-          success: false, 
-          error: "Faltan campos requeridos" 
-        }), 
+        JSON.stringify({
+          success: false,
+          error: "Faltan campos requeridos"
+        }),
         { status: 400 }
       );
     }
@@ -36,14 +36,14 @@ export const POST: APIRoute = async ({ request }) => {
     console.log("Cómo se enteró:", hearAbout || 'No especificado');
     console.log("Mensaje:", message);
     console.log("Aceptó términos:", terms ? 'Sí' : 'No');
-    
+
     // Mostrar configuración de Resend para depuración
     console.log("🔧 Configuración de Resend:");
     console.log("RESEND_API_KEY presente:", !!import.meta.env.RESEND_API_KEY);
     console.log("RESEND_FROM:", import.meta.env.RESEND_FROM || "onboarding@resend.dev (default)");
     console.log("RESEND_TO:", import.meta.env.RESEND_TO || "tu-correo@empresa.com (default)");
-    
-    // Para testing, usar el correo verificado de Resend (ampereonelectricidad@gmail.com)
+
+    // Para testing, usar el correo verificado de Resend (contacto@ampereonsc.com)
     const toEmail = import.meta.env.RESEND_TO;
     console.log("📨 Enviando a:", toEmail);
     console.log("──────────────────────────────────────────");
@@ -85,29 +85,29 @@ export const POST: APIRoute = async ({ request }) => {
       // Mostrar resultado del envío en consola
       console.log("📤 Resultado del envío de correo:", emailResult);
       console.log("✅ Correo enviado exitosamente");
-      
+
     } catch (emailError) {
       console.error("❌ Error al enviar correo:", emailError);
       // Continuar aunque falle el envío para testing
       console.log("⚠️  Modo prueba: Mostrando datos pero no enviando correo");
     }
-    
+
     console.log("──────────────────────────────────────────");
 
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         success: true,
-        message: "Mensaje enviado correctamente" 
-      }), 
+        message: "Mensaje enviado correctamente"
+      }),
       { status: 200 }
     );
   } catch (error) {
     console.error("Error enviando correo:", error);
     return new Response(
-      JSON.stringify({ 
-        success: false, 
-        error: "Error interno del servidor" 
-      }), 
+      JSON.stringify({
+        success: false,
+        error: "Error interno del servidor"
+      }),
       { status: 500 }
     );
   }

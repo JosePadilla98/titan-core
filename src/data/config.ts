@@ -1,9 +1,9 @@
 export const siteConfig = {
     companyName: 'Instalaciones Eléctricas y Solares',
-    siteUrl: 'https://tu-empresa-electricidad.com',
+    siteUrl: 'https://www.ampereonsc.com',
     Socials: {
         WhatsApp: 'https://wa.me/34644396495',
-        Email: 'ampereonelectricidad@gmail.com',
+        Email: 'contacto@ampereonsc.com',
         Phone: '+34 644 39 64 95',
         Location: 'Dos Hermanas, Sevilla',
     },

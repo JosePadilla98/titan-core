@@ -33,7 +33,9 @@ import photovoltaic5 from '../assets/images/instalaciones-fotovoltaicas/carousel
 import photovoltaic6 from '../assets/images/instalaciones-fotovoltaicas/carousel/6.jpg';
 import photovoltaic7 from '../assets/images/instalaciones-fotovoltaicas/carousel/7.jpg';
 import photovoltaic8 from '../assets/images/instalaciones-fotovoltaicas/carousel/8.jpg';
-import { getBackgroundColor } from '@utils/styleUtils';
+
+import mp4 from '../assets/images/home/header.mp4';
+import webm from '../assets/images/home/header.webm';
 
 const seoTitle = 'Instalaciones Eléctricas y Placas Solares';
 const seoDescription =
@@ -50,8 +52,8 @@ const heroContent = {
             target: '_self',
         },
     ],
-    backgroundImage: heroImage,
-    overlayOpacity: 0.2,
+    backgroundImage: { poster: '/images/posterhome.jpg', webm, mp4 },
+    overlayOpacity: 0,
 };
 
 const servicesTabs = {
@@ -217,9 +219,9 @@ const mediaPhotovoltaic = [
 ];
 ---
 
-<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription} >
     <Hero content={heroContent} />
-    <Tabs content={servicesTabs} padding="base" background="base" />
+    <Tabs content={servicesTabs} padding="base" background="base" paddingTop='small' />
     <Stats content={iconStats} background="dark" className="pt-24 pb-32">
         <div class="mt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-10 md:mx-28">
