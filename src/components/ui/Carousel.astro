@@ -137,23 +137,47 @@ const { media, class: className } = Astro.props;
 
         if (!mainViewport) return;
 
+        const autoplay = Autoplay({ delay: 4000 });
+
         const mainCarousel = EmblaCarousel(
             mainViewport,
             {
                 loop: true,
                 align: 'center',
             },
-            [Autoplay({ delay: 4000 })],
+            [autoplay],
         );
 
         const tweenCleanup = setupTweenScale(mainCarousel);
 
+        // Pause autoplay on pointer down and resume on pointer up
+        mainCarousel.on('pointerDown', () => autoplay.stop());
+        mainCarousel.on('pointerUp', () => autoplay.play());
+
         if (prevButton) {
-            prevButton.addEventListener('click', () => mainCarousel.scrollPrev(), false);
+            prevButton.addEventListener(
+                'click',
+                () => {
+                    autoplay.stop();
+                    mainCarousel.scrollPrev();
+                    // Resume autoplay after interaction
+                    setTimeout(() => autoplay.play(), 4000);
+                },
+                false,
+            );
         }
 
         if (nextButton) {
-            nextButton.addEventListener('click', () => mainCarousel.scrollNext(), false);
+            nextButton.addEventListener(
+                'click',
+                () => {
+                    autoplay.stop();
+                    mainCarousel.scrollNext();
+                    // Resume autoplay after interaction
+                    setTimeout(() => autoplay.play(), 4000);
+                },
+                false,
+            );
         }
 
         return () => {
