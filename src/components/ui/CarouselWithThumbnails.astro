@@ -16,7 +16,7 @@ const { media, class: className } = Astro.props;
 <div class={`carousel-container ${className || ''}`}>
     <!-- Main Carousel -->
     <div class="carousel-main">
-        <div class="carousel-main__viewport" id="main-viewport">
+        <div class="carousel-main__viewport">
             <div class="carousel-main__container">
                 {
                     media.map((item, index) => (
@@ -45,7 +45,7 @@ const { media, class: className } = Astro.props;
 
     <!-- Thumbnails Carousel -->
     <div class="carousel-thumbnails">
-        <div class="carousel-thumbnails__viewport" id="thumbnails-viewport">
+        <div class="carousel-thumbnails__viewport">
             <div class="carousel-thumbnails__container">
                 {
                     media.map((item, index) => (
@@ -81,9 +81,9 @@ const { media, class: className } = Astro.props;
     import EmblaCarousel from 'embla-carousel';
     import Autoplay from 'embla-carousel-autoplay';
 
-    function setupCarousel() {
-        const mainViewport = document.getElementById('main-viewport');
-        const thumbnailsViewport = document.getElementById('thumbnails-viewport');
+    function setupCarousel(container: HTMLElement) {
+        const mainViewport = container.querySelector('.carousel-main__viewport') as HTMLElement;
+        const thumbnailsViewport = container.querySelector('.carousel-thumbnails__viewport') as HTMLElement;
 
         if (!mainViewport || !thumbnailsViewport) return;
 
@@ -109,14 +109,14 @@ const { media, class: className } = Astro.props;
 
             // Update active thumbnail
             const thumbnailButtons = thumbnailsViewport.querySelectorAll('.carousel-thumbnails__button');
-            thumbnailButtons.forEach((button, index) => {
-                button.classList.toggle('is-selected', index === selectedIndex);
+            thumbnailButtons.forEach((button: Element, index: number) => {
+                (button as HTMLElement).classList.toggle('is-selected', index === selectedIndex);
             });
         });
 
         // Handle thumbnail clicks
         const thumbnailButtons = thumbnailsViewport.querySelectorAll('.carousel-thumbnails__button');
-        thumbnailButtons.forEach((button, index) => {
+        thumbnailButtons.forEach((button: Element, index: number) => {
             button.addEventListener('click', () => {
                 mainCarousel.scrollTo(index);
             });
@@ -135,10 +135,14 @@ const { media, class: className } = Astro.props;
     }
 
     // Initialize when DOM is ready
+    function initializeCarousels() {
+        document.querySelectorAll('.carousel-container').forEach(setupCarousel);
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupCarousel);
+        document.addEventListener('DOMContentLoaded', initializeCarousels);
     } else {
-        setupCarousel();
+        initializeCarousels();
     }
 </script>
 
