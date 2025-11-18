@@ -172,13 +172,20 @@ const { media, class: className } = Astro.props;
         overflow: hidden;
     }
 
+    .carousel-main {
+        --slide-spacing: 1rem;
+        --slide-size: 100%;
+    }
+
     .carousel-main__container {
         display: flex;
+        margin-left: calc(var(--slide-spacing) * -1);
     }
 
     .carousel-main__slide {
-        flex: 0 0 100%;
+        flex: 0 0 var(--slide-size);
         min-width: 0;
+        padding-left: var(--slide-spacing);
     }
 
     .carousel-main__image,
@@ -191,6 +198,7 @@ const { media, class: className } = Astro.props;
     }
 
     .carousel-thumbnails {
+        --thumbs-slide-spacing: 0.8rem;
         overflow: hidden;
     }
 
@@ -200,12 +208,19 @@ const { media, class: className } = Astro.props;
 
     .carousel-thumbnails__container {
         display: flex;
-        gap: 0.5rem;
+        margin-left: calc(var(--thumbs-slide-spacing) * -1);
     }
 
     .carousel-thumbnails__slide {
-        flex: 0 0 120px;
+        flex: 0 0 22%;
         min-width: 0;
+        padding-left: var(--thumbs-slide-spacing);
+    }
+
+    @media (min-width: 576px) {
+        .carousel-thumbnails__slide {
+            flex: 0 0 15%;
+        }
     }
 
     .carousel-thumbnails__button {
