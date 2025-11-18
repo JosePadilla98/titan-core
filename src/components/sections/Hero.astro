@@ -13,6 +13,8 @@ interface HeroContent {
     }[];
     backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
     overlayOpacity?: number; // Value between 0 and 1
+    // When true, video will be mirrored horizontally (Tailwind class: -scale-x-100)
+    horizontalMirror?: boolean;
 }
 
 interface Props {
@@ -21,6 +23,7 @@ interface Props {
 
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
+const mirrorClass = content.horizontalMirror ? '-scale-x-100' : '';
 ---
 
 <section class="header-offset relative">
@@ -37,7 +40,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                         playsinline
                         poster={content.backgroundImage.poster}
                         id="bg-video"
-                        class="w-full h-full object-cover"
+                        class={`w-full h-full object-cover ${mirrorClass}`}
                         aria-hidden="true"
                     >
                         <source src={content.backgroundImage.webm} type="video/webm" />
@@ -46,13 +49,13 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                 ) : typeof content.backgroundImage === 'string' &&
                   (content.backgroundImage.endsWith('.webm') || content.backgroundImage.endsWith('.mp4')) ? (
                     <video
-                        src={content.backgroundImage}
-                        class="w-full h-full object-cover"
-                        autoplay
-                        loop
-                        muted
-                        playsinline
-                    />
+                                                src={content.backgroundImage}
+                                                class={`w-full h-full object-cover ${mirrorClass}`}
+                                                autoplay
+                                                loop
+                                                muted
+                                                playsinline
+                                        />
                 ) : (
                     <Image
                         src={content.backgroundImage}
