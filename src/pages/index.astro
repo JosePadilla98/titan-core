@@ -224,25 +224,31 @@ const mediaPhotovoltaic = [
     <Hero content={heroContent} />
     <Tabs content={servicesTabs} padding="base" background="base" paddingTop='small' />
     <Stats content={iconStats} background="dark" className="pt-24 pb-32">
-        <div class="mt-20">
+        <div class="mt-20" data-aos="fade-up">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-10 md:mx-28">
-                <div class="text-center">
+                <div class="text-center" data-aos="fade-in-left" data-aos-duration="800" data-aos-delay="200">
                     <div
                         class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mb-4 shadow-lg mx-auto"
+                        data-aos="zoom-in" data-aos-delay="400"
                     >
                         <Zap class="w-8 h-8 text-white" />
                     </div>
-                    <h4 class="text-white font-semibold text-xl mb-6">Instalaciones Eléctricas</h4>
-                    <CarouselWithThumbnails media={mediaElectrical} />
+                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="500">Instalaciones Eléctricas</h4>
+                    <div data-aos="fade-up" data-aos-delay="800">
+                        <CarouselWithThumbnails media={mediaElectrical} />
+                    </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center" data-aos="fade-in-right" data-aos-duration="800" data-aos-delay="250">
                     <div
                         class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 shadow-lg mx-auto"
+                        data-aos="zoom-in" data-aos-delay="600"
                     >
                         <Sun class="w-8 h-8 text-white" />
                     </div>
-                    <h4 class="text-white font-semibold text-xl mb-6">Instalaciones Fotovoltaicas</h4>
-                    <CarouselWithThumbnails media={mediaPhotovoltaic} />
+                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="550">Instalaciones Fotovoltaicas</h4>
+                    <div data-aos="fade-up" data-aos-delay="1000">
+                        <CarouselWithThumbnails media={mediaPhotovoltaic} />
+                    </div>
                 </div>
             </div>
         </div>
