@@ -10,7 +10,7 @@ import image1 from '../assets/images/home/imageSection/electricidad.webp';
 import image2 from '../assets/images/home/imageSection/casasolar.webp';
 
 import Layout from '@layouts/Layout.astro';
-import { GraduationCap, User, Settings, Leaf } from 'lucide-astro';
+import { GraduationCap, User, Settings, Leaf, Sun, Zap } from 'lucide-astro';
 import heroImage from '../assets/images/home/header2.jpg';
 import CarouselWithThumbnails from '@components/ui/CarouselWithThumbnails.astro';
 
@@ -222,16 +222,23 @@ const mediaPhotovoltaic = [
     <Tabs content={servicesTabs} padding="base" background="base" />
     <Stats content={iconStats} background="dark" className="pt-24 pb-32">
         <div class="mt-20">
-            <div class="text-center mb-12">
-                <h3 class="text-secondary font-light text-2xl lg:text-3xl">Nuestras instalaciones:</h3>
-            </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-10 md:mx-28">
-                <div>
-                    <h4 class="text-white font-semibold text-xl mb-6 text-center">Instalaciones eléctricas</h4>
+                <div class="text-center">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mb-4 shadow-lg mx-auto"
+                    >
+                        <Zap class="w-8 h-8 text-white" />
+                    </div>
+                    <h4 class="text-white font-semibold text-xl mb-6">Instalaciones Eléctricas</h4>
                     <CarouselWithThumbnails media={mediaElectrical} />
                 </div>
-                <div>
-                    <h4 class="text-white font-semibold text-xl mb-6 text-center">Instalaciones fotovoltaicas</h4>
+                <div class="text-center">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 shadow-lg mx-auto"
+                    >
+                        <Sun class="w-8 h-8 text-white" />
+                    </div>
+                    <h4 class="text-white font-semibold text-xl mb-6">Instalaciones Fotovoltaicas</h4>
                     <CarouselWithThumbnails media={mediaPhotovoltaic} />
                 </div>
             </div>
