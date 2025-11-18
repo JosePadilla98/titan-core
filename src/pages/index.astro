@@ -12,7 +12,27 @@ import image2 from '../assets/images/home/imageSection/casasolar.webp';
 import Layout from '@layouts/Layout.astro';
 import { GraduationCap, User, Settings, Leaf } from 'lucide-astro';
 import heroImage from '../assets/images/home/header2.jpg';
-import Carousel from '@components/ui/Carousel.astro';
+import CarouselWithThumbnails from '@components/ui/CarouselWithThumbnails.astro';
+
+// Electrical carousel images
+import electrical1 from '../assets/images/instalaciones-electricas/carousel/1.jpeg';
+import electrical2 from '../assets/images/instalaciones-electricas/carousel/2.jpeg';
+import electrical3 from '../assets/images/instalaciones-electricas/carousel/3.jpeg';
+import electrical4 from '../assets/images/instalaciones-electricas/carousel/4.jpeg';
+import electrical5 from '../assets/images/instalaciones-electricas/carousel/5.jpeg';
+import electrical6 from '../assets/images/instalaciones-electricas/carousel/6.jpeg';
+import electrical7 from '../assets/images/instalaciones-electricas/carousel/7.jpeg';
+import electrical8 from '../assets/images/instalaciones-electricas/carousel/8.jpeg';
+
+// Photovoltaic carousel images
+import photovoltaic1 from '../assets/images/instalaciones-fotovoltaicas/carousel/1.jpg';
+import photovoltaic2 from '../assets/images/instalaciones-fotovoltaicas/carousel/2.jpg';
+import photovoltaic3 from '../assets/images/instalaciones-fotovoltaicas/carousel/3.jpg';
+import photovoltaic4 from '../assets/images/instalaciones-fotovoltaicas/carousel/4.jpg';
+import photovoltaic5 from '../assets/images/instalaciones-fotovoltaicas/carousel/5.jpg';
+import photovoltaic6 from '../assets/images/instalaciones-fotovoltaicas/carousel/6.jpg';
+import photovoltaic7 from '../assets/images/instalaciones-fotovoltaicas/carousel/7.jpg';
+import photovoltaic8 from '../assets/images/instalaciones-fotovoltaicas/carousel/8.jpg';
 import { getBackgroundColor } from '@utils/styleUtils';
 
 const seoTitle = 'Instalaciones Eléctricas y Placas Solares';
@@ -110,25 +130,88 @@ const FooterCta = {
     postBtnDescription: '',
 };
 
-const media = [
+const mediaElectrical = [
     {
-        src: image1.src,
-        alt: 'Instalación eléctrica',
+        src: electrical1.src,
+        alt: 'Instalación eléctrica 1',
         type: 'image' as const,
     },
     {
-        src: image2.src,
-        alt: 'Instalación solar',
+        src: electrical2.src,
+        alt: 'Instalación eléctrica 2',
         type: 'image' as const,
     },
     {
-        src: image1.src,
-        alt: 'Instalación eléctrica',
+        src: electrical3.src,
+        alt: 'Instalación eléctrica 3',
         type: 'image' as const,
     },
     {
-        src: image2.src,
-        alt: 'Instalación solar',
+        src: electrical4.src,
+        alt: 'Instalación eléctrica 4',
+        type: 'image' as const,
+    },
+    {
+        src: electrical5.src,
+        alt: 'Instalación eléctrica 5',
+        type: 'image' as const,
+    },
+    {
+        src: electrical6.src,
+        alt: 'Instalación eléctrica 6',
+        type: 'image' as const,
+    },
+    {
+        src: electrical7.src,
+        alt: 'Instalación eléctrica 7',
+        type: 'image' as const,
+    },
+    {
+        src: electrical8.src,
+        alt: 'Instalación eléctrica 8',
+        type: 'image' as const,
+    },
+];
+
+const mediaPhotovoltaic = [
+    {
+        src: photovoltaic1.src,
+        alt: 'Instalación fotovoltaica 1',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic2.src,
+        alt: 'Instalación fotovoltaica 2',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic3.src,
+        alt: 'Instalación fotovoltaica 3',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic4.src,
+        alt: 'Instalación fotovoltaica 4',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic5.src,
+        alt: 'Instalación fotovoltaica 5',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic6.src,
+        alt: 'Instalación fotovoltaica 6',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic7.src,
+        alt: 'Instalación fotovoltaica 7',
+        type: 'image' as const,
+    },
+    {
+        src: photovoltaic8.src,
+        alt: 'Instalación fotovoltaica 8',
         type: 'image' as const,
     },
 ];
@@ -142,7 +225,16 @@ const media = [
             <div class="text-center mb-12">
                 <h3 class="text-secondary font-light text-2xl lg:text-3xl">Nuestras instalaciones:</h3>
             </div>
-            <Carousel {media} />
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-10 md:mx-28">
+                <div>
+                    <h4 class="text-white font-semibold text-xl mb-6 text-center">Instalaciones eléctricas</h4>
+                    <CarouselWithThumbnails media={mediaElectrical} />
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-xl mb-6 text-center">Instalaciones fotovoltaicas</h4>
+                    <CarouselWithThumbnails media={mediaPhotovoltaic} />
+                </div>
+            </div>
         </div>
     </Stats>
 
