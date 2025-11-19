@@ -1,9 +1,5 @@
 ---
-import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
-
-import heroImage from '../../assets/images/aboutUs/header.jpg';
-import ImageSection from '@components/sections/ImageSection.astro';
 
 import mp4 from '../../assets/images/aboutUs/header.mp4';
 import webm from '../../assets/images/aboutUs/header.webm';
@@ -24,57 +20,82 @@ const heroContent = {
     <Hero content={heroContent} />
 
     <div class="container mx-auto px-4 py-16 lg:py-24 space-y-24 lg:space-y-32 overflow-hidden">
-        <div data-aos="fade-up" data-aos-delay="200" class="relative">
+        <section data-aos="fade-up" data-aos-delay="200" class="max-w-4xl mx-auto text-center relative">
             <div
                 class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
-            <ImageSection title="Quiénes somos">
-                <p class="text-lg leading-relaxed">
-                    Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de calidad, adaptadas a
-                    las necesidades reales de cada cliente. Somos una empresa habilitada para trabajar en instalaciones
-                    eléctricas en baja tensión y en sistemas fotovoltaicos de autoconsumo, tanto conectados a red como
-                    aislados.
-                </p>
-            </ImageSection>
-        </div>
+            <div class="px-8 py-12">
+                <h2 class="title-color mb-8 font-bold">Quiénes somos</h2>
+                <div class="prose prose-lg leading-relaxed mx-auto">
+                    <p class="text-lg leading-relaxed">
+                        Ampereon nace con el objetivo de ofrecer soluciones eléctricas y energéticas de calidad,
+                        adaptadas a las necesidades reales de cada cliente. Somos una empresa habilitada para trabajar
+                        en instalaciones eléctricas en baja tensión y en sistemas fotovoltaicos de autoconsumo, tanto
+                        conectados a red como aislados.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <div data-aos="fade-up" data-aos-delay="400" class="relative">
+        <section data-aos="fade-up" data-aos-delay="400" class="max-w-4xl mx-auto text-center relative">
             <div
                 class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:-rotate-1"
             >
             </div>
-            <ImageSection imageLeft title="Experiencia y compromiso">
-                <p class="mb-6 text-lg leading-relaxed">
-                    Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos en el diseño e
-                    instalación de energía fotovoltaica de autoconsumo, lo que nos permite ofrecer un servicio técnico
-                    sólido y actualizado.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia en el sector,
-                    comprometido con hacer las cosas bien, con seriedad y atención al detalle. Nos enfocamos tanto en
-                    instalaciones completas como en trabajos puntuales, asesorando de forma clara y honesta desde el
-                    primer contacto.
-                </p>
-            </ImageSection>
-        </div>
+            <div class="px-8 py-12">
+                <h2 class="title-color mb-8 font-bold">Experiencia y compromiso</h2>
+                <div class="prose prose-lg leading-relaxed mx-auto">
+                    <p class="mb-6 text-lg leading-relaxed">
+                        Contamos con más de 5 años de experiencia en el sector eléctrico, especializándonos en el diseño
+                        e instalación de energía fotovoltaica de autoconsumo, lo que nos permite ofrecer un servicio
+                        técnico sólido y actualizado.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Detrás de Ampereon hay un instalador autorizado, con formación técnica y experiencia en el
+                        sector, comprometido con hacer las cosas bien, con seriedad y atención al detalle. Nos enfocamos
+                        tanto en instalaciones completas como en trabajos puntuales, asesorando de forma clara y honesta
+                        desde el primer contacto.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <div data-aos="fade-up" data-aos-delay="600" class="relative">
+        <section data-aos="fade-up" data-aos-delay="600" class="max-w-4xl mx-auto text-center relative">
             <div
                 class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
-            <ImageSection title="Nuestra forma de trabajar">
-                <p class="text-lg leading-relaxed">
-                    Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se va a hacer,
-                    por qué, y con qué garantías. Trabajamos con materiales de calidad, marcas confiables y cumpliendo
-                    siempre con la normativa vigente.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon buscamos ofrecer
-                    siempre una solución eficiente, segura y a medida, con un trato directo y compromiso real.
-                </p>
-            </ImageSection>
-        </div>
+            <div class="px-8 py-12">
+                <h2 class="title-color mb-8 font-bold">Nuestra forma de trabajar</h2>
+                <div class="prose prose-lg leading-relaxed mx-auto">
+                    <p class="text-lg leading-relaxed">
+                        Creemos en un servicio cercano, accesible y profesional, donde el cliente sepa qué se va a
+                        hacer, por qué, y con qué garantías. Trabajamos con materiales de calidad, marcas confiables y
+                        cumpliendo siempre con la normativa vigente.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Ya sea una vivienda, un negocio, una instalación rural o industrial, en Ampereon buscamos
+                        ofrecer siempre una solución eficiente, segura y a medida, con un trato directo y compromiso
+                        real.
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <style>
+        .title-color {
+            font-size: var(--text-h3);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </Layout>
