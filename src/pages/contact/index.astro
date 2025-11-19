@@ -1,14 +1,16 @@
 ---
 import ContactInfo from '@components/sections/ContactInfo.astro';
+import Hero from '@components/sections/Hero.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import Layout from '@layouts/Layout.astro';
-import headerImage from 'src/assets/images/contact/header.jpg';
+import mp4 from 'src/assets/images/contact/header.mp4';
+import webm from 'src/assets/images/contact/header.webm';
 
 const heroContent = {
     title: 'Contacta con Nosotros',
     description: 'Solicita presupuesto sin compromiso para tus instalaciones eléctricas o placas solares',
-    backgroundImage: headerImage,
-    overlayOpacity: 0.4,
+    backgroundImage: { poster: '/images/poster_cabeceraContacto.webp', webm, mp4 },
+    overlayOpacity: 0.2,
 };
 
 const FooterCta = {
@@ -22,6 +24,6 @@ const FooterCta = {
     description="Contacta con nuestros expertos para presupuestos de instalaciones eléctricas y placas solares sin compromiso"
     footerCta={FooterCta}
 >
-    <InnerHero content={heroContent} />
+    <Hero content={heroContent} />
     <ContactInfo background="base" padding="base" />
 </Layout>
