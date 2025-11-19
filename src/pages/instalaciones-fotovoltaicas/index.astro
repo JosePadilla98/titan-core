@@ -1,7 +1,6 @@
 ---
 import Hero from '@components/sections/Hero.astro';
 import DetailedTabs from '@components/ui/DetailedTabs.astro';
-import { siteConfig } from '@data/config';
 import Layout from '@layouts/Layout.astro';
 import { COOL_TEXT_STYLE } from '@utils/styleUtils';
 import {
@@ -34,10 +33,9 @@ import image6 from '../../assets/images/instalaciones-fotovoltaicas/carousel/6.j
 import image7 from '../../assets/images/instalaciones-fotovoltaicas/carousel/7.jpg';
 import image8 from '../../assets/images/instalaciones-fotovoltaicas/carousel/8.jpg';
 
+import Carousel from '@components/ui/Carousel.astro';
 import mp4 from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.mp4';
 import webm from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.webm';
-import Carousel from '@components/ui/Carousel.astro';
-
 
 const heroContent = {
     title: 'Instalaciones solares fotovoltaicas',
@@ -46,11 +44,11 @@ const heroContent = {
     backgroundImage: { poster: '/images/postersolar.webp', webm, mp4 },
     overlayOpacity: 0.2,
     buttons: [
-      {
-        text: 'Contactar ahora',
-        link: '/contact',
-        target: '_self',
-    },
+        {
+            text: 'Contactar ahora',
+            link: '/contact',
+            target: '_self',
+        },
     ],
 };
 
