@@ -233,22 +233,31 @@ const mediaPhotovoltaic = [
                     <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="500">
                         Instalaciones Eléctricas
                     </h4>
-                    <div data-aos="fade-up" data-aos-delay="800">
+                    <div data-aos="fade-up" class="flex items-end" data-aos-delay="800">
                         <CarouselWithThumbnails media={mediaElectrical} />
                     </div>
                 </div>
-                <div class="text-center" data-aos="fade-in-right" data-aos-duration="800" data-aos-delay="250">
-                    <div
-                        class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 shadow-lg mx-auto"
-                        data-aos="zoom-in"
-                        data-aos-delay="600"
-                    >
-                        <Sun class="w-8 h-8 text-white" />
+
+                {/* Las clases de lg: las pongo para arreglar el padding que se ve mal */}
+                <div
+                    class="text-center lg:flex lg:flex-col lg:justify-between"
+                    data-aos="fade-in-right"
+                    data-aos-duration="800"
+                    data-aos-delay="250"
+                >
+                    <div>
+                        <div
+                            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 shadow-lg mx-auto"
+                            data-aos="zoom-in"
+                            data-aos-delay="600"
+                        >
+                            <Sun class="w-8 h-8 text-white" />
+                        </div>
+                        <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="550">
+                            Instalaciones Fotovoltaicas
+                        </h4>
                     </div>
-                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="550">
-                        Instalaciones Fotovoltaicas
-                    </h4>
-                    <div data-aos="fade-up" data-aos-delay="1000">
+                    <div class="flex items-end" data-aos="fade-up" data-aos-delay="1000">
                         <CarouselWithThumbnails media={mediaPhotovoltaic} />
                     </div>
                 </div>
