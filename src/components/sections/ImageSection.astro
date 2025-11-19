@@ -1,6 +1,6 @@
 ---
 import clsx from 'clsx';
-const { image, title, imageLeft = false } = Astro.props;
+const { image, title, imageLeft = false, bgColor } = Astro.props;
 
 const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-12 py-2', { 'lg:flex-row-reverse': imageLeft });
 ---
@@ -15,22 +15,31 @@ const sectionClass = clsx('flex flex-col lg:flex-row items-center gap-12 py-2', 
     </div>
 
     <!-- Imagen: si pasas prop `image` la usa, si no puedes pasar un slot named "image" -->
-    <div class="w-full lg:w-1/2" data-aos={imageLeft ? 'fade-right' : 'fade-left'} data-aos-delay="200">
-        <slot name="image">
-            {
-                image ? (
-                    <div class="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-                        <img
-                            src={image.src || image}
-                            alt={title}
-                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                ) : null
-            }
-        </slot>
-    </div>
+    {
+        (image || bgColor) && (
+            <div class="w-full lg:w-1/2" data-aos={imageLeft ? 'fade-right' : 'fade-left'} data-aos-delay="200">
+                <slot name="image">
+                    {image ? (
+                        <div class="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+                            <img
+                                src={image.src || image}
+                                alt={title}
+                                class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        </div>
+                    ) : bgColor ? (
+                        <div
+                            class="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 w-full h-64 flex items-center justify-center"
+                            style={{ backgroundColor: bgColor }}
+                        >
+                            <div class="text-white text-6xl font-bold opacity-50">{/* Placeholder or icon */}</div>
+                        </div>
+                    ) : null}
+                </slot>
+            </div>
+        )
+    }
 </section>
 
 <style>
