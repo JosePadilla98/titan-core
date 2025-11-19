@@ -95,5 +95,13 @@ const { tabs, activeTab = tabs[0]?.id, id = 'tabs-toggle-' + Math.random().toStr
                 if (tabId) switchTab(tabId);
             });
         });
+
+        // Listener para resize de ventana
+        window.addEventListener('resize', () => {
+            const activeButton = document.querySelector(`.tab-button[data-toggle-id="${toggleId}"].text-white`);
+            if (activeButton) {
+                movePillTo(activeButton);
+            }
+        });
     });
 </script>
