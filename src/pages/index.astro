@@ -3,16 +3,12 @@ import Faqs from '@components/sections/Faqs.astro';
 import Hero from '@components/sections/Hero.astro';
 import Stats from '@components/sections/Stats.astro';
 import Tabs from '@components/ui/Tabs.astro';
-import { siteConfig } from '@data/config';
 import { faqLists } from '@data/faqs';
 import { electricalFeatures, photovoltaicFeatures } from '@data/features';
-import image1 from '../assets/images/home/imageSection/electricidad.webp';
-import image2 from '../assets/images/home/imageSection/casasolar.webp';
 
-import Layout from '@layouts/Layout.astro';
-import { GraduationCap, User, Settings, Leaf, Sun, Zap } from 'lucide-astro';
-import heroImage from '../assets/images/home/header2.jpg';
 import CarouselWithThumbnails from '@components/ui/CarouselWithThumbnails.astro';
+import Layout from '@layouts/Layout.astro';
+import { GraduationCap, Leaf, Settings, Sun, User, Zap } from 'lucide-astro';
 
 // Electrical carousel images
 import electrical1 from '../assets/images/instalaciones-electricas/carousel/1.jpeg';
@@ -46,15 +42,15 @@ const heroContent = {
     description:
         'En Ampereon diseñamos, instalamos y mantenemos sistemas eléctricos y fotovoltaicos adaptados a cada cliente.',
     buttons: [
-      {
-        text: 'Contactar ahora',
-        link: '/contact',
-        target: '_self',
-    },
+        {
+            text: 'Contactar ahora',
+            link: '/contact',
+            target: '_self',
+        },
     ],
     backgroundImage: { poster: '/images/posterhome.jpg', webm, mp4 },
     overlayOpacity: 0,
-    horizontalMirror: true
+    horizontalMirror: true,
 };
 
 const servicesTabs = {
@@ -220,20 +216,23 @@ const mediaPhotovoltaic = [
 ];
 ---
 
-<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription} >
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
-    <Tabs content={servicesTabs} padding="base" background="base" paddingTop='small' />
+    <Tabs content={servicesTabs} padding="base" background="base" paddingTop="small" />
     <Stats content={iconStats} background="dark" className="pt-24 pb-32">
         <div class="mt-20" data-aos="fade-up">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-10 md:mx-28">
                 <div class="text-center" data-aos="fade-in-left" data-aos-duration="800" data-aos-delay="200">
                     <div
                         class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mb-4 shadow-lg mx-auto"
-                        data-aos="zoom-in" data-aos-delay="400"
+                        data-aos="zoom-in"
+                        data-aos-delay="400"
                     >
                         <Zap class="w-8 h-8 text-white" />
                     </div>
-                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="500">Instalaciones Eléctricas</h4>
+                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="500">
+                        Instalaciones Eléctricas
+                    </h4>
                     <div data-aos="fade-up" data-aos-delay="800">
                         <CarouselWithThumbnails media={mediaElectrical} />
                     </div>
@@ -241,11 +240,14 @@ const mediaPhotovoltaic = [
                 <div class="text-center" data-aos="fade-in-right" data-aos-duration="800" data-aos-delay="250">
                     <div
                         class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 shadow-lg mx-auto"
-                        data-aos="zoom-in" data-aos-delay="600"
+                        data-aos="zoom-in"
+                        data-aos-delay="600"
                     >
                         <Sun class="w-8 h-8 text-white" />
                     </div>
-                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="550">Instalaciones Fotovoltaicas</h4>
+                    <h4 class="text-white font-semibold text-xl mb-6" data-aos="fade-up" data-aos-delay="550">
+                        Instalaciones Fotovoltaicas
+                    </h4>
                     <div data-aos="fade-up" data-aos-delay="1000">
                         <CarouselWithThumbnails media={mediaPhotovoltaic} />
                     </div>
