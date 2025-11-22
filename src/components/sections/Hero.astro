@@ -27,7 +27,10 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const mirrorClass = content.horizontalMirror ? '-scale-x-100' : '';
 ---
 
-<section class="header-offset relative" style={content.minHeight ? `min-height: ${content.minHeight}` : undefined}>
+<section
+    class="header-offset relative shadow-lg"
+    style={content.minHeight ? `min-height: ${content.minHeight}` : undefined}
+>
     {
         content.backgroundImage && (
             <div class="absolute inset-0 left-0 top-0 w-full h-full overflow-hidden">
