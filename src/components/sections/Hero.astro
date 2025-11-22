@@ -15,6 +15,7 @@ interface HeroContent {
     overlayOpacity?: number; // Value between 0 and 1
     // When true, video will be mirrored horizontally (Tailwind class: -scale-x-100)
     horizontalMirror?: boolean;
+    minHeight?: string;
 }
 
 interface Props {
@@ -26,7 +27,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const mirrorClass = content.horizontalMirror ? '-scale-x-100' : '';
 ---
 
-<section class="header-offset relative">
+<section class="header-offset relative" style={content.minHeight ? `min-height: ${content.minHeight}` : undefined}>
     {
         content.backgroundImage && (
             <div class="absolute inset-0 left-0 top-0 w-full h-full overflow-hidden">
@@ -49,13 +50,13 @@ const mirrorClass = content.horizontalMirror ? '-scale-x-100' : '';
                 ) : typeof content.backgroundImage === 'string' &&
                   (content.backgroundImage.endsWith('.webm') || content.backgroundImage.endsWith('.mp4')) ? (
                     <video
-                                                src={content.backgroundImage}
-                                                class={`w-full h-full object-cover ${mirrorClass}`}
-                                                autoplay
-                                                loop
-                                                muted
-                                                playsinline
-                                        />
+                        src={content.backgroundImage}
+                        class={`w-full h-full object-cover ${mirrorClass}`}
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                    />
                 ) : (
                     <Image
                         src={content.backgroundImage}
