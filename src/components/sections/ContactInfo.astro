@@ -27,32 +27,32 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
 ---
 
 <section class:list={[bgColor, paddingClass]}>
-    <div class="site-container px-4">
-        <div class="grid grid-cols-1 gap-12">
-            <!-- Contact Information Section -->
-            <div data-aos="fade-up">
-                <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class:list={[COOL_TEXT_STYLE]} data-aos="fade-up" data-aos-delay="200">
-                        Información de contacto
-                    </h2>
-                    <p class:list={[textColor, 'text-lg opacity-90']} data-aos="fade-up" data-aos-delay="300">
-                        Estamos aquí para ayudarle con sus preguntas e inquietudes. No dude en contactarnos.
-                    </p>
-                </div>
-                <div class:list={['flex flex-col gap-4', textColor]}>
+    <div class="container mx-auto px-4 space-y-24 lg:space-y-32 overflow-hidden">
+        <!-- Contact Information Section -->
+        <section data-aos="fade-up" data-aos-delay="200" class="max-w-4xl mx-auto text-center relative">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
+            >
+            </div>
+            <div class="px-8 py-12">
+                <h2 class="title-color mb-8 font-bold">Información de contacto</h2>
+                <p class:list={[textColor, 'text-lg leading-relaxed']}>
+                    Estamos aquí para ayudarle con sus preguntas e inquietudes. No dude en contactarnos.
+                </p>
+                <div class:list={['flex flex-col gap-4 mt-8', textColor]}>
                     <div
                         class:list={[
                             'flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200',
                         ]}
                         data-aos="fade-up"
-                        data-aos-delay="400"
+                        data-aos-delay="300"
                     >
                         <div
                             class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white"
                         >
                             <Mail size={20} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div class="text-left">
                             <div class="font-semibold">Correo electrónico</div>
                             <a
                                 href={`mailto:${siteConfig.Socials.Email}`}
@@ -65,14 +65,14 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
                             'flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200',
                         ]}
                         data-aos="fade-up"
-                        data-aos-delay="500"
+                        data-aos-delay="400"
                     >
                         <div
                             class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-teal-600 text-white"
                         >
                             <Phone size={20} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div class="text-left">
                             <div class="font-semibold">Teléfono</div>
                             <a
                                 href={`tel:${siteConfig.Socials.Phone}`}
@@ -86,14 +86,14 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
                             'flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200',
                         ]}
                         data-aos="fade-up"
-                        data-aos-delay="600"
+                        data-aos-delay="500"
                     >
                         <div
                             class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
                         >
                             <MapPin size={20} aria-hidden="true" />
                         </div>
-                        <div>
+                        <div class="text-left">
                             <div class="font-semibold">Ubicación</div>
                             <a
                                 href={`https://maps.google.com/?q=${siteConfig.Socials.Location}`}
@@ -104,15 +104,19 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Contact Form Section -->
-            <div data-aos="fade-up" data-aos-delay="200">
-                <div class="mb-6">
-                    <h3 class:list={[COOL_TEXT_STYLE]} data-aos="fade-up" data-aos-delay="300">Envíenos un mensaje</h3>
-                    <p class:list={[textColor, 'opacity-90']} data-aos="fade-up" data-aos-delay="400">
-                        Complete el formulario y nos pondremos en contacto con usted lo antes posible.
-                    </p>
-                </div>
+        <!-- Contact Form Section -->
+        <section data-aos="fade-up" data-aos-delay="400" class="max-w-4xl mx-auto text-center relative">
+            <div
+                class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:-rotate-1"
+            >
+            </div>
+            <div class="px-8 py-12">
+                <h2 class="title-color mb-8 font-bold">Envíenos un mensaje</h2>
+                <p class:list={[textColor, 'text-lg leading-relaxed mb-8']}>
+                    Complete el formulario y nos pondremos en contacto con usted lo antes posible.
+                </p>
                 <div class="form-container" data-aos="fade-up" data-aos-delay="500">
                     <script src="https://js-eu1.hsforms.net/forms/embed/147273914.js" defer></script>
                     <div
@@ -124,6 +128,17 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </section>
+
+<style>
+    .title-color {
+        font-size: var(--text-h3);
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+    }
+</style>
