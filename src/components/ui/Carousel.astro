@@ -3,6 +3,7 @@ interface MediaItem {
     src: string;
     alt?: string;
     type: 'image' | 'video';
+    objectFit?: 'contain' | 'cover';
 }
 
 interface Props {
@@ -26,6 +27,7 @@ const { media, class: className } = Astro.props;
                                     src={item.src}
                                     alt={item.alt || `Slide ${index + 1}`}
                                     class="carousel-main__image carousel-main__media"
+                                    style={`object-fit: ${item.objectFit || 'cover'};`}
                                     loading={index === 0 ? 'eager' : 'lazy'}
                                 />
                             ) : (
@@ -34,6 +36,7 @@ const { media, class: className } = Astro.props;
                                     class="carousel-main__video carousel-main__media"
                                     controls
                                     preload={index === 0 ? 'metadata' : 'none'}
+                                    style={`object-fit: ${item.objectFit || 'cover'};`}
                                 />
                             )}
                         </div>
@@ -228,7 +231,6 @@ const { media, class: className } = Astro.props;
     .carousel-main__video {
         width: 100%;
         height: 100%;
-        object-fit: cover;
         border-radius: 0.5rem;
     }
 
