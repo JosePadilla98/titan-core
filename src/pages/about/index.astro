@@ -4,6 +4,7 @@ import Layout from '@layouts/Layout.astro';
 import mp4 from '../../assets/images/aboutUs/header.mp4';
 import webm from '../../assets/images/aboutUs/header.webm';
 import Hero from '@components/sections/Hero.astro';
+import Particles from '@components/Particles.astro';
 
 const heroContent = {
     title: 'Sobre Nosotros',
@@ -17,12 +18,13 @@ const heroContent = {
     title="Sobre Nosotros - Ampereon Instalaciones Eléctricas y Solares"
     description="Ampereon ofrece soluciones eléctricas y energéticas de calidad con más de 5 años de experiencia en el sector"
 >
+    <Particles />
     <Hero content={heroContent} />
 
     <div class="container mx-auto px-4 py-16 lg:py-24 space-y-24 lg:space-y-32 overflow-hidden">
         <section data-aos="fade-up" data-aos-delay="200" class="max-w-4xl mx-auto text-center relative">
             <div
-                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
+                class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
             <div class="px-8 py-12">
@@ -40,7 +42,7 @@ const heroContent = {
 
         <section data-aos="fade-up" data-aos-delay="400" class="max-w-4xl mx-auto text-center relative">
             <div
-                class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:-rotate-1"
+                class="absolute inset-0 bg-gradient-to-l from-primary/10 to-secondary/10 rounded-3xl -z-10 lg:transform lg:-rotate-1"
             >
             </div>
             <div class="px-8 py-12">
@@ -63,7 +65,7 @@ const heroContent = {
 
         <section data-aos="fade-up" data-aos-delay="600" class="max-w-4xl mx-auto text-center relative">
             <div
-                class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
+                class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
             </div>
             <div class="px-8 py-12">
