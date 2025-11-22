@@ -29,7 +29,7 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
 <section class:list={[bgColor, paddingClass]}>
     <div class="container mx-auto px-4 space-y-24 lg:space-y-32 overflow-hidden">
         <!-- Contact Information Section -->
-        <section data-aos="fade-up" data-aos-delay="200" class="max-w-4xl mx-auto text-center relative">
+        <section data-aos="fade-up" data-aos-delay="200" class="mx-auto text-center relative">
             <div
                 class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:rotate-1"
             >
@@ -104,16 +104,13 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
         </section>
 
         <!-- Contact Form Section -->
-        <section data-aos="fade-up" data-aos-delay="400" class="max-w-4xl mx-auto text-center relative">
+        <section data-aos="fade-up" data-aos-delay="400" class="mx-auto text-center relative">
             <div
                 class="absolute inset-0 bg-gradient-to-l from-primary/5 to-secondary/5 rounded-3xl -z-10 lg:transform lg:-rotate-1"
             >
             </div>
-            <div class="px-8 py-12">
-                <h2 class="title-color mb-8 font-bold">Envíenos un mensaje</h2>
-                <p class:list={[textColor, 'text-lg leading-relaxed mb-8']}>
-                    Complete el formulario y nos pondremos en contacto con usted lo antes posible.
-                </p>
+            <div class="py-12 px-4">
+                <h2 class="px-8 title-color font-bold">Envíenos un mensaje</h2>
                 <div class="form-container" data-aos="fade-up" data-aos-delay="500">
                     <script src="https://js-eu1.hsforms.net/forms/embed/147273914.js" defer></script>
                     <div
