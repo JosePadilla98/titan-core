@@ -31,6 +31,9 @@ const { media, class: className } = Astro.props;
                                     class="carousel-main__image"
                                     style={`object-fit: ${item.objectFit || 'contain'};`}
                                     loading={index === 0 ? 'eager' : 'lazy'}
+                                    width={1173}
+                                    height={660}
+                                    sizes="(min-width: 768px) 1173px, 332px"
                                 />
                             ) : (
                                 <video
@@ -61,6 +64,9 @@ const { media, class: className } = Astro.props;
                                         src={item.src}
                                         alt={item.alt || `Thumbnail ${index + 1}`}
                                         class="carousel-thumbnails__image"
+                                        width={332}
+                                        height={443}
+                                        sizes="(min-width: 768px) 332px, 38px"
                                     />
                                 ) : (
                                     <div class="carousel-thumbnails__video-placeholder">
