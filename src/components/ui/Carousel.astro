@@ -1,10 +1,6 @@
 ---
-interface MediaItem {
-    src: string;
-    alt?: string;
-    type: 'image' | 'video';
-    objectFit?: 'contain' | 'cover';
-}
+import { Image } from 'astro:assets';
+import type { MediaItem } from './types';
 
 interface Props {
     media: MediaItem[];
@@ -23,12 +19,15 @@ const { media, class: className } = Astro.props;
                     media.map((item, index) => (
                         <div class="carousel-main__slide">
                             {item.type === 'image' ? (
-                                <img
+                                <Image
                                     src={item.src}
                                     alt={item.alt || `Slide ${index + 1}`}
                                     class="carousel-main__image carousel-main__media"
                                     style={`object-fit: ${item.objectFit || 'cover'};`}
                                     loading={index === 0 ? 'eager' : 'lazy'}
+                                    width={600}
+                                    height={600}
+                                    sizes="(max-width: 768px) 90vw, 50vw"
                                 />
                             ) : (
                                 <video

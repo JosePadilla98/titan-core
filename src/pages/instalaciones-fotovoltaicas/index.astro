@@ -34,6 +34,7 @@ import image7 from '../../assets/images/instalaciones-fotovoltaicas/carousel/7.j
 import image8 from '../../assets/images/instalaciones-fotovoltaicas/carousel/8.jpg';
 
 import Carousel from '@components/ui/Carousel.astro';
+import type { MediaItem } from '@components/ui/types';
 import mp4 from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.mp4';
 import webm from '../../assets/images/instalaciones-fotovoltaicas/headerlargo.webm';
 
@@ -135,48 +136,48 @@ const solarTabs = {
     ],
 };
 
-const media = [
+const media: MediaItem[] = [
     {
         src: image1.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
     {
         src: image2.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
     {
         src: image3.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
     {
         src: image4.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
     {
         src: image5.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
         objectFit: 'contain',
     },
     {
         src: image6.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
         objectFit: 'contain',
     },
     {
         src: image7.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
     {
         src: image8.src,
         alt: 'Instalación solar',
-        type: 'image' as const,
+        type: 'image',
     },
 ];
 ---

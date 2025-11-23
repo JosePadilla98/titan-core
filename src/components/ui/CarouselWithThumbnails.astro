@@ -1,12 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-
-interface MediaItem {
-    src: any;
-    alt?: string;
-    type: 'image' | 'video';
-    objectFit?: 'contain' | 'cover';
-}
+import type { MediaItem } from './types';
 
 interface Props {
     media: MediaItem[];
